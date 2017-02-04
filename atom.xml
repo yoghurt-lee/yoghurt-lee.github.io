@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-01-27T14:55:48.937Z</updated>
+  <updated>2017-02-04T05:04:55.260Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用py2exe将python项目变成可执行exe文件</title>
+    <link href="https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/"/>
+    <id>https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/</id>
+    <published>2017-02-04T03:24:20.000Z</published>
+    <updated>2017-02-04T05:04:55.260Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/478e3a7ffeb1cede.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>python是很方便进行开发的语言,但是,许多人的电脑里面并没有安装python,我们可以用py2exe将python项目生成exe文件.</p>
+</blockquote>
+<h2 id="Windows安装py2exe"><a href="#Windows安装py2exe" class="headerlink" title="Windows安装py2exe"></a>Windows安装py2exe</h2><ul>
+<li>去官网下载并找到合适的py2exe版本: <a href="https://sourceforge.net/projects/py2exe/files/py2exe/0.6.9/" target="_blank" rel="external">官方下载地址</a></li>
+<li>直接点击.exe文件就ok</li>
+<li>另一种方式就是用pip命令进行安装</li>
+</ul>
+<h2 id="在项目文件下建立setup-py"><a href="#在项目文件下建立setup-py" class="headerlink" title="在项目文件下建立setup.py"></a>在项目文件下建立setup.py</h2><ul>
+<li>内容如下,将main.py改为你的项目下的主项目名即可.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">from distutils.core import setup</div><div class="line">import py2exe</div><div class="line"></div><div class="line">setup(console=[&quot;main.py&quot;]) #console=&quot;主项目名.py&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="生成exe文件"><a href="#生成exe文件" class="headerlink" title="生成exe文件"></a>生成exe文件</h2><ul>
+<li>cmd命令运行控制台,切换到项目文件下,运行如下命令:<br><code>python setup.py py2exe</code></li>
+<li>如果你的项目中有第三方库,那么生成的exe文件有可能会出现闪退现象。那么我们需要运行如下命令将第三方库和exe文件链接起来:<br><code>python setup.py py2exe -p 第三方库的名字</code><br>比如我的项目文件下存在lxml,gzip这种第三方库,那么就运行:<br><code>python setup.py py2exe -p lxml,gzip</code></li>
+<li>在项目文件下会生成两个文件夹bulid和dist,在dist文件下点击main.exe文件即可运行.</li>
+</ul>
+<h2 id="生成的exe文件出现的中文乱码问题"><a href="#生成的exe文件出现的中文乱码问题" class="headerlink" title="生成的exe文件出现的中文乱码问题"></a>生成的exe文件出现的中文乱码问题</h2><ul>
+<li>我的程序中有输入(input,raw_input),一直是乱码,然后我将中文字符串str前面加上了u’str’,但是exe文件又出现了闪退现象,然后最后的解决方法是:<br><code>str.decode(&#39;utf-8&#39;).encode(&#39;gb2312&#39;)</code><br>输出(print)的话前面加上u即可正常显示,暂时没发现问题.  </li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/584643/478e3a7ffeb1cede.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>将本地项目上传到github</title>
