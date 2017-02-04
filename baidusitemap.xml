@@ -3,10 +3,9 @@
 
 
     
-    
   <url>
     <loc>https://yoghurt-lee.github.io/2017/01/27/blog2/</loc>
-    <lastmod>2017-02-04T13:39:51.014Z</lastmod>
+    <lastmod>2017-02-04T14:22:58.778Z</lastmod>
     <data>
         <display>
         <title>将本地项目上传到github</title>
@@ -22,6 +21,26 @@
     </data>
     </url>
 
+    
+  <url>
+    <loc>https://yoghurt-lee.github.io/2017/01/20/blog1/</loc>
+    <lastmod>2017-02-04T14:22:18.147Z</lastmod>
+    <data>
+        <display>
+        <title>一台电脑管理多个代码仓库出现的问题</title>
+        <pubTime>2017-01-20T06:53:53.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/</loc>
@@ -53,25 +72,6 @@
         <tag>博客</tag>
          
         <tag>文章</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://yoghurt-lee.github.io/2017/01/20/blog1/</loc>
-    <lastmod>2017-01-31T13:13:40.974Z</lastmod>
-    <data>
-        <display>
-        <title>一台电脑管理多个代码仓库出现的问题</title>
-        <pubTime>2017-01-20T06:53:53.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>博客</tag>
          
          
            
