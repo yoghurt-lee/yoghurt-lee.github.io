@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-02-04T05:04:55.260Z</updated>
+  <updated>2017-02-04T05:07:15.379Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/"/>
     <id>https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/</id>
     <published>2017-02-04T03:24:20.000Z</published>
-    <updated>2017-02-04T05:04:55.260Z</updated>
+    <updated>2017-02-04T05:07:15.379Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/478e3a7ffeb1cede.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
@@ -51,6 +51,10 @@
     
     </summary>
     
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
   </entry>
   
