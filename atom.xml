@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-02-04T05:07:15.379Z</updated>
+  <updated>2017-02-12T13:58:40.374Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python获取百度搜索结果的真实URL</title>
+    <link href="https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/"/>
+    <id>https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/</id>
+    <published>2017-02-12T12:36:10.000Z</published>
+    <updated>2017-02-12T13:58:40.374Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/305bb7549ba47162.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>最近将以前的爬虫代码(针对杭州电子科技大学在线测评系统)拿出来进行测试,发现百度对所有的外链都进行了加密?以前一直没注意过这种问题,然后我尝试了很多方法。</p>
+</blockquote>
+<h4 id="首先-破解百度加密算法是不可能的-我自己尝试了先将外链取出来"><a href="#首先-破解百度加密算法是不可能的-我自己尝试了先将外链取出来" class="headerlink" title="首先,破解百度加密算法是不可能的,我自己尝试了先将外链取出来:"></a>首先,破解百度加密算法是不可能的,我自己尝试了先将外链取出来:</h4><ul>
+<li><p>首先我用如下代码将我需要的外链全部弄了出来</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">html = str(D(url)) #此处为下载百度搜索界面</div><div class="line">   soup = BeautifulSoup(html) #通过BeautifulSoup来做匹配</div><div class="line">   list_soup = soup.find(&apos;div&apos;,&#123;&apos;id&apos;:&apos;content_left&apos;&#125;)</div><div class="line">   links = [link.get(&apos;href&apos;) for link in list_soup.findAll(&apos;a&apos;,&#123;&apos;class&apos;:&apos;c-showurl&apos;&#125;)]</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后我尝试了先对该链接发送一个request,然后获得response,通过response获得原url。我还沾沾自喜,然后发现效率奇慢.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def real_links(links):</div><div class="line">   reallinks = []</div><div class="line">   url = &quot;http://www.baidu.com/link&quot;</div><div class="line">   regex = re.compile(url)</div><div class="line">   links = [link for link in links if re.match(regex, link)]</div><div class="line">   for link in links:</div><div class="line">       try:</div><div class="line">           bbase = BrowserBase() #此类乃我封装的一个获得response的类</div><div class="line">           response = bbase.openurl(link)</div><div class="line">           reallinks.append(response.geturl())</div><div class="line">       except Exception as e:</div><div class="line">           print str(e)</div><div class="line">   return reallinks</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="解决办法还是在网上找-发现有人早已发现怎么解决这个问题-原来跳转网页的head里面包含了一条location里面就已经包含了原网址"><a href="#解决办法还是在网上找-发现有人早已发现怎么解决这个问题-原来跳转网页的head里面包含了一条location里面就已经包含了原网址" class="headerlink" title="解决办法还是在网上找,发现有人早已发现怎么解决这个问题,原来跳转网页的head里面包含了一条location里面就已经包含了原网址!"></a>解决办法还是在网上找,发现有人早已发现怎么解决这个问题,原来跳转网页的head里面包含了一条<code>location</code>里面就已经包含了原网址!</h4><ul>
+<li><p>python代码如下:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">def get_real_links(links):</div><div class="line">   real_links = []</div><div class="line">   import requests</div><div class="line">   for link in links:</div><div class="line">       retry = 2</div><div class="line">       while(retry&gt;0):</div><div class="line">           try:</div><div class="line">               header = requests.head(link).headers</div><div class="line">               real_links.append(header[&apos;location&apos;])</div><div class="line">               break</div><div class="line">           except Exception as e:</div><div class="line">               print str(e)</div><div class="line">               retry-=1</div><div class="line">               continue</div><div class="line">   return real_links</div></pre></td></tr></table></figure>
+</li>
+<li><p>参考自 <a href="http://www.itseo.net/direction/show-156.html" target="_blank" rel="external">如何“破解”百度搜索结果中的加密地址</a></p>
+</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>网上牛人多,遇到问题不要钻牛角尖,别人已经造好了轮子.</li>
+<li>独立思考没错,但是一定要谦逊.</li>
+<li>道高一尺,魔高一丈.</li>
+<li><a href="https://github.com/yoghurt-lee/python_hdu_spider" target="_blank" rel="external">hdu爬虫</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://p1.bqimg.com/584643/305bb7549ba47162.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
+    
+      <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>使用py2exe将python项目变成可执行exe文件</title>
@@ -104,7 +153,7 @@
     <link href="https://yoghurt-lee.github.io/2017/01/20/blog1/"/>
     <id>https://yoghurt-lee.github.io/2017/01/20/blog1/</id>
     <published>2017-01-20T06:53:53.000Z</published>
-    <updated>2017-02-04T14:22:18.147Z</updated>
+    <updated>2017-02-12T13:45:07.793Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://p1.bpimg.com/584643/b9dcdbd567203ed4.png" alt="Markdown"><br><a id="more"></a><br>千辛万苦,利用 Github+Hexo 做出了自己的页面,还是有点成就感的,由于是先给别人做了一个之后才做自己的主页,然后我的电脑一些错误,我选其中我被坑得最惨的一个来说说.<br>我被坑得最惨的一个错误是当我执行:<br>    <code>hexo g -d</code><br>电脑总是会报出<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">remote: Permission to XXX denied to XXX.fatal: unable to access &apos;XXX&apos;: The requested URL </div><div class="line">returned error: 403</div></pre></td></tr></table></figure></p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>使用ssh方式链接到github,我们需要一对私钥/公钥,那么管理不同账号的代码仓库,我们就需要多对私钥/公钥了.</p>
@@ -119,7 +168,7 @@
 </li>
 <li><p>然后通过以下方式验证是否成功</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@ieit.github.com</div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure>
-<p>  以上参考自:<a href="http://blog.csdn.net/eva_ios/article/details/45675873" target="_blank" rel="external">@一台电脑绑定两个github帐号教程</a></p>
+<p>  以上参考自:<a href="http://www.jianshu.com/p/3fc93c16ad2d" target="_blank" rel="external">@一台电脑绑定两个github帐号教程</a></p>
 </li>
 <li><p>到这步为止,网上都有,但是我电脑还是报相同的错误,折腾了我一上午,然后我尝试了很多方法,最后成功了.最后我修改了项目文件下<code>_config.yml</code>中的</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: https://github.com/yoghurt-lee/yoghurt-lee.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
