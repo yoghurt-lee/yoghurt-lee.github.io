@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,博客,爬虫," />
+  <meta name="keywords" content="python,html," />
 
 
 
@@ -99,14 +99,22 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="python获取百度搜索结果的真实URL">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/index.html">
+<meta property="og:title" content="用google浏览器爬取JS生成的网页时network的使用">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/14/google-network/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://p1.bqimg.com/584643/305bb7549ba47162.jpg">
-<meta property="og:updated_time" content="2017-02-12T13:58:40.374Z">
+<meta property="og:image" content="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg">
+<meta property="og:image" content="http://i1.piimg.com/584643/43e51ba5a643d1f9.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/9e6e403043d2399a.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/918ce79716a01590.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/e1cd1cbf3635e5fa.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/f3d4de75f5ebc2a5.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/06c179c0479f2fc4.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/70595aa836b5f926.png">
+<meta property="og:updated_time" content="2017-02-14T13:39:26.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python获取百度搜索结果的真实URL">
-<meta name="twitter:image" content="http://p1.bqimg.com/584643/305bb7549ba47162.jpg">
+<meta name="twitter:title" content="用google浏览器爬取JS生成的网页时network的使用">
+<meta name="twitter:image" content="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg">
 
 
 
@@ -134,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/14/google-network/"/>
 
 
 
 
 
-  <title> python获取百度搜索结果的真实URL | Fate </title>
+  <title> 用google浏览器爬取JS生成的网页时network的使用 | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/14/google-network/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -317,7 +325,7 @@
             
             
               
-                python获取百度搜索结果的真实URL
+                用google浏览器爬取JS生成的网页时network的使用
               
             
           </h1>
@@ -332,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-12T20:36:10+08:00">
-                2017-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T16:02:20+08:00">
+                2017-02-14
               </time>
             
 
@@ -351,8 +359,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/12/python_spider_baidu/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/python_spider_baidu/" itemprop="commentCount"></span>
+                <a href="/2017/02/14/google-network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/google-network/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,31 +387,31 @@
       
 
       
-        <p><img src="http://p1.bqimg.com/584643/305bb7549ba47162.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>最近将以前的爬虫代码(针对杭州电子科技大学在线测评系统)拿出来进行测试,发现百度对所有的外链都进行了加密?以前一直没注意过这种问题,然后我尝试了很多方法。</p>
+<p>前言:最近使用python为写了个爬虫,爬取动态网页上的数据,google自带的network帮了我很多忙,记录一下使用的时候的收获.这篇博客将随着我对network的不断加深认识而更新.</p>
 </blockquote>
-<h4 id="首先-破解百度加密算法是不可能的-我自己尝试了先将外链取出来"><a href="#首先-破解百度加密算法是不可能的-我自己尝试了先将外链取出来" class="headerlink" title="首先,破解百度加密算法是不可能的,我自己尝试了先将外链取出来:"></a>首先,破解百度加密算法是不可能的,我自己尝试了先将外链取出来:</h4><ul>
-<li><p>首先我用如下代码将我需要的外链全部弄了出来</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">html = str(D(url)) #此处为下载百度搜索界面</div><div class="line">   soup = BeautifulSoup(html) #通过BeautifulSoup来做匹配</div><div class="line">   list_soup = soup.find(&apos;div&apos;,&#123;&apos;id&apos;:&apos;content_left&apos;&#125;)</div><div class="line">   links = [link.get(&apos;href&apos;) for link in list_soup.findAll(&apos;a&apos;,&#123;&apos;class&apos;:&apos;c-showurl&apos;&#125;)]</div></pre></td></tr></table></figure>
+<h2 id="如何使用network"><a href="#如何使用network" class="headerlink" title="如何使用network"></a>如何使用network</h2><ul>
+<li><p>在某网站,比如我自己的页面,按<code>F12</code>,出现如下界面,找到其中的network,然后按<code>F5</code>刷新.然后会获得传输的所有数据包.<br><img src="http://i1.piimg.com/584643/43e51ba5a643d1f9.png" alt="Markdown"></p>
 </li>
-<li><p>然后我尝试了先对该链接发送一个request,然后获得response,通过response获得原url。我还沾沾自喜,然后发现效率奇慢.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def real_links(links):</div><div class="line">   reallinks = []</div><div class="line">   url = &quot;http://www.baidu.com/link&quot;</div><div class="line">   regex = re.compile(url)</div><div class="line">   links = [link for link in links if re.match(regex, link)]</div><div class="line">   for link in links:</div><div class="line">       try:</div><div class="line">           bbase = BrowserBase() #此类乃我封装的一个获得response的类</div><div class="line">           response = bbase.openurl(link)</div><div class="line">           reallinks.append(response.geturl())</div><div class="line">       except Exception as e:</div><div class="line">           print str(e)</div><div class="line">   return reallinks</div></pre></td></tr></table></figure>
+<li><p>network下面有一个<code>Preserve log</code>,之前默认是没有点击的.如果打上勾,当你从上一个网页跳转到下一个网站时,本来不会上一个网页的数据会被清空,如果打上勾,那么前面的过程也会被记录,这个很重要,比如当你登录到某网站时打上勾就可以看到登录页面传送的信息.<br><img src="http://i1.piimg.com/584643/9e6e403043d2399a.png" alt="Markdown"></p>
 </li>
-</ul>
-<h4 id="解决办法还是在网上找-发现有人早已发现怎么解决这个问题-原来跳转网页的head里面包含了一条location里面就已经包含了原网址"><a href="#解决办法还是在网上找-发现有人早已发现怎么解决这个问题-原来跳转网页的head里面包含了一条location里面就已经包含了原网址" class="headerlink" title="解决办法还是在网上找,发现有人早已发现怎么解决这个问题,原来跳转网页的head里面包含了一条location里面就已经包含了原网址!"></a>解决办法还是在网上找,发现有人早已发现怎么解决这个问题,原来跳转网页的head里面包含了一条<code>location</code>里面就已经包含了原网址!</h4><ul>
-<li><p>python代码如下:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">def get_real_links(links):</div><div class="line">   real_links = []</div><div class="line">   import requests</div><div class="line">   for link in links:</div><div class="line">       retry = 2</div><div class="line">       while(retry&gt;0):</div><div class="line">           try:</div><div class="line">               header = requests.head(link).headers</div><div class="line">               real_links.append(header[&apos;location&apos;])</div><div class="line">               break</div><div class="line">           except Exception as e:</div><div class="line">               print str(e)</div><div class="line">               retry-=1</div><div class="line">               continue</div><div class="line">   return real_links</div></pre></td></tr></table></figure>
+<li><p>下图所显示的也就是我们所抓到的包了,一般在ALL里面找数据,但是如果想看其余的信息,比如js,则可以看点击相应的元素.<br><img src="http://p1.bqimg.com/584643/918ce79716a01590.png" alt="Markdown"></p>
 </li>
-<li><p>参考自 <a href="http://www.itseo.net/direction/show-156.html" target="_blank" rel="external">如何“破解”百度搜索结果中的加密地址</a></p>
+<li><p>以上是network的基本应用,下面说如何查看包中数据.</p>
 </li>
 </ul>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>网上牛人多,遇到问题不要钻牛角尖,别人已经造好了轮子.</li>
-<li>独立思考没错,但是一定要谦逊.</li>
-<li>道高一尺,魔高一丈.</li>
-<li><a href="https://github.com/yoghurt-lee/python_hdu_spider" target="_blank" rel="external">hdu爬虫</a></li>
+<h2 id="network中数据包怎么看"><a href="#network中数据包怎么看" class="headerlink" title="network中数据包怎么看."></a>network中数据包怎么看.</h2><ul>
+<li><p>静态网页中的数据一般很容易找到,但是如果是js生成的数据,那么在网页的源代码中是无法看到的,比如说这个网站,我们需要这个表格的信息(图一).但是我们在源代码中只能看到如下信息(图二).<br><img src="http://p1.bqimg.com/584643/e1cd1cbf3635e5fa.png" alt="Markdown"> (图一)<br><img src="http://p1.bqimg.com/584643/f3d4de75f5ebc2a5.png" alt="Markdown"> (图二)</p>
+</li>
+<li><p>解决方法只有两种,模拟这个网页的js代码生成数据,这不太现实;另一种就是分析包数据包,找到需要的信息.方法如下,在下面的数据包的信息里面点击<code>Preview</code>,就可以看到该数据包所携带的信息,一般都是以json数据(类似于python的dict)的形式储存在里面.<br><img src="http://p1.bqimg.com/584643/06c179c0479f2fc4.png" alt="Markdown"></p>
+</li>
+<li><p>OK,找到了数据,接下来就是怎么获得这些数据了.接下来点击该数据包的<code>Headers</code>,看如下信息:我们发现了该数据源的url,发现了该网页是以post方法进行访问的.既然是post,那么下面应该会有数据,我们接着往下看.<br><img src="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png" alt="Markdown"></p>
+</li>
+<li><p>翻到了下面,果然访问该数据源是要携带数据的,我们只要利用这些数据,就可以顺利获得该数据源的信息了.<br><img src="http://i1.piimg.com/584643/70595aa836b5f926.png" alt="Markdown"></p>
+</li>
 </ul>
+<h2 id="以下是python实现爬取这些数据的一般模板代码"><a href="#以下是python实现爬取这些数据的一般模板代码" class="headerlink" title="以下是python实现爬取这些数据的一般模板代码."></a>以下是python实现爬取这些数据的一般模板代码.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import cookielib</div><div class="line">import json</div><div class="line">import urllib2</div><div class="line">import urllib</div><div class="line">#获得一个cookieJar实例</div><div class="line">cj = cookielib.CookieJar()</div><div class="line">#cookieJar作为参数，获得一个opener的实例</div><div class="line">opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</div><div class="line">#伪装成一个正常的浏览器，避免有些web服务器拒绝访问。</div><div class="line">opener.addheaders = [(&apos;User-agent&apos;,&apos;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)&apos;)]</div><div class="line">#需要访问数据源Headers中的的url</div><div class="line">url = &quot;XXXXXXXXX&quot;</div><div class="line">#最下面需要提交的数据,以键值对进行储存</div><div class="line">submit_data = urllib.urlencode(&#123;&quot;xxx&quot;:&quot;XXX&quot;,&quot;yyy&quot;:&quot;YYY&quot;&#125;)</div><div class="line">#以post的方法访问登陆页面，访问之后cookieJar会自定保存cookie</div><div class="line">op = opener.open(url,submit_data)</div><div class="line">#读取获得的数据源</div><div class="line">data = op.read()</div><div class="line">#解析成json数据,接下来就可以直接以键值对的方式访问数据源了</div><div class="line">data = json.loads(data)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -429,9 +437,7 @@
           
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
-          
-            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+            <a href="/tags/html/" rel="tag"># html</a>
           
         </div>
       
@@ -440,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/04/how-to-use-py2exe/" rel="next" title="使用py2exe将python项目变成可执行exe文件">
-                <i class="fa fa-chevron-left"></i> 使用py2exe将python项目变成可执行exe文件
+              <a href="/2017/02/12/python_spider_baidu/" rel="next" title="python获取百度搜索结果的真实URL">
+                <i class="fa fa-chevron-left"></i> python获取百度搜索结果的真实URL
               </a>
             
           </div>
@@ -449,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/14/google-network/" rel="prev" title="用google浏览器爬取JS生成的网页时network的使用">
-                用google浏览器爬取JS生成的网页时network的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -481,8 +483,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/12/python_spider_baidu/"
-           data-title="python获取百度搜索结果的真实URL" data-url="https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/">
+      <div class="ds-thread" data-thread-key="2017/02/14/google-network/"
+           data-title="用google浏览器爬取JS生成的网页时network的使用" data-url="https://yoghurt-lee.github.io/2017/02/14/google-network/">
       </div>
     
   </div>
@@ -620,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先-破解百度加密算法是不可能的-我自己尝试了先将外链取出来"><span class="nav-number">1.</span> <span class="nav-text">首先,破解百度加密算法是不可能的,我自己尝试了先将外链取出来:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决办法还是在网上找-发现有人早已发现怎么解决这个问题-原来跳转网页的head里面包含了一条location里面就已经包含了原网址"><span class="nav-number">2.</span> <span class="nav-text">解决办法还是在网上找,发现有人早已发现怎么解决这个问题,原来跳转网页的head里面包含了一条location里面就已经包含了原网址!</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用network"><span class="nav-number">1.</span> <span class="nav-text">如何使用network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#network中数据包怎么看"><span class="nav-number">2.</span> <span class="nav-text">network中数据包怎么看.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下是python实现爬取这些数据的一般模板代码"><span class="nav-number">3.</span> <span class="nav-text">以下是python实现爬取这些数据的一般模板代码.</span></a></li></ol></div>
             
 
           </div>

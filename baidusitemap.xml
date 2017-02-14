@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://yoghurt-lee.github.io/2017/02/14/google-network/</loc>
+    <lastmod>2017-02-14T13:39:26.978Z</lastmod>
+    <data>
+        <display>
+        <title>用google浏览器爬取JS生成的网页时network的使用</title>
+        <pubTime>2017-02-14T08:02:20.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>html</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yoghurt-lee.github.io/2017/02/12/python_spider_baidu/</loc>
     <lastmod>2017-02-12T13:58:40.374Z</lastmod>
     <data>
@@ -11,9 +30,9 @@
         <title>python获取百度搜索结果的真实URL</title>
         <pubTime>2017-02-12T12:36:10.000Z</pubTime>
         
-        <tag>博客</tag>
-         
         <tag>python</tag>
+         
+        <tag>博客</tag>
          
         <tag>爬虫</tag>
          
@@ -32,9 +51,9 @@
         <title>一台电脑管理多个代码仓库出现的问题</title>
         <pubTime>2017-01-20T06:53:53.000Z</pubTime>
         
-        <tag>Hexo</tag>
-         
         <tag>博客</tag>
+         
+        <tag>Hexo</tag>
          
          
            
@@ -71,9 +90,9 @@
         <title>使用py2exe将python项目变成可执行exe文件</title>
         <pubTime>2017-02-04T03:24:20.000Z</pubTime>
         
-        <tag>博客</tag>
-         
         <tag>python</tag>
+         
+        <tag>博客</tag>
          
          
            
