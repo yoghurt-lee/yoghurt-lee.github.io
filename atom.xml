@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-02-14T13:46:25.755Z</updated>
+  <updated>2017-02-14T13:49:23.411Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="https://yoghurt-lee.github.io/2017/02/14/google-network/"/>
     <id>https://yoghurt-lee.github.io/2017/02/14/google-network/</id>
     <published>2017-02-14T08:02:20.000Z</published>
-    <updated>2017-02-14T13:46:25.755Z</updated>
+    <updated>2017-02-14T13:49:23.411Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:最近使用python为写了个爬虫,爬取动态网页上的数据,google自带的network帮了我很多忙,记录一下使用的时候的收获.这篇博客将随着我对network的不断加深认识而更新.</p>
+<p>前言:最近使用python写了个爬虫,爬取动态网页上的数据,google自带的network帮了我很多忙,记录一下使用的时候的收获.这篇博客将随着我对network的不断加深认识而更新.</p>
 </blockquote>
 <h2 id="如何使用network"><a href="#如何使用network" class="headerlink" title="如何使用network"></a>如何使用network</h2><ul>
 <li><p>在某网站,比如我自己的页面,按<code>F12</code>,出现如下界面,找到其中的network,然后按<code>F5</code>刷新.然后会获得传输的所有数据包.<br><img src="http://i1.piimg.com/584643/43e51ba5a643d1f9.png" alt="Markdown"></p>
