@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-02-15T09:41:54.535Z</updated>
+  <updated>2017-02-15T09:44:12.809Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/"/>
     <id>https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/</id>
     <published>2017-02-15T08:27:24.000Z</published>
-    <updated>2017-02-15T09:41:54.535Z</updated>
+    <updated>2017-02-15T09:44:12.809Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:有时候我们想要得到手机APP里面的数据,但是电脑怎么能够爬取呢?这里介绍一款强大的工具<code>Fiddler</code>,让电脑能够拦截所有手机的数据包.</p>
+<p>前言:有时候我们想要得到手机APP里面的数据,但是电脑怎么能够爬取呢?这里介绍一款强大的工具<code>Fiddler</code>,让电脑能够拦截手机的数据包.</p>
 </blockquote>
 <h2 id="安装并配置Fiddler"><a href="#安装并配置Fiddler" class="headerlink" title="安装并配置Fiddler"></a>安装并配置Fiddler</h2><ul>
 <li><p>在 <a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">Fiddler下载</a> 下载安装包并安装.</p>
@@ -38,6 +38,8 @@
 <li><p>在电脑的命令行中输入<code>ipconfig</code>,得到IP地址.<br><img src="http://i1.piimg.com/584643/fd7533e8b030cda3.png" alt="Markdown"></p>
 </li>
 <li><p>长按wifi,点击显示高级选项,代理设置改为手动,代理服务器主机名为电脑IP地址,代理服务器端口为8888,接下来就可以使用Fiddler进行抓包了.<br><img src="http://i1.piimg.com/584643/15c7a2f410595fc4.png" alt="Markdown"></p>
+</li>
+<li><p>手机和电脑必须要处于同一网络下.</p>
 </li>
 </ul>
 <h2 id="设置安全证书"><a href="#设置安全证书" class="headerlink" title="设置安全证书"></a>设置安全证书</h2><ul>
