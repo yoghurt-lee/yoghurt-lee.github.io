@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-02-15T09:44:12.809Z</updated>
+  <updated>2017-02-17T13:46:02.410Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬取图片出现(403 Forbidden)的解决方法</title>
+    <link href="https://yoghurt-lee.github.io/2017/02/17/solve-403-Forbidden/"/>
+    <id>https://yoghurt-lee.github.io/2017/02/17/solve-403-Forbidden/</id>
+    <published>2017-02-17T12:51:11.000Z</published>
+    <updated>2017-02-17T13:46:02.410Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/8882f90cab6b724a.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>前言:今天做了一个图片爬虫,遇到了一个很奇怪的问题,但是最终找到了解决方法.</p>
+</blockquote>
+<ul>
+<li><p>今天做了个图片爬虫,但是当我从图片链接去下载图片时,总是报出<code>403 Forbidden</code>,而且当我用别的浏览器打开这个图片链接时,也报这个错误.当时感觉玄学了..<br><img src="http://i1.piimg.com/584643/691d2a6d4343702a.png" alt="Markdown"></p>
+</li>
+<li><p>解决方法:在headers里面需要一个<code>Referer</code>,告诉了服务器我是从这个页面跳转过去的。（这当然不是真的）然后骗过服务器.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36&apos;,</div><div class="line">              &apos;Referer&apos;:&apos;跳转之前的网页&apos;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>禁爬虫的手段多种多样,但是总是会有破解方法,经常的解决方法是模拟<code>headers</code>,但是我在google的network里并没有找到<code>Referer</code>,网络世界非常神秘,还有很多的秘密可以探索.</p>
+</li>
+</ul>
+<p>参考博客:<br><a href="http://www.cnblogs.com/wasss/p/3990803.html" target="_blank" rel="external">python 3.4 爬虫，伪装浏览器（403 Forbidden）</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/584643/8882f90cab6b724a.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
+    
+      <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>安装Fiddler</title>
@@ -62,9 +100,9 @@
     </summary>
     
     
-      <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
     
       <category term="Fiddler" scheme="https://yoghurt-lee.github.io/tags/Fiddler/"/>
     
@@ -75,7 +113,7 @@
     <link href="https://yoghurt-lee.github.io/2017/02/14/google-network/"/>
     <id>https://yoghurt-lee.github.io/2017/02/14/google-network/</id>
     <published>2017-02-14T08:02:20.000Z</published>
-    <updated>2017-02-17T05:53:11.491Z</updated>
+    <updated>2017-02-17T13:28:45.032Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
@@ -100,11 +138,7 @@
 </li>
 <li><p>翻到了下面,果然访问该数据源是要携带数据的,我们只要利用这些数据,就可以顺利获得该数据源的信息了.<br><img src="http://p1.bqimg.com/584643/d4cd95feb84559c9.png" alt="Markdown"></p>
 </li>
-<li><p>还有一个值得注意的地方就是我们一般都需要伪装成一个正常的浏览器,所以需要设置用户代理(<code>User-agent</code>),另外如果网页有<code>cookie</code>的话,我们需要将它存下了,下面我的python代码将实现这些功能。当然,如果对一些防爬虫比较严格的网页,可能就需要完全模拟Headers了.<br><img src="http://p1.bqimg.com/584643/3dae9e79fa6e8ce9.png" alt="Markdown"></p>
-</li>
-<li><p>这里还介绍一个我遇到过的问题,当初我写了一个爬虫,爬取图片,总是遇到<code>403 Forbidden</code>,然后发现如果从浏览器单独打开这个图片网址,也是禁止访问,后来查了很久资料才发现原来他的headers里面需要一个<code>Referer</code>,告诉了服务器我是从这个页面跳转过去的。（这当然不是真的）然后骗过服务器.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36&apos;,</div><div class="line">              &apos;Referer&apos;:&apos;pre_url&apos;&#125;</div></pre></td></tr></table></figure>
-<p>  这里参考自<a href="http://www.cnblogs.com/wasss/p/3990803.html" target="_blank" rel="external">博客</a></p>
+<li><p>还有一个值得注意的地方就是我们一般都需要伪装成一个正常的浏览器,所以需要设置用户代理(<code>User-agent</code>),另外如果网页有<code>cookie</code>的话,我们需要将它存下了,下面我的python代码将实现这些功能。当然,如果对一些防爬虫比较严格的网页,可能就需要完全模拟Headers了.<br><img src="http://p1.bqimg.com/584643/3dae9e79fa6e8ce9.png" alt="Markdown">    </p>
 </li>
 </ul>
 <h2 id="以下是python实现爬取这些数据的一般模板代码"><a href="#以下是python实现爬取这些数据的一般模板代码" class="headerlink" title="以下是python实现爬取这些数据的一般模板代码."></a>以下是python实现爬取这些数据的一般模板代码.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import cookielib</div><div class="line">import json</div><div class="line">import urllib2</div><div class="line">import urllib</div><div class="line">#获得一个cookieJar实例</div><div class="line">cj = cookielib.CookieJar()</div><div class="line">#cookieJar作为参数，获得一个opener的实例</div><div class="line">opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</div><div class="line">#伪装成一个正常的浏览器，避免有些web服务器拒绝访问。</div><div class="line">opener.addheaders = [(&apos;User-agent&apos;,&apos;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)&apos;)]</div><div class="line">#需要访问数据源Headers中的的url</div><div class="line">url = &quot;XXXXXXXXX&quot;</div><div class="line">#最下面需要提交的数据,以键值对进行储存</div><div class="line">submit_data = urllib.urlencode(&#123;&quot;xxx&quot;:&quot;XXX&quot;,&quot;yyy&quot;:&quot;YYY&quot;&#125;)</div><div class="line">#以post的方法访问登陆页面，访问之后cookieJar会自动保存cookie</div><div class="line">op = opener.open(url,submit_data)</div><div class="line">#读取获得的数据源</div><div class="line">data = op.read()</div><div class="line">#解析成json数据,接下来就可以直接以键值对的方式访问数据源了</div><div class="line">data = json.loads(data)</div></pre></td></tr></table></figure>
@@ -117,13 +151,13 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
-      <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
+    
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
     
   </entry>
   
@@ -168,9 +202,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -213,9 +247,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
   </entry>
   
@@ -254,9 +288,9 @@
     </summary>
     
     
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="github" scheme="https://yoghurt-lee.github.io/tags/github/"/>
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
