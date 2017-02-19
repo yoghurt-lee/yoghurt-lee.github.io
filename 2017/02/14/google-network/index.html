@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png">
 <meta property="og:image" content="http://p1.bqimg.com/584643/d4cd95feb84559c9.png">
 <meta property="og:image" content="http://p1.bqimg.com/584643/3dae9e79fa6e8ce9.png">
-<meta property="og:updated_time" content="2017-02-17T13:28:45.032Z">
+<meta property="og:updated_time" content="2017-02-19T07:32:51.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用google浏览器爬取JS生成的网页时network的使用">
 <meta name="twitter:image" content="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg">
@@ -397,7 +397,7 @@
 </li>
 <li><p>network下面有一个<code>Preserve log</code>,之前默认是没有点击的.如果打上勾,当你从上一个网页跳转到下一个网站时,本来上一个网页的数据会被清空,如果打上勾,那么前面的过程也会被记录,这个很重要,比如当你登录到某网站时打上勾就可以看到登录页面传送的信息.<br><img src="http://i1.piimg.com/584643/9e6e403043d2399a.png" alt="Markdown"></p>
 </li>
-<li><p>下图所显示的也就是我们所抓到的包了,一般在ALL里面找数据,但是如果想看其余的信息,比如js,则可以看点击相应的元素.<br><img src="http://p1.bqimg.com/584643/918ce79716a01590.png" alt="Markdown"></p>
+<li><p>下图所显示的也就是我们所抓到的包了,所有的包都在ALL里面,但是在ALL里面的包太多了,一个个查看太费时间.常用的包有两个<code>XHR</code>和<code>Doc</code>里面,<code>XHR</code>里面携带的数据包内容一般是json数据,<code>Doc</code>里面生成的是html,一般可以在这两个里面找到页面生成的数据.<br><img src="http://p1.bqimg.com/584643/918ce79716a01590.png" alt="Markdown"></p>
 </li>
 <li><p>以上是network的基本应用,下面说如何查看包中数据.</p>
 </li>
@@ -405,7 +405,7 @@
 <h2 id="network中数据包怎么看"><a href="#network中数据包怎么看" class="headerlink" title="network中数据包怎么看."></a>network中数据包怎么看.</h2><ul>
 <li><p>静态网页中的数据一般很容易找到,但是如果是js生成的数据,那么在网页的源代码中是无法看到的,比如说这个网站,我们需要这个表格的信息(图一).但是我们在源代码中只能看到如下信息(图二).<br><img src="http://p1.bqimg.com/584643/e1cd1cbf3635e5fa.png" alt="Markdown"> (图一)<br><img src="http://p1.bqimg.com/584643/f3d4de75f5ebc2a5.png" alt="Markdown"> (图二)</p>
 </li>
-<li><p>解决方法只有两种,模拟这个网页的js代码生成数据,这不太现实;另一种就是分析包数据包,找到需要的信息.方法如下,在下面的数据包的信息里面点击<code>Preview</code>,就可以看到该数据包所携带的信息,一般都是以json数据(类似于python的dict)的形式储存在里面.<br><img src="http://p1.bqimg.com/584643/06c179c0479f2fc4.png" alt="Markdown"></p>
+<li><p>解决方法只有两种,模拟这个网页的js代码生成数据,这不太现实;另一种就是分析包数据包,找到需要的信息.方法如下,在下面的数据包的信息里面点击<code>Preview</code>,就可以看到该数据包所携带的信息,一般JS生成的数据都是以json数据(类似于python的dict)的形式储存在里面.<br><img src="http://p1.bqimg.com/584643/06c179c0479f2fc4.png" alt="Markdown"></p>
 </li>
 <li><p>OK,找到了数据,接下来就是怎么获得这些数据了.接下来点击该数据包的<code>Headers</code>,看如下信息:我们发现了该数据源的url,发现了该网页是以post方法进行访问的.既然是post,那么下面应该会有数据,我们接着往下看.<br><img src="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png" alt="Markdown"></p>
 </li>
