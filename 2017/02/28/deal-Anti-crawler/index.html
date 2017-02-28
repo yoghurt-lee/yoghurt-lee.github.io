@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,爬虫,博客,html," />
+  <meta name="keywords" content="python,爬虫,博客," />
 
 
 
@@ -99,23 +99,14 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="用google浏览器爬取JS生成的网页时network的使用">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/14/google-network/index.html">
+<meta property="og:title" content="(转载)关于反爬虫的一些总结">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg">
-<meta property="og:image" content="http://i1.piimg.com/584643/43e51ba5a643d1f9.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/9e6e403043d2399a.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/918ce79716a01590.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/e1cd1cbf3635e5fa.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/f3d4de75f5ebc2a5.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/06c179c0479f2fc4.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/d4cd95feb84559c9.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/3dae9e79fa6e8ce9.png">
-<meta property="og:updated_time" content="2017-02-19T07:38:48.207Z">
+<meta property="og:image" content="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg">
+<meta property="og:updated_time" content="2017-02-28T05:09:25.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用google浏览器爬取JS生成的网页时network的使用">
-<meta name="twitter:image" content="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg">
+<meta name="twitter:title" content="(转载)关于反爬虫的一些总结">
+<meta name="twitter:image" content="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg">
 
 
 
@@ -143,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/14/google-network/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/"/>
 
 
 
 
 
-  <title> 用google浏览器爬取JS生成的网页时network的使用 | Fate </title>
+  <title> (转载)关于反爬虫的一些总结 | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -302,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/14/google-network/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -326,7 +317,7 @@
             
             
               
-                用google浏览器爬取JS生成的网页时network的使用
+                (转载)关于反爬虫的一些总结
               
             
           </h1>
@@ -341,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-14T16:02:20+08:00">
-                2017-02-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-28T12:40:22+08:00">
+                2017-02-28
               </time>
             
 
@@ -360,8 +351,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/14/google-network/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/google-network/" itemprop="commentCount"></span>
+                <a href="/2017/02/28/deal-Anti-crawler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/28/deal-Anti-crawler/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,33 +379,46 @@
       
 
       
-        <p><img src="http://p1.bpimg.com/584643/e8421d12a7070b80.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:最近使用python写了个爬虫,爬取动态网页上的数据,google自带的network帮了我很多忙,记录一下使用的时候的收获.这篇博客将随着我对network的不断加深认识而更新.</p>
+<p>summary: 在知乎上看到的一篇比较全面的解决反爬虫问题的文章,感觉非常好,遂转载到我的博客.</p>
 </blockquote>
-<h2 id="如何使用network"><a href="#如何使用network" class="headerlink" title="如何使用network"></a>如何使用network</h2><ul>
-<li><p>在某网站,比如我自己的页面,按<code>F12</code>,出现如下界面,找到其中的network,然后按<code>F5</code>刷新.然后会获得传输的所有数据包.<br><img src="http://i1.piimg.com/584643/43e51ba5a643d1f9.png" alt="Markdown"></p>
+<h3 id="爬取过程中的302重定向"><a href="#爬取过程中的302重定向" class="headerlink" title="爬取过程中的302重定向"></a>爬取过程中的302重定向</h3><ul>
+<li><p>在爬取某个网站速度过快或者发出的请求过多的时候，网站会向你所在的客户端发送一个链接，需要你去验证图片。</p>
 </li>
-<li><p>network下面有一个<code>Preserve log</code>,之前默认是没有点击的.如果打上勾,当你从上一个网页跳转到下一个网站时,本来上一个网页的数据会被清空,如果打上勾,那么前面的过程也会被记录,这个很重要,比如当你登录到某网站时打上勾就可以看到登录页面传送的信息.<br><img src="http://i1.piimg.com/584643/9e6e403043d2399a.png" alt="Markdown"></p>
+<li><p>对于302重定向的问题，是由于抓取速度过快引起网络流量异常，服务器识别出是机器发送的请求，于是将请求返回链接定到某一特定链接，大多是验证图片或空链接。</p>
 </li>
-<li><p>下图所显示的也就是我们所抓到的包了,所有的包都在ALL里面,但是在ALL里面的包太多了,一个个查看太费时间.常用的包有两个<code>XHR</code>和<code>Doc</code>里面,<code>XHR</code>里面携带的数据包内容一般是json数据;<code>Doc</code>里面携带的数据包内容一般是html。一般可以在这两个里面找到页面生成的数据.<br><img src="http://p1.bqimg.com/584643/918ce79716a01590.png" alt="Markdown"></p>
-</li>
-<li><p>以上是network的基本应用,下面说如何查看包中数据.</p>
+<li><p>在这种时候，既然已经被识别出来了，就使用代理ip再继续抓取。</p>
 </li>
 </ul>
-<h2 id="network中数据包怎么看"><a href="#network中数据包怎么看" class="headerlink" title="network中数据包怎么看."></a>network中数据包怎么看.</h2><ul>
-<li><p>静态网页中的数据一般很容易找到,但是如果是js生成的数据,那么在网页的源代码中是无法看到的,比如说这个网站,我们需要这个表格的信息(图一).但是我们在源代码中只能看到如下信息(图二).<br><img src="http://p1.bqimg.com/584643/e1cd1cbf3635e5fa.png" alt="Markdown"> (图一)<br><img src="http://p1.bqimg.com/584643/f3d4de75f5ebc2a5.png" alt="Markdown"> (图二)</p>
-</li>
-<li><p>解决方法只有两种,模拟这个网页的js代码生成数据,这不太现实;另一种就是分析包数据包,找到需要的信息.方法如下,在下面的数据包的信息里面点击<code>Preview</code>,就可以看到该数据包所携带的信息,一般JS生成的数据都是以json数据(类似于python的dict)的形式储存在里面.<br><img src="http://p1.bqimg.com/584643/06c179c0479f2fc4.png" alt="Markdown"></p>
-</li>
-<li><p>OK,找到了数据,接下来就是怎么获得这些数据了.接下来点击该数据包的<code>Headers</code>,看如下信息:我们发现了该数据源的url,发现了该网页是以post方法进行访问的.既然是post,那么下面应该会有数据,我们接着往下看.<br><img src="http://p1.bqimg.com/584643/34ba9b969dcd3ea0.png" alt="Markdown"></p>
-</li>
-<li><p>翻到了下面,果然访问该数据源是要携带数据的,我们只要利用这些数据,就可以顺利获得该数据源的信息了.<br><img src="http://p1.bqimg.com/584643/d4cd95feb84559c9.png" alt="Markdown"></p>
-</li>
-<li><p>还有一个值得注意的地方就是我们一般都需要伪装成一个正常的浏览器,所以需要设置用户代理(<code>User-agent</code>),另外如果网页有<code>cookie</code>的话,我们需要将它存下了,下面我的python代码将实现这些功能。当然,如果对一些防爬虫比较严格的网页,可能就需要完全模拟Headers了.<br><img src="http://p1.bqimg.com/584643/3dae9e79fa6e8ce9.png" alt="Markdown">    </p>
+<h3 id="headers头文件"><a href="#headers头文件" class="headerlink" title="headers头文件"></a>headers头文件</h3><ul>
+<li>有些网站对爬虫反感，对爬虫请求一律拒绝，这时候我们需要伪装成浏览器，通过修改http中的headers来实现  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">headers = &#123;</div><div class="line">&apos;Host&apos;: &quot;bj.lianjia.com&quot;,</div><div class="line">&apos;Accept&apos;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&quot;,</div><div class="line">&apos;Accept-Encoding&apos;: &quot;gzip, deflate, sdch&quot;,</div><div class="line">&apos;Accept-Language&apos;: &quot;zh-CN,zh;q=0.8&quot;,</div><div class="line">&apos;User-Agent&apos;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.87 Safari/537.36&quot;,</div><div class="line">&apos;Connection&apos;: &quot;keep-alive&quot;,</div><div class="line">&#125;</div><div class="line">p = requests.get(url, headers=headers)</div><div class="line">print(p.content.decode(&apos;utf-8&apos;))</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="以下是python实现爬取这些数据的一般模板代码"><a href="#以下是python实现爬取这些数据的一般模板代码" class="headerlink" title="以下是python实现爬取这些数据的一般模板代码."></a>以下是python实现爬取这些数据的一般模板代码.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import cookielib</div><div class="line">import json</div><div class="line">import urllib2</div><div class="line">import urllib</div><div class="line">#获得一个cookieJar实例</div><div class="line">cj = cookielib.CookieJar()</div><div class="line">#cookieJar作为参数，获得一个opener的实例</div><div class="line">opener=urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</div><div class="line">#伪装成一个正常的浏览器，避免有些web服务器拒绝访问。</div><div class="line">opener.addheaders = [(&apos;User-agent&apos;,&apos;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)&apos;)]</div><div class="line">#需要访问数据源Headers中的的url</div><div class="line">url = &quot;XXXXXXXXX&quot;</div><div class="line">#最下面需要提交的数据,以键值对进行储存</div><div class="line">submit_data = urllib.urlencode(&#123;&quot;xxx&quot;:&quot;XXX&quot;,&quot;yyy&quot;:&quot;YYY&quot;&#125;)</div><div class="line">#以post的方法访问登陆页面，访问之后cookieJar会自动保存cookie</div><div class="line">op = opener.open(url,submit_data)</div><div class="line">#读取获得的数据源</div><div class="line">data = op.read()</div><div class="line">#解析成json数据,接下来就可以直接以键值对的方式访问数据源了</div><div class="line">data = json.loads(data)</div></pre></td></tr></table></figure>
+<h3 id="模拟登陆"><a href="#模拟登陆" class="headerlink" title="模拟登陆"></a>模拟登陆</h3><ul>
+<li>一般登录的过程都伴随有验证码，这里我们通过selenium自己构造post数据进行提交，将返回验证码图片的链接地址输出到控制台下，点击图片链接识别验证码，输入验证码并提交，完成登录。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">from selenium import webdriver</div><div class="line">from selenium.webdriver.common.keys import Keys    #</div><div class="line">from selenium.webdriver.support.ui import WebDriverWait   # WebDriverWait的作用是等待某个条件的满足之后再往后运行</div><div class="line">from selenium.webdriver import ActionChains</div><div class="line">import time</div><div class="line">import sys</div><div class="line">driver = webdriver.PhantomJS(executable_path=&apos;C:\PyCharm 2016.2.3\phantomjs\phantomjs.exe&apos;)  # 构造网页驱动</div><div class="line"></div><div class="line">driver.get(&apos;https://www.zhihu.com/#signin&apos;)       # 打开网页</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;password&quot;]&apos;).send_keys(&apos;your_password&apos;)</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;account&quot;]&apos;).send_keys(&apos;your_account&apos;)</div><div class="line">driver.get_screenshot_as_file(&apos;zhihu.jpg&apos;)                   # 截取当前页面的图片</div><div class="line">input_solution = input(&apos;请输入验证码 :&apos;)</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;captcha&quot;]&apos;).send_keys(input_solution)</div><div class="line">time.sleep(2)</div><div class="line"></div><div class="line">driver.find_element_by_xpath(&apos;//form[@class=&quot;zu-side-login-box&quot;]&apos;).submit()  # 表单的提交  表单的提交，即可以选择登录按钮然后使用click方法，也可以选择表单然后使用submit方法</div><div class="line">sreach_widonw = driver.current_window_handle     # 用来定位当前页面</div><div class="line"># driver.find_element_by_xpath(&apos;//button[@class=&quot;sign-button submit&quot;]&apos;).click()</div><div class="line">try:</div><div class="line">dr = WebDriverWait(driver,5)</div><div class="line"># dr.until(lambda the_driver: the_driver.find_element_by_xpath(&apos;//a[@class=&quot;zu-side-login-box&quot;]&apos;).is_displayed())</div><div class="line">if driver.find_element_by_xpath(&apos;//*[@id=&quot;zh-top-link-home&quot;]&apos;):</div><div class="line">print(&apos;登录成功&apos;)</div><div class="line">except:</div><div class="line">print(&apos;登录失败&apos;)</div><div class="line">driver.save_screenshot(&apos;screen_shoot.jpg&apos;)     #截取当前页面的图片</div><div class="line">sys.exit(0)</div><div class="line">driver.quit()   #退出驱动</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="代理ip"><a href="#代理ip" class="headerlink" title="代理ip"></a>代理ip</h3><ul>
+<li>当爬取速度过快时，当请求次数过多时都面临ip被封的可能。因此使用代理也是必备的。</li>
+<li><p>使用request加代理</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line">proxies = &#123; &quot;http&quot;: &quot;http://10.10.1.10:3128&quot;,</div><div class="line">&quot;https&quot;: &quot;http://10.10.1.10:1080&quot;,&#125;</div><div class="line">p = request.get(&quot;http://www.baidu.com&quot;, proxies = proxies)</div><div class="line">print(p.content.decode(&apos;utf-8&apos;))</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用urllib加代理</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">user_agent =&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.22 Safari/537.36 SE 2.X MetaSr 1.0&apos;</div><div class="line">headers = &#123;&apos;User-Agent&apos;:user_agent&#125;</div><div class="line">proxy = &#123;&apos;http&apos;:&apos;http://10.10.1.10:1080&apos;,&#125;</div><div class="line">proxy_handler = urllib.request.ProxyHandler(proxy)</div><div class="line">opener = urllib.request.build_opener(proxy_handler)</div><div class="line">urllib.request.install_opener(opener)</div><div class="line">url = &quot;https://www.baidu.com/&quot;</div><div class="line">req = urllib.request.Request(url=url,headers=headers)</div><div class="line">res = urllib.request.urlopen(req)</div><div class="line">print(res.read().decode(&apos;utf-8&apos;))   # 打印网页内容</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="验证码输入"><a href="#验证码输入" class="headerlink" title="验证码输入"></a>验证码输入</h3><ul>
+<li>遇到验证的问题，我一般都是人工识别：获取验证码的链接再控制台下 ——&gt; 点击链接识别验证码 ——&gt; 在控制台手动输入验证码并提交。</li>
+</ul>
+<h3 id="ajax加载的数据-此处博主推荐第一种方式"><a href="#ajax加载的数据-此处博主推荐第一种方式" class="headerlink" title="ajax加载的数据(此处博主推荐第一种方式)"></a>ajax加载的数据(此处博主推荐第一种方式)</h3><ul>
+<li><p>对于ajax加载的数据，我们无论通过request或post方法请求得到的网页都无法得到。关于一个网页是否是ajax加载数据，我们只需将网页内容print到控制台下，将其与网页原始内容进行比对，如果有数据缺失，那么这些数据就是ajax加载。例如：我们想获取京东上商品的价格、销量、好评等方面的数据，但是请求返回的网页中没有这些数据。因为这些数据是ajax加载。对于ajax加载的页面，一般有两种方法。</p>
+<p>  (1)分析网页 :此处可见我的博客<a href="http://yoghurt-lee.online/2017/02/14/google-network/" target="_blank" rel="external">用google浏览器爬取JS生成的网页时network的使用</a></p>
+<p>  (2)使用PhantomJS模拟浏览器行为 :使用PhantomJS模拟浏览器进行发送请求，得到返回的内容是完全的（ajax加载的数据也会有）。但是使用PhantomJS请求速度过慢，一般一个网页4~5s时间，不能忍。一般要使用PhantomJS需要开多线程</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">driver = webdriver.PhantomJS(executable_path=&apos;C:\PyCharm 2016.2.3\phantomjs\phantomjs.exe&apos;)  # 构造网页驱动</div><div class="line">driver.get(&apos;https://www.zhihu.com/&apos;) </div><div class="line">print(driver.page_source)    # 打印网页内容</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="出处"><a href="#出处" class="headerlink" title="出处"></a>出处</h3><p><a href="https://zhuanlan.zhihu.com/p/25174337" target="_blank" rel="external">关于反爬虫的一些总结</a></p>
 
       
     </div>
@@ -444,8 +448,6 @@
           
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/html/" rel="tag"># html</a>
-          
         </div>
       
 
@@ -453,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/12/python_spider_baidu/" rel="next" title="python获取百度搜索结果的真实URL">
-                <i class="fa fa-chevron-left"></i> python获取百度搜索结果的真实URL
+              <a href="/2017/02/20/install-mysqldb/" rel="next" title="windows下python2.7安装mysqldb">
+                <i class="fa fa-chevron-left"></i> windows下python2.7安装mysqldb
               </a>
             
           </div>
@@ -462,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/15/use-Fiddler/" rel="prev" title="安装Fiddler">
-                安装Fiddler <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -494,8 +492,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/14/google-network/"
-           data-title="用google浏览器爬取JS生成的网页时network的使用" data-url="https://yoghurt-lee.github.io/2017/02/14/google-network/">
+      <div class="ds-thread" data-thread-key="2017/02/28/deal-Anti-crawler/"
+           data-title="(转载)关于反爬虫的一些总结" data-url="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/">
       </div>
     
   </div>
@@ -633,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用network"><span class="nav-number">1.</span> <span class="nav-text">如何使用network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#network中数据包怎么看"><span class="nav-number">2.</span> <span class="nav-text">network中数据包怎么看.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下是python实现爬取这些数据的一般模板代码"><span class="nav-number">3.</span> <span class="nav-text">以下是python实现爬取这些数据的一般模板代码.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取过程中的302重定向"><span class="nav-number">1.</span> <span class="nav-text">爬取过程中的302重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#headers头文件"><span class="nav-number">2.</span> <span class="nav-text">headers头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟登陆"><span class="nav-number">3.</span> <span class="nav-text">模拟登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理ip"><span class="nav-number">4.</span> <span class="nav-text">代理ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证码输入"><span class="nav-number">5.</span> <span class="nav-text">验证码输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax加载的数据-此处博主推荐第一种方式"><span class="nav-number">6.</span> <span class="nav-text">ajax加载的数据(此处博主推荐第一种方式)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#出处"><span class="nav-number">7.</span> <span class="nav-text">出处</span></a></li></ol></div>
             
 
           </div>
