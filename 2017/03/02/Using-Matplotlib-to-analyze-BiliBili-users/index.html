@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,html,Fiddler," />
+  <meta name="keywords" content="python,博客,数据分析," />
 
 
 
@@ -99,21 +99,17 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装Fiddler">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/index.html">
+<meta property="og:title" content="使用matplotlib对b站前10000名用户做简单分析">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg">
-<meta property="og:image" content="http://i1.piimg.com/584643/36ca8e736cdc3bfd.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/3aa8ec85a6f8c039.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/fd7533e8b030cda3.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/15c7a2f410595fc4.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/1395c38e631fb09f.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/90341e7cfdb639ea.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/ed72658d8177369d.png">
-<meta property="og:updated_time" content="2017-02-15T09:44:12.809Z">
+<meta property="og:image" content="http://p1.bqimg.com/584643/2f439e08ce66c06a.jpg">
+<meta property="og:image" content="http://p1.bqimg.com/584643/29daafe53c68b25b.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/afde90a706ad36f0.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/f5b7eac570ddfb77.png">
+<meta property="og:updated_time" content="2017-03-02T05:00:46.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装Fiddler">
-<meta name="twitter:image" content="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg">
+<meta name="twitter:title" content="使用matplotlib对b站前10000名用户做简单分析">
+<meta name="twitter:image" content="http://p1.bqimg.com/584643/2f439e08ce66c06a.jpg">
 
 
 
@@ -141,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/"/>
 
 
 
 
 
-  <title> 安装Fiddler | Fate </title>
+  <title> 使用matplotlib对b站前10000名用户做简单分析 | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -324,7 +320,7 @@
             
             
               
-                安装Fiddler
+                使用matplotlib对b站前10000名用户做简单分析
               
             
           </h1>
@@ -339,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T16:27:24+08:00">
-                2017-02-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T12:31:28+08:00">
+                2017-03-02
               </time>
             
 
@@ -358,8 +354,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/15/use-Fiddler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/use-Fiddler/" itemprop="commentCount"></span>
+                <a href="/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,37 +382,24 @@
       
 
       
-        <p><img src="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="http://p1.bqimg.com/584643/2f439e08ce66c06a.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:有时候我们想要得到手机APP里面的数据,但是电脑怎么能够爬取呢?这里介绍一款强大的工具<code>Fiddler</code>,让电脑能够拦截手机的数据包.</p>
+<p>summary: 在前面几篇文章中我安装了MySQLdb,然后我利用MySQLdb爬取了b站前10000名用户,现在我将使用matplotlib对这些数据做一个简单的数据分析.</p>
 </blockquote>
-<h2 id="安装并配置Fiddler"><a href="#安装并配置Fiddler" class="headerlink" title="安装并配置Fiddler"></a>安装并配置Fiddler</h2><ul>
-<li><p>在 <a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">Fiddler下载</a> 下载安装包并安装.</p>
+<h3 id="对b站会员的等级分布做一个简单的饼图分析"><a href="#对b站会员的等级分布做一个简单的饼图分析" class="headerlink" title="对b站会员的等级分布做一个简单的饼图分析."></a>对b站会员的等级分布做一个简单的饼图分析.</h3><ul>
+<li>在这里我们可以看到b站的等级是分为1-6总共6个等级,其中等级4的人是占比最大的.等级6的人所占人数不过0.31%.<br><img src="http://p1.bqimg.com/584643/29daafe53c68b25b.png" alt="Markdown"></li>
+</ul>
+<h3 id="对b站会员的粉丝数做一个简单的柱状图分析"><a href="#对b站会员的粉丝数做一个简单的柱状图分析" class="headerlink" title="对b站会员的粉丝数做一个简单的柱状图分析."></a>对b站会员的粉丝数做一个简单的柱状图分析.</h3><ul>
+<li><p>我将粉丝人数分为了6个区间,从柱状图可以看到b站的粉丝数是呈现一个递减的趋势,而且0-10粉丝数的人处于最多的那一片.或许这个图的区间还太大了,描述的不够精确.于是我们细分一下区间.<br><img src="http://p1.bqimg.com/584643/afde90a706ad36f0.png" alt="Markdown"></p>
 </li>
-<li><p>配置Fiddler:点击Tools,选择<code>Telerik Fiddler Options</code>(有的版本就只是<code>Fiddler Options</code>),点击HTTPS,将如下选项勾上,Fiddler就可以截获HTTPS请求。但是这样就会使得连接不安全,后面将解决这个问题.<br><img src="http://i1.piimg.com/584643/36ca8e736cdc3bfd.png" alt="Markdown"></p>
-</li>
-<li><p>同样的在这里点击Connections,默认端口为8888,将<code>Allow remote computers to connect</code>勾上,表示允许别的机器把HTTP/HTTPS请求发送到Fiddler上来.<br><img src="http://i1.piimg.com/584643/3aa8ec85a6f8c039.png" alt="Markdown"></p>
+<li><p>这样的话可以看到图有一点波动,但是还是描述的不够好.<br><img src="http://i1.piimg.com/584643/f5b7eac570ddfb77.png" alt="Markdown"></p>
 </li>
 </ul>
-<h2 id="设置Android手机"><a href="#设置Android手机" class="headerlink" title="设置Android手机"></a>设置Android手机</h2><ul>
-<li><p>在电脑的命令行中输入<code>ipconfig</code>,得到IP地址.<br><img src="http://i1.piimg.com/584643/fd7533e8b030cda3.png" alt="Markdown"></p>
-</li>
-<li><p>长按wifi,点击显示高级选项,代理设置改为手动,代理服务器主机名为电脑IP地址,代理服务器端口为8888,接下来就可以使用Fiddler进行抓包了.<br><img src="http://i1.piimg.com/584643/15c7a2f410595fc4.png" alt="Markdown"></p>
-</li>
-<li><p>手机和电脑必须要处于同一网络下.</p>
-</li>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import MySQLdb</div><div class="line">from numpy.random.mtrand import np</div><div class="line"></div><div class="line">import matplotlib.pylab as plt</div><div class="line"></div><div class="line"></div><div class="line">def draw_pie():</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    #函数说明</div><div class="line">    pie(x, explode=None, labels=None,  </div><div class="line">        colors=(&apos;b&apos;, &apos;g&apos;, &apos;r&apos;, &apos;c&apos;, &apos;m&apos;, &apos;y&apos;, &apos;k&apos;, &apos;w&apos;),  </div><div class="line">        autopct=None, pctdistance=0.6, shadow=False,  </div><div class="line">        labeldistance=1.1, startangle=None, radius=None,  </div><div class="line">        counterclock=True, wedgeprops=None, textprops=None,  </div><div class="line">        center = (0, 0), frame = False ) </div><div class="line">    </div><div class="line">     x       (每一块)的比例，如果sum(x) &gt; 1会使用sum(x)归一化</div><div class="line">    labels  (每一块)饼图外侧显示的说明文字</div><div class="line">    explode (每一块)离开中心距离</div><div class="line">    startangle  起始绘制角度,默认图是从x轴正方向逆时针画起,如设定=90则从y轴正方向画起</div><div class="line">    shadow  是否阴影</div><div class="line">    labeldistance label绘制位置,相对于半径的比例, 如&lt;1则绘制在饼图内侧</div><div class="line">    autopct 控制饼图内百分比设置,可以使用format字符串或者format function</div><div class="line">            &apos;%1.1f&apos;指小数点前后位数(没有用空格补齐)</div><div class="line">    pctdistance 类似于labeldistance,指定autopct的位置刻度</div><div class="line">    radius  控制饼图半径</div><div class="line">    </div><div class="line">    返回值:</div><div class="line">    如果没有设置autopct,返回(patches, texts)</div><div class="line">    如果设置autopct,返回(patches, texts, autotexts)</div><div class="line">    </div><div class="line">    patches -- list --matplotlib.patches.Wedge对象</div><div class="line">    </div><div class="line">    texts autotexts -- matplotlib.text.Text对象</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    conn = MySQLdb.connect(host=&apos;localhost&apos;, user=&apos;root&apos;, passwd=&apos;helloworld&apos;, port=3306,db=&apos;bilibili_user&apos;,charset=&apos;utf8&apos;)</div><div class="line">    cur = conn.cursor()</div><div class="line">    level_count = []</div><div class="line">    for i in range(0,6): </div><div class="line">        sql = &apos;select * from user_info where level=&apos;+str(i+1)</div><div class="line">        level_count.append(cur.execute(sql))</div><div class="line">    cur.close()</div><div class="line">    conn.close()</div><div class="line">    labels = [u&apos;Level-1&apos;, u&apos;Level-2&apos;, u&apos;Level-3&apos;, u&apos;Level-4&apos;,u&apos;Level-5&apos;,u&apos;Level-6&apos;]</div><div class="line">    colors = [&apos;red&apos;, &apos;yellow&apos;, &apos;blue&apos;, &apos;green&apos;,&apos;orange&apos;]</div><div class="line">    expl = [0,0,0,0.1,0,0]   #每一块离开圆心的距离 </div><div class="line">    </div><div class="line">    plt.pie(level_count, explode=expl, labels=labels, colors=colors, labeldistance=1.1, autopct=&apos;%.3f%%&apos;, shadow=False)</div><div class="line">    plt.title(&apos;bilibili top 10000 user ratings analysis&apos;)</div><div class="line">    plt.axis(&apos;equal&apos;) #加上这句让 x y 轴相等成为标准的圆</div><div class="line">    plt.legend(loc=&apos;upper left&apos;, bbox_to_anchor=(-0.17, 1.1))</div><div class="line">    plt.show()</div><div class="line">    plt.close() </div><div class="line">    </div><div class="line">def draw_bar():  </div><div class="line">    conn = MySQLdb.connect(host=&apos;localhost&apos;, user=&apos;root&apos;, passwd=&apos;helloworld&apos;, port=3306,db=&apos;bilibili_user&apos;,charset=&apos;utf8&apos;)</div><div class="line">    cur = conn.cursor()</div><div class="line">    fans_count = []</div><div class="line">    fans_num = [0,5,10,100,1000,1000000]</div><div class="line">    labels = [&apos;0&apos;,&apos;1-5&apos;,&apos;6-10&apos;,&apos;11-100&apos;,&apos;101-1000&apos;,&apos;1001-10000&apos;]</div><div class="line">    pre = 0</div><div class="line">    for i in range(len(fans_num)): </div><div class="line">        sql = &apos;select * from user_info where fans&lt;=&apos;+str(fans_num[i])</div><div class="line">        now = cur.execute(sql)</div><div class="line">        fans_count.append(now-pre)</div><div class="line">        pre=now</div><div class="line">    cur.close()</div><div class="line">    conn.close()</div><div class="line">    width = 0.5  </div><div class="line">    ind = np.linspace(0,len(fans_num),len(fans_num))  </div><div class="line">    # make a square figure  </div><div class="line">    fig = plt.figure(1)  </div><div class="line">    ax  = fig.add_subplot(111)  </div><div class="line">    # Bar Plot  </div><div class="line">    ax.bar(ind-width/2,fans_count,width,color=&apos;green&apos;)  </div><div class="line">    # Set the ticks on x-axis  </div><div class="line">    ax.set_xticks(ind)  </div><div class="line">    ax.set_xticklabels(labels)  </div><div class="line">    # labels  </div><div class="line">    ax.set_xlabel(&apos;Fan number interval&apos;)  </div><div class="line">    ax.set_ylabel(&apos;Number of Fans&apos;)  </div><div class="line">    # title  </div><div class="line">    ax.set_title(&apos;bilibili top 10000 users fans&apos;)  </div><div class="line">    plt.grid(True)  </div><div class="line">    plt.show()  </div><div class="line">    plt.close()  </div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    #draw_pie()</div><div class="line">    draw_bar()</div></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>一直对数据分析这个方向比较感兴趣,很想做一点等级与粉丝数的相关性分析,但是现在自己要考研,没时间做深入学习,争取考上研究生能够做数据分析、机器学习方向的研究.</li>
+<li>感兴趣的同学可以试下:<a href="https://github.com/yoghurt-lee/bilibili_user_spider" target="_blank" rel="external">b站用户爬虫</a></li>
 </ul>
-<h2 id="设置安全证书"><a href="#设置安全证书" class="headerlink" title="设置安全证书"></a>设置安全证书</h2><ul>
-<li><p>前面说过,如果不设置安全证书手机电脑访问<code>https</code>的网站都会显示此连接并不安全.</p>
-</li>
-<li><p>首先,设置手机的安全证书.手机进入<code>http://你的电脑IP地址:8888</code>,点击最下面的<code>FiddlerRoot certificate</code>下载Fiddler的安全证书.</p>
-</li>
-<li><p>firefox设置电脑的安装证书.点击点击下图Action按钮,点击<code>Export Root Certificate to Desktop</code>下载安全证书到桌面.<br><img src="http://i1.piimg.com/584643/1395c38e631fb09f.png" alt="Markdown"></p>
-</li>
-<li><p>在火狐浏览器按照如图所示导入安全证书即可.<br><img src="http://i1.piimg.com/584643/90341e7cfdb639ea.png" alt="Markdown"><br><img src="http://i1.piimg.com/584643/ed72658d8177369d.png" alt="Markdown"></p>
-</li>
-</ul>
-<p>参考博客:<br><a href="https://my.oschina.net/jhao104/blog/605963" target="_blank" rel="external">Fiddler抓取手机APP数据包</a><br><a href="http://www.tuicool.com/articles/fAfmMjA" target="_blank" rel="external">Fiddler下Firefox提示“您的连接并不安全”的解决办法</a></p>
 
       
     </div>
@@ -440,11 +423,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/python/" rel="tag"># python</a>
+          
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/html/" rel="tag"># html</a>
-          
-            <a href="/tags/Fiddler/" rel="tag"># Fiddler</a>
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
           
         </div>
       
@@ -453,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/14/google-network/" rel="next" title="用google浏览器爬取JS生成的网页时network的使用">
-                <i class="fa fa-chevron-left"></i> 用google浏览器爬取JS生成的网页时network的使用
+              <a href="/2017/02/28/deal-Anti-crawler/" rel="next" title="(转载)关于反爬虫的一些总结">
+                <i class="fa fa-chevron-left"></i> (转载)关于反爬虫的一些总结
               </a>
             
           </div>
@@ -462,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/solve-403-Forbidden/" rel="prev" title="python爬取图片出现(403 Forbidden)的解决方法">
-                python爬取图片出现(403 Forbidden)的解决方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -494,8 +473,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/15/use-Fiddler/"
-           data-title="安装Fiddler" data-url="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/">
+      <div class="ds-thread" data-thread-key="2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/"
+           data-title="使用matplotlib对b站前10000名用户做简单分析" data-url="https://yoghurt-lee.github.io/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/">
       </div>
     
   </div>
@@ -633,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装并配置Fiddler"><span class="nav-number">1.</span> <span class="nav-text">安装并配置Fiddler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Android手机"><span class="nav-number">2.</span> <span class="nav-text">设置Android手机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置安全证书"><span class="nav-number">3.</span> <span class="nav-text">设置安全证书</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对b站会员的等级分布做一个简单的饼图分析"><span class="nav-number">1.</span> <span class="nav-text">对b站会员的等级分布做一个简单的饼图分析.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对b站会员的粉丝数做一个简单的柱状图分析"><span class="nav-number">2.</span> <span class="nav-text">对b站会员的粉丝数做一个简单的柱状图分析.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
