@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/</loc>
+    
+    <lastmod>2017-03-08T15:27:12.383Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yoghurt-lee.github.io/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/</loc>
     
     <lastmod>2017-03-02T05:00:46.489Z</lastmod>

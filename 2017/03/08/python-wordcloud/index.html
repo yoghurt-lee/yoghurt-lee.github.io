@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,python,爬虫," />
+  <meta name="keywords" content="博客,python,数据分析,wordcloud," />
 
 
 
@@ -98,14 +98,19 @@
 
 
 
+<meta name="description" content="前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="(转载)关于反爬虫的一些总结">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/index.html">
+<meta property="og:title" content="python-wordcloud">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/index.html">
 <meta property="og:site_name" content="Fate">
+<meta property="og:description" content="前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据">
 <meta property="og:image" content="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg">
-<meta property="og:updated_time" content="2017-02-28T05:09:25.813Z">
+<meta property="og:image" content="http://p1.bqimg.com/584643/bb7398429e01d188.png">
+<meta property="og:image" content="http://p1.bqimg.com/584643/ebd6d3c220baec97.png">
+<meta property="og:updated_time" content="2017-03-08T15:27:12.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="(转载)关于反爬虫的一些总结">
+<meta name="twitter:title" content="python-wordcloud">
+<meta name="twitter:description" content="前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据">
 <meta name="twitter:image" content="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg">
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/"/>
 
 
 
 
 
-  <title> (转载)关于反爬虫的一些总结 | Fate </title>
+  <title> python-wordcloud | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -317,7 +322,7 @@
             
             
               
-                (转载)关于反爬虫的一些总结
+                python-wordcloud
               
             
           </h1>
@@ -332,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-28T12:40:22+08:00">
-                2017-02-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T23:10:19+08:00">
+                2017-03-08
               </time>
             
 
@@ -351,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/28/deal-Anti-crawler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/28/deal-Anti-crawler/" itemprop="commentCount"></span>
+                <a href="/2017/03/08/python-wordcloud/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/python-wordcloud/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,46 +384,34 @@
       
 
       
-        <p><img src="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg" alt="Markdown"></p>
 <blockquote>
-<p>summary: 在知乎上看到的一篇比较全面的解决反爬虫问题的文章,感觉非常好,遂转载到我的博客.</p>
+<p>前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据</p>
 </blockquote>
-<h3 id="爬取过程中的302重定向"><a href="#爬取过程中的302重定向" class="headerlink" title="爬取过程中的302重定向"></a>爬取过程中的302重定向</h3><ul>
-<li><p>在爬取某个网站速度过快或者发出的请求过多的时候，网站会向你所在的客户端发送一个链接，需要你去验证图片。</p>
+<a id="more"></a>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>安装wordcloud包,<code>pip install wordcloud</code>,如果需要对文本的句子进行分解,比如说<code>我是一名大学生</code>进行分解之后就变成了<code>我是\一名\大学生</code>.可以安装jieba,同运行<code>pip install jieba</code>.</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li><p>安装完之后,我们来运行一个Demo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#-*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">Using custom colors</div><div class="line">====================</div><div class="line">Using the recolor method and custom coloring functions.</div><div class="line">&quot;&quot;&quot;</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import random</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud, STOPWORDS</div><div class="line"></div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">font=os.path.join(os.path.dirname(__file__), &quot;FZSTK.ttf&quot;)</div><div class="line"></div><div class="line">text = open(u&quot;test.txt&quot;).read().decode(&apos;gbk&apos;)</div><div class="line"># adding movie script specific stopwords</div><div class="line">stopwords = set(STOPWORDS)</div><div class="line">stopwords.add(&quot;int&quot;)</div><div class="line">stopwords.add(&quot;ext&quot;)</div><div class="line"></div><div class="line">#wc = WordCloud(font_path=font,max_words=2000, mask=mask, stopwords=stopwords, margin=10,random_state=42,max_font_size=20,background_color=&apos;black&apos;,scale =2).generate(text)</div><div class="line">wc = WordCloud(font_path=font,max_words=30, max_font_size=50,stopwords=stopwords,margin=10,random_state=42,background_color=&apos;black&apos;,scale =1).generate(text)</div><div class="line"># store default colored image</div><div class="line">default_colors = wc.to_array()</div><div class="line">wc.to_file(&quot;a_new_hope.png&quot;)</div><div class="line">#设置为 wordcloud 默认</div><div class="line">plt.title(&apos;WordCloud Demo&apos;)</div><div class="line">plt.imshow(default_colors)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 </li>
-<li><p>对于302重定向的问题，是由于抓取速度过快引起网络流量异常，服务器识别出是机器发送的请求，于是将请求返回链接定到某一特定链接，大多是验证图片或空链接。</p>
+<li><p>运行结果<br><img src="http://p1.bqimg.com/584643/bb7398429e01d188.png" alt="Markdown"></p>
 </li>
-<li><p>在这种时候，既然已经被识别出来了，就使用代理ip再继续抓取。</p>
+<li><p><code>wordcloud</code>里面的基本参数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">WordCloud(font_path=None, width=400, height=200, margin=5, ranks_only=False, prefer_horizontal=0.9,mask=None, scale=1, color_func=&lt;function random_color_func at 0x2b8b422a31b8&gt;, max_words=200, stopwords=None,random_state=None, background_color=&apos;black&apos;, max_font_size=None)</div><div class="line"></div><div class="line">#font_path:用到的字体文件的路径（支持OTF或TTF格式）.默认字体是DroidSansMono,但是不能够显示中文,所以可以Windows系统下的C:\Windows\Fonts中找字体替换.</div><div class="line">#width:画布宽度,默认值为400</div><div class="line">#height:画布高度,默认值为200</div><div class="line">#ranks_only:是否只用词频排序而不是实际词频统计值，默认 False</div><div class="line">#prefer_horizontal:词语水平出现的频率，默认0.9（即垂直出现频率为0.1）</div><div class="line">#mask: nd-array or None (default=None)如果参数为空，则使用二维遮罩绘制词云.如果mask非空，设置的宽高值将被忽略，遮罩形状被 mask 取代.除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。</div><div class="line">#scale : float (default=1)计算与绘制图像间的比例。对于较大的词云图像，使用比例而非较大的画布会显著提升绘图速度，但是可能会造成词语间的粗糙拟合。</div><div class="line">#max_words :(default=2000)词语的最大数量</div><div class="line">#stopwords : set of strings 屏蔽词</div><div class="line">#max_font_size : int or None (default=None)最大词的最大字号.</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>wordcloud</code>里面的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#static fit_words(frequencies) / generate_from_frequencies: 依据词语和频率生成词云.</div><div class="line">参数：frequencies : array of tuples(包含了词语和频率的元组.)</div><div class="line"></div><div class="line">#static generate(text) / generate_from_text: 从文本中生成词云,调用 _text 和 fit_words.</div><div class="line"></div><div class="line">#static process_text(text): 将长文本分词并去除屏蔽词（此处指英语，中文分词还是需要自己用别的库先行实现，使用上面的 fit_words(frequencies))</div><div class="line">参数：text : string(需要处理的文本)</div><div class="line">返回：words : list of tuples (string, float)(带有相应频率的词语)</div><div class="line"></div><div class="line">#static recolor(random_state=None, color_func=None): 对现有输出重新着色。重新上色会比重新生成整个词云快很多。</div><div class="line"></div><div class="line">#random_state : RandomState, int, or None, default=None</div><div class="line">如果非空，会使用固定的随机状态。</div><div class="line">如果给出一个整数，它会被用作 random.Random 状态的一个种子（根源）</div><div class="line"></div><div class="line">#color_func : function or None, default=None</div><div class="line">生成新颜色的函数，如果为空，则使用 self.color_func</div><div class="line"></div><div class="line">#static to_array():转化为 numpy array</div><div class="line">返回：image : nd-array size (width, height, 3)</div><div class="line">numpy 矩阵的词云图像</div><div class="line"></div><div class="line">#static to_file(filename):输出到文件</div><div class="line">参数：filename : string</div><div class="line">输出的文件路径</div><div class="line"></div><div class="line">#wordcloud.ImageColorGenerator(image): 基于 RGB 图像生成颜色。词语将会使用一定矩形区域内的平均颜色上色。这个对象可以被调用作为词云或者重新上色方法的颜色函数。</div><div class="line">参数：image : nd-array, shape (height, width, 3)(用来生成词语颜色的图像.)</div><div class="line"></div><div class="line">#wordcloud.random_color_func(word=None, font_size=None, position=None, orientation=None, font_path=None, random_state=None):随机生成色调,默认的上色方法。仅仅会生成一个随机的色调(80% 颜色值 50% 亮度)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="headers头文件"><a href="#headers头文件" class="headerlink" title="headers头文件"></a>headers头文件</h3><ul>
-<li>有些网站对爬虫反感，对爬虫请求一律拒绝，这时候我们需要伪装成浏览器，通过修改http中的headers来实现  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">headers = &#123;</div><div class="line">&apos;Host&apos;: &quot;bj.lianjia.com&quot;,</div><div class="line">&apos;Accept&apos;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&quot;,</div><div class="line">&apos;Accept-Encoding&apos;: &quot;gzip, deflate, sdch&quot;,</div><div class="line">&apos;Accept-Language&apos;: &quot;zh-CN,zh;q=0.8&quot;,</div><div class="line">&apos;User-Agent&apos;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.87 Safari/537.36&quot;,</div><div class="line">&apos;Connection&apos;: &quot;keep-alive&quot;,</div><div class="line">&#125;</div><div class="line">p = requests.get(url, headers=headers)</div><div class="line">print(p.content.decode(&apos;utf-8&apos;))</div></pre></td></tr></table></figure>
-</li>
+<h3 id="使用mask元素绘制图像"><a href="#使用mask元素绘制图像" class="headerlink" title="使用mask元素绘制图像"></a>使用mask元素绘制图像</h3><ul>
+<li>我将我的原博客的标签页里的标签做个词云,先利用BeautifulSoup将网页的信息进行解析,然后使用一张心型图做mask生成一张词云.效果如下:</li>
 </ul>
-<h3 id="模拟登陆"><a href="#模拟登陆" class="headerlink" title="模拟登陆"></a>模拟登陆</h3><ul>
-<li>一般登录的过程都伴随有验证码，这里我们通过selenium自己构造post数据进行提交，将返回验证码图片的链接地址输出到控制台下，点击图片链接识别验证码，输入验证码并提交，完成登录。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">from selenium import webdriver</div><div class="line">from selenium.webdriver.common.keys import Keys    #</div><div class="line">from selenium.webdriver.support.ui import WebDriverWait   # WebDriverWait的作用是等待某个条件的满足之后再往后运行</div><div class="line">from selenium.webdriver import ActionChains</div><div class="line">import time</div><div class="line">import sys</div><div class="line">driver = webdriver.PhantomJS(executable_path=&apos;C:\PyCharm 2016.2.3\phantomjs\phantomjs.exe&apos;)  # 构造网页驱动</div><div class="line"></div><div class="line">driver.get(&apos;https://www.zhihu.com/#signin&apos;)       # 打开网页</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;password&quot;]&apos;).send_keys(&apos;your_password&apos;)</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;account&quot;]&apos;).send_keys(&apos;your_account&apos;)</div><div class="line">driver.get_screenshot_as_file(&apos;zhihu.jpg&apos;)                   # 截取当前页面的图片</div><div class="line">input_solution = input(&apos;请输入验证码 :&apos;)</div><div class="line">driver.find_element_by_xpath(&apos;//input[@name=&quot;captcha&quot;]&apos;).send_keys(input_solution)</div><div class="line">time.sleep(2)</div><div class="line"></div><div class="line">driver.find_element_by_xpath(&apos;//form[@class=&quot;zu-side-login-box&quot;]&apos;).submit()  # 表单的提交  表单的提交，即可以选择登录按钮然后使用click方法，也可以选择表单然后使用submit方法</div><div class="line">sreach_widonw = driver.current_window_handle     # 用来定位当前页面</div><div class="line"># driver.find_element_by_xpath(&apos;//button[@class=&quot;sign-button submit&quot;]&apos;).click()</div><div class="line">try:</div><div class="line">dr = WebDriverWait(driver,5)</div><div class="line"># dr.until(lambda the_driver: the_driver.find_element_by_xpath(&apos;//a[@class=&quot;zu-side-login-box&quot;]&apos;).is_displayed())</div><div class="line">if driver.find_element_by_xpath(&apos;//*[@id=&quot;zh-top-link-home&quot;]&apos;):</div><div class="line">print(&apos;登录成功&apos;)</div><div class="line">except:</div><div class="line">print(&apos;登录失败&apos;)</div><div class="line">driver.save_screenshot(&apos;screen_shoot.jpg&apos;)     #截取当前页面的图片</div><div class="line">sys.exit(0)</div><div class="line">driver.quit()   #退出驱动</div></pre></td></tr></table></figure>
-</li>
+<p><img src="http://p1.bqimg.com/584643/ebd6d3c220baec97.png" alt="Markdown"></p>
+<ul>
+<li><a href="https://github.com/yoghurt-lee/cnblogs_tags_wordcloud/" target="_blank" rel="external">源代码需要的话这里取</a><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><a href="http://www.cnblogs.com/Yiutto/p/5998296.html" target="_blank" rel="external"> Python word_cloud 部分文档翻译</a></li>
 </ul>
-<h3 id="代理ip"><a href="#代理ip" class="headerlink" title="代理ip"></a>代理ip</h3><ul>
-<li>当爬取速度过快时，当请求次数过多时都面临ip被封的可能。因此使用代理也是必备的。</li>
-<li><p>使用request加代理</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line">proxies = &#123; &quot;http&quot;: &quot;http://10.10.1.10:3128&quot;,</div><div class="line">&quot;https&quot;: &quot;http://10.10.1.10:1080&quot;,&#125;</div><div class="line">p = request.get(&quot;http://www.baidu.com&quot;, proxies = proxies)</div><div class="line">print(p.content.decode(&apos;utf-8&apos;))</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用urllib加代理</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">user_agent =&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.22 Safari/537.36 SE 2.X MetaSr 1.0&apos;</div><div class="line">headers = &#123;&apos;User-Agent&apos;:user_agent&#125;</div><div class="line">proxy = &#123;&apos;http&apos;:&apos;http://10.10.1.10:1080&apos;,&#125;</div><div class="line">proxy_handler = urllib.request.ProxyHandler(proxy)</div><div class="line">opener = urllib.request.build_opener(proxy_handler)</div><div class="line">urllib.request.install_opener(opener)</div><div class="line">url = &quot;https://www.baidu.com/&quot;</div><div class="line">req = urllib.request.Request(url=url,headers=headers)</div><div class="line">res = urllib.request.urlopen(req)</div><div class="line">print(res.read().decode(&apos;utf-8&apos;))   # 打印网页内容</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="验证码输入"><a href="#验证码输入" class="headerlink" title="验证码输入"></a>验证码输入</h3><ul>
-<li>遇到验证的问题，我一般都是人工识别：获取验证码的链接再控制台下 ——&gt; 点击链接识别验证码 ——&gt; 在控制台手动输入验证码并提交。</li>
-</ul>
-<h3 id="ajax加载的数据-此处博主推荐第一种方式"><a href="#ajax加载的数据-此处博主推荐第一种方式" class="headerlink" title="ajax加载的数据(此处博主推荐第一种方式)"></a>ajax加载的数据(此处博主推荐第一种方式)</h3><ul>
-<li><p>对于ajax加载的数据，我们无论通过request或post方法请求得到的网页都无法得到。关于一个网页是否是ajax加载数据，我们只需将网页内容print到控制台下，将其与网页原始内容进行比对，如果有数据缺失，那么这些数据就是ajax加载。例如：我们想获取京东上商品的价格、销量、好评等方面的数据，但是请求返回的网页中没有这些数据。因为这些数据是ajax加载。对于ajax加载的页面，一般有两种方法。</p>
-<p>  (1)分析网页 :此处可见我的博客<a href="http://yoghurt-lee.online/2017/02/14/google-network/" target="_blank" rel="external">用google浏览器爬取JS生成的网页时network的使用</a></p>
-<p>  (2)使用PhantomJS模拟浏览器行为 :使用PhantomJS模拟浏览器进行发送请求，得到返回的内容是完全的（ajax加载的数据也会有）。但是使用PhantomJS请求速度过慢，一般一个网页4~5s时间，不能忍。一般要使用PhantomJS需要开多线程</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">driver = webdriver.PhantomJS(executable_path=&apos;C:\PyCharm 2016.2.3\phantomjs\phantomjs.exe&apos;)  # 构造网页驱动</div><div class="line">driver.get(&apos;https://www.zhihu.com/&apos;) </div><div class="line">print(driver.page_source)    # 打印网页内容</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="出处"><a href="#出处" class="headerlink" title="出处"></a>出处</h3><p><a href="https://zhuanlan.zhihu.com/p/25174337" target="_blank" rel="external">关于反爬虫的一些总结</a></p>
 
       
     </div>
@@ -446,7 +439,9 @@
           
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/wordcloud/" rel="tag"># wordcloud</a>
           
         </div>
       
@@ -455,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/20/install-mysqldb/" rel="next" title="windows下python2.7安装mysqldb">
-                <i class="fa fa-chevron-left"></i> windows下python2.7安装mysqldb
+              <a href="/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/" rel="next" title="使用matplotlib对b站前10000名用户做简单分析">
+                <i class="fa fa-chevron-left"></i> 使用matplotlib对b站前10000名用户做简单分析
               </a>
             
           </div>
@@ -464,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/" rel="prev" title="使用matplotlib对b站前10000名用户做简单分析">
-                使用matplotlib对b站前10000名用户做简单分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -496,8 +487,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/28/deal-Anti-crawler/"
-           data-title="(转载)关于反爬虫的一些总结" data-url="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/">
+      <div class="ds-thread" data-thread-key="2017/03/08/python-wordcloud/"
+           data-title="python-wordcloud" data-url="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
       </div>
     
   </div>
@@ -635,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取过程中的302重定向"><span class="nav-number">1.</span> <span class="nav-text">爬取过程中的302重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#headers头文件"><span class="nav-number">2.</span> <span class="nav-text">headers头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟登陆"><span class="nav-number">3.</span> <span class="nav-text">模拟登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理ip"><span class="nav-number">4.</span> <span class="nav-text">代理ip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证码输入"><span class="nav-number">5.</span> <span class="nav-text">验证码输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax加载的数据-此处博主推荐第一种方式"><span class="nav-number">6.</span> <span class="nav-text">ajax加载的数据(此处博主推荐第一种方式)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#出处"><span class="nav-number">7.</span> <span class="nav-text">出处</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用mask元素绘制图像"><span class="nav-number">3.</span> <span class="nav-text">使用mask元素绘制图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
 
           </div>
