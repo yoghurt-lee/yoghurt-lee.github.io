@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-03-08T15:33:01.530Z</updated>
+  <updated>2017-03-11T05:44:15.176Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,13 +20,12 @@
     <link href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/"/>
     <id>https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/</id>
     <published>2017-03-08T15:10:19.000Z</published>
-    <updated>2017-03-08T15:33:01.530Z</updated>
+    <updated>2017-03-11T05:44:15.176Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据</p>
+<p>标签利器:wordcloud(词云),一起来学(zhuang)习(bi)吧!</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
 <li>安装wordcloud包,<code>pip install wordcloud</code>,如果需要对文本的句子进行分解,比如说<code>我是一名大学生</code>进行分解之后就变成了<code>我是\一名\大学生</code>.可以安装jieba,同运行<code>pip install jieba</code>.</li>
 </ul>
@@ -54,17 +53,14 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;前言:在知乎上面看到很多人利用wordcloud(词云)生成标签图,感觉很不错,我也为我博客园里的标签数据&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;p&gt;&lt;img src=&quot;http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="数据分析" scheme="https://yoghurt-lee.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -106,9 +102,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="数据分析" scheme="https://yoghurt-lee.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -119,11 +115,11 @@
     <link href="https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/"/>
     <id>https://yoghurt-lee.github.io/2017/02/28/deal-Anti-crawler/</id>
     <published>2017-02-28T04:40:22.000Z</published>
-    <updated>2017-02-28T05:09:25.813Z</updated>
+    <updated>2017-03-11T05:44:47.971Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/7bcdcca9bfacc2d6.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>summary: 在知乎上看到的一篇比较全面的解决反爬虫问题的文章,感觉非常好,遂转载到我的博客.</p>
+<p>summary: 在知乎上看到的一篇比较全面的解决反爬虫问题的文章,看完感觉有很多收获,遂转载到我的博客.</p>
 </blockquote>
 <h3 id="爬取过程中的302重定向"><a href="#爬取过程中的302重定向" class="headerlink" title="爬取过程中的302重定向"></a>爬取过程中的302重定向</h3><ul>
 <li><p>在爬取某个网站速度过快或者发出的请求过多的时候，网站会向你所在的客户端发送一个链接，需要你去验证图片。</p>
@@ -170,9 +166,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -215,9 +211,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -359,9 +355,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -410,9 +406,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -455,9 +451,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
   </entry>
   
@@ -540,9 +536,9 @@
     </summary>
     
     
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Hexo" scheme="https://yoghurt-lee.github.io/tags/Hexo/"/>
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
