@@ -97,9 +97,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="模板引擎" scheme="https://yoghurt-lee.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
     
@@ -110,12 +110,12 @@
     <link href="https://yoghurt-lee.github.io/2017/03/15/template-engine-1/"/>
     <id>https://yoghurt-lee.github.io/2017/03/15/template-engine-1/</id>
     <published>2017-03-15T15:04:28.000Z</published>
-    <updated>2017-03-16T09:50:08.479Z</updated>
+    <updated>2017-03-16T14:14:04.345Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/42394831bda4e97e.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://github.com/aosabook/500lines" target="_blank" rel="external">500 lines or less</a> 是github上一个有14000赞的代码仓库,里面有多个品质很高小项目,非常适合Python以及其他语言的入门者和进阶者学习.中国的翻译者们一直在将这些好资源进行翻译,让我们进行学习,感谢翻译者们做出的贡献!</p>
+<p><a href="https://github.com/aosabook/500lines" target="_blank" rel="external">500 lines or less</a> 是github上一个有14000赞的代码仓库,包含多个小项目,非常适合Python以及其他语言的入门者和进阶者学习.感谢翻译者们做出的贡献,才让我们能够吸收这些好的资源!</p>
 </blockquote>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
 <li><p>我这里所写的是自己学习这个项目之后的所感所想,同时也对该文档做一个精简版的说明,如果想详细了解该项目的细节,请移步<a href="http://www.jianshu.com/p/b5d4aa45e771" target="_blank" rel="external">中文文档</a></p>
@@ -135,13 +135,13 @@
 <p>模板引擎（这里特指用于Web开发的模板引擎）是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档(引自百科)。</p>
 </blockquote>
 </li>
-<li><p>如果大家学过Java Web或者别的Web框架会了解模板引擎的概念.综上所述将静态文本中的动态数据进行某种标注后,运行程序,整个模板就会交给后台的逻辑处理代码生成标准的HTML文档.所以模板引擎是以静态文本为主,中间将动态数据用特殊的符号标记,将这份模板传入引擎处理后,模板将变成python代码,然后执行生成最终的静态文本.</p>
+<li><p>如果大家学过Java Web或者别的Web框架会了解模板引擎的概念.将静态文本中的动态数据进行某种标注后,整个模板就会交给后台的逻辑处理代码生成标准的HTML文档(MVC设计模式?).所以模板引擎是以静态文本为主,中间将动态数据用特殊的符号标记,将这份模板传入引擎处理后,模板将变成python代码,然后执行生成最终的静态文本.</p>
 </li>
 <li><p>综上所述,模板引擎其实就是将我们生成代码的思路从以逻辑为主变成以文本为主.接下来,我们做一个简单的模板引擎.</p>
 </li>
 </ul>
 <h3 id="模板引擎所支持的语法"><a href="#模板引擎所支持的语法" class="headerlink" title="模板引擎所支持的语法"></a>模板引擎所支持的语法</h3><ul>
-<li><p>由于是一个最初始的模板引擎,所以我们只提供如下语法支持(打{老报错,换成(,估计hexo把我这当模板了 - -):</p>
+<li><p>由于是一个最初始的模板引擎,所以我们只提供如下语法支持 (打’{‘老报错,换成’(‘,估计hexo把我这当模板给翻译了 @^@):</p>
 <blockquote>
 <p>1.(( name|filter1|filter2|..)) : 其中包含的是上下文变量以及过滤器,每一个元素以管道分割,比如说 ((name|upper)) 那么在python代码中就会以upper(name)实现.</p>
 <p>2.(%…%): 提供条件判断语句以及循环语句的支持。条件语句和循环语句分别以(%endif%)、(%endfor%)结尾.</p>
@@ -167,7 +167,7 @@
 </li>
 <li><p>所有传入的变量名都会以<code>c_</code>开头,以保证不会与python内置方法发生冲突.</p>
 </li>
-<li><p>还有一个微优化,就是<code>append_result=result.append</code>,这里引用原作者的话:”在模板引擎代码中我们用这种分离的方式是的我们不论做多少次第二步，只用做一次第一步。这节省了我们少量的时间，因为避免了再花时间去查找对象的append属性。”</p>
+<li><p>还有一个微优化,就是<code>append_result=result.append</code>,这里引用原作者的话:”在模板引擎代码中我们用这种分离的方式是的我们不论做多少次第二步，只用做一次第一步。这节省了我们少量的时间，因为避免了再花时间去查找对象的append属性。”,又学一招(笑)</p>
 </li>
 <li><p>我们将上面的html模板通过引擎将生成如下代码:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def render_function(context, do_dots):</div><div class="line">  c_name = context[&apos;name&apos;]</div><div class="line">  c_book_list = context[&apos;book_list&apos;]</div><div class="line">  result=[]</div><div class="line">  append_result = result.append</div><div class="line">  extend_result = result.extend</div><div class="line">  to_str = str</div><div class="line">  extend_result([&apos;\n    &lt;h1&gt;Hello &apos;,to_str(c_name),&apos;!&lt;/h1&gt;\n    &apos;])</div><div class="line">  for c_book in c_book_list:</div><div class="line">      extend_result([&apos;\n        &lt;p&gt;&apos;,to_str(c_book),&apos;&lt;/p&gt;\n    &apos;])</div><div class="line">  append_result(&apos;\n    &apos;)</div><div class="line">  return &quot;&quot;.join(result)</div></pre></td></tr></table></figure>
@@ -185,9 +185,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="模板引擎" scheme="https://yoghurt-lee.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
     
@@ -236,9 +236,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="数据分析" scheme="https://yoghurt-lee.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -280,9 +280,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="数据分析" scheme="https://yoghurt-lee.github.io/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
@@ -344,11 +344,11 @@
     </summary>
     
     
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
       <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -389,11 +389,11 @@
     </summary>
     
     
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
       <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -533,11 +533,11 @@
     </summary>
     
     
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
       <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="html" scheme="https://yoghurt-lee.github.io/tags/html/"/>
     
@@ -584,11 +584,11 @@
     </summary>
     
     
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
       <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
       <category term="爬虫" scheme="https://yoghurt-lee.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
@@ -629,9 +629,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
-    
       <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="python" scheme="https://yoghurt-lee.github.io/tags/python/"/>
     
   </entry>
   
@@ -714,9 +714,9 @@
     </summary>
     
     
-      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Hexo" scheme="https://yoghurt-lee.github.io/tags/Hexo/"/>
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
