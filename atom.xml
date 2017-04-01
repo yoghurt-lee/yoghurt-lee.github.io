@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-04-01T15:38:33.623Z</updated>
+  <updated>2017-04-01T23:01:32.968Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://yoghurt-lee.github.io/2017/03/30/graph-visible/"/>
     <id>https://yoghurt-lee.github.io/2017/03/30/graph-visible/</id>
     <published>2017-03-30T10:55:48.000Z</published>
-    <updated>2017-04-01T15:38:33.623Z</updated>
+    <updated>2017-04-01T23:01:32.968Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/584643/8a2afd1372751550.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
@@ -60,7 +60,7 @@
 <li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.<br><img src="http://i1.piimg.com/584643/4a1335d537734da3.png" alt="Markdown"></li>
 </ul>
 <h2 id="利用networkx生成图片"><a href="#利用networkx生成图片" class="headerlink" title="利用networkx生成图片"></a>利用networkx生成图片</h2><ul>
-<li>这里的话所有的边都是在一个图里面的,怎么区分出来呢?我们发现边里面可以传一个<code>**attr</code>参数,所以我们可以为两种边设置不同的<code>weight</code>来区分(当然设置别的属性也可以)</li>
+<li>这里的话所有的边都是在一个图里面的,怎么区分出来呢?我们发现边里面可以传一个<code>**attr</code>的关键字参数,所以我们可以为两种边设置不同的关键字<code>weight</code>来区分(当然设置别的属性也可以)</li>
 <li>我在这里封装了一个模板,按照要求设置好边的<code>label</code>和<code>weight</code>后生成图片.</li>
 <li>show函数包含四个参数,G代表networkx生成的图对象,pos代表图的网络模型(默认ER随机图),title表示生成的图图里面所附带的title信息,photo_name代表保存的时候图的名称.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import networkx as nx</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">def show(G,pos,title=None,photo_name=&apos;picture&apos;):</div><div class="line">    e_1 =[(u,v) for (u,v,d) in G.edges(data=True) if d[&apos;weight&apos;] ==1] # 普通边</div><div class="line">    e_2 =[(u,v) for (u,v,d) in G.edges(data=True) if d[&apos;weight&apos;] ==0] # 利用的边</div><div class="line">    # Draw nodes</div><div class="line">    nx.draw_networkx_nodes(G,pos,node_size=300, node_color=&apos;orange&apos;)</div><div class="line">    # Draw Edges</div><div class="line">    nx.draw_networkx_edges(G,pos,edgelist=e_1,width=1, alpha = 1,edge_color=&apos;g&apos;,style=&apos;dashed&apos;)</div><div class="line">    nx.draw_networkx_edges(G,pos,edgelist=e_2, width=3,alpha=0.6,edge_color=&apos;b&apos;)</div><div class="line">    edge_labels =dict([((u, v), d[&apos;label&apos;]) for u, v, d in G.edges(data=True)])</div><div class="line">    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)</div><div class="line">    nx.draw_networkx_labels(G,pos,font_size=10)</div><div class="line">    plt.title(title)</div><div class="line">    plt.axis(&apos;off&apos;)</div><div class="line">    plt.savefig(photo_name)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
 </li>
