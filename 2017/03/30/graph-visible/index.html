@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,networkx,数据分析," />
+  <meta name="keywords" content="博客,数据分析,networkx," />
 
 
 
@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://i2.muimg.com/584643/dc9be2d43713c743.png">
 <meta property="og:image" content="http://i1.piimg.com/584643/c12f839583a9ac9e.png">
 <meta property="og:image" content="http://i1.piimg.com/584643/4a1335d537734da3.png">
-<meta property="og:updated_time" content="2017-04-01T15:30:11.415Z">
+<meta property="og:updated_time" content="2017-04-01T15:38:33.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用networkx实现图的可视化(实现三种基础的图算法)">
 <meta name="twitter:image" content="http://i2.muimg.com/584643/8a2afd1372751550.jpg">
@@ -406,31 +406,19 @@
 <li><p>先介绍到这里,因为代码只需要这么多,因为networkx是支持matplotlib的,最后调用<code>plt.show()</code>就能显示图片了.</p>
 </li>
 </ul>
-<h2 id="需要实现的三种算法"><a href="#需要实现的三种算法" class="headerlink" title="需要实现的三种算法"></a>需要实现的三种算法</h2><h4 id="利用spfa算法构造最短路"><a href="#利用spfa算法构造最短路" class="headerlink" title="利用spfa算法构造最短路"></a>利用spfa算法构造最短路</h4><ul>
+<h2 id="需要实现的三种算法"><a href="#需要实现的三种算法" class="headerlink" title="需要实现的三种算法"></a>需要实现的三种算法</h2><h3 id="利用spfa算法构造最短路"><a href="#利用spfa算法构造最短路" class="headerlink" title="利用spfa算法构造最短路"></a>利用spfa算法构造最短路</h3><ul>
 <li>networkx非常强大,提供最短路算法,但是为了满足需要,我还是自己实现了spfa算法.spfa算法我不详细叙述了,就是利用链式前向星求最短路的算法.这里的话我只说下我的基本思路.</li>
 <li>在spfa算法中用一个pre数组存当前节点的前一个节点的编号,以及用一个边编号数组存当前的两个节点中哪一条边被用了(考虑重边问题),节点的d值变了就更新这两个数组的数据;</li>
-<li>找完最短路后,然后通过反向寻找路径将用到的边存到一个集合,将之前的边删除掉.然后生成新的边(着两条边本质上是一样的),这样就可以将边分为两个集合(最短路中的边和原图中的边),然后就可以轻易的画出图形了.</li>
+<li>找完最短路后,然后通过反向寻找路径将用到的边存到一个集合,将之前的边删除掉.然后生成新的边(着两条边本质上是一样的),这样就可以将边分为两个集合(最短路中的边和原图中的边),然后就可以轻易的画出图形了.<br><img src="http://i2.muimg.com/584643/dc9be2d43713c743.png" alt="Markdown"></li>
 </ul>
-<h4 id="利用prim算法构造最小生成树"><a href="#利用prim算法构造最小生成树" class="headerlink" title="利用prim算法构造最小生成树"></a>利用prim算法构造最小生成树</h4><ul>
+<h3 id="利用prim算法构造最小生成树"><a href="#利用prim算法构造最小生成树" class="headerlink" title="利用prim算法构造最小生成树"></a>利用prim算法构造最小生成树</h3><ul>
 <li>这里我就用了邻接矩阵实现的prim算法,prim算法不做介绍.同样是用一个pre数组记录最小生成树中的边,这里的边可以在每次更新的权值的时候就找到.</li>
-<li>这个算法不复杂,大家可以扩展一下生成次小生成树.</li>
+<li>这个算法不复杂,大家可以扩展一下生成次小生成树.<br><img src="http://i1.piimg.com/584643/c12f839583a9ac9e.png" alt="Markdown"></li>
 </ul>
-<h4 id="利用匈牙利算法实现二分图的最大匹配"><a href="#利用匈牙利算法实现二分图的最大匹配" class="headerlink" title="利用匈牙利算法实现二分图的最大匹配"></a>利用匈牙利算法实现二分图的最大匹配</h4><ul>
+<h3 id="利用匈牙利算法实现二分图的最大匹配"><a href="#利用匈牙利算法实现二分图的最大匹配" class="headerlink" title="利用匈牙利算法实现二分图的最大匹配"></a>利用匈牙利算法实现二分图的最大匹配</h3><ul>
 <li>二分图的最大匹配算法实质上也就是寻找增广路的过程,这其中有个linker数组,初始值为-1,当对每个点做完增广后,遍历linker数组,如果linker数组不为-1,则证明这个linker[v]和v形成了匹配.这条边最大匹配中的边.</li>
-<li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.</li>
+<li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.<br><img src="http://i1.piimg.com/584643/4a1335d537734da3.png" alt="Markdown"></li>
 </ul>
-<h4 id="生成图片示例"><a href="#生成图片示例" class="headerlink" title="生成图片示例"></a>生成图片示例</h4><p><img src="http://i2.muimg.com/584643/dc9be2d43713c743.png" alt="Markdown"></p>
-<blockquote>
-<p>最短路</p>
-</blockquote>
-<p><img src="http://i1.piimg.com/584643/c12f839583a9ac9e.png" alt="Markdown"></p>
-<blockquote>
-<p>最小生成树</p>
-</blockquote>
-<p><img src="http://i1.piimg.com/584643/4a1335d537734da3.png" alt="Markdown"></p>
-<blockquote>
-<p>二分图</p>
-</blockquote>
 <h2 id="利用networkx生成图片"><a href="#利用networkx生成图片" class="headerlink" title="利用networkx生成图片"></a>利用networkx生成图片</h2><ul>
 <li>这里的话所有的边都是在一个图里面的,怎么区分出来呢?我们发现边里面可以传一个<code>**attr</code>参数,所以我们可以为两种边设置不同的<code>weight</code>来区分(当然设置别的属性也可以)</li>
 <li>我在这里封装了一个模板,按照要求设置好边的<code>label</code>和<code>weight</code>后生成图片.</li>
@@ -473,9 +461,9 @@
           
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/networkx/" rel="tag"># networkx</a>
-          
             <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/networkx/" rel="tag"># networkx</a>
           
         </div>
       
@@ -660,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单介绍"><span class="nav-number">2.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要实现的三种算法"><span class="nav-number">3.</span> <span class="nav-text">需要实现的三种算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用spfa算法构造最短路"><span class="nav-number">3.0.1.</span> <span class="nav-text">利用spfa算法构造最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用prim算法构造最小生成树"><span class="nav-number">3.0.2.</span> <span class="nav-text">利用prim算法构造最小生成树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用匈牙利算法实现二分图的最大匹配"><span class="nav-number">3.0.3.</span> <span class="nav-text">利用匈牙利算法实现二分图的最大匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成图片示例"><span class="nav-number">3.0.4.</span> <span class="nav-text">生成图片示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用networkx生成图片"><span class="nav-number">4.</span> <span class="nav-text">利用networkx生成图片</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单介绍"><span class="nav-number">2.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要实现的三种算法"><span class="nav-number">3.</span> <span class="nav-text">需要实现的三种算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用spfa算法构造最短路"><span class="nav-number">3.1.</span> <span class="nav-text">利用spfa算法构造最短路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用prim算法构造最小生成树"><span class="nav-number">3.2.</span> <span class="nav-text">利用prim算法构造最小生成树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用匈牙利算法实现二分图的最大匹配"><span class="nav-number">3.3.</span> <span class="nav-text">利用匈牙利算法实现二分图的最大匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用networkx生成图片"><span class="nav-number">4.</span> <span class="nav-text">利用networkx生成图片</span></a></li></ol></div>
             
 
           </div>
