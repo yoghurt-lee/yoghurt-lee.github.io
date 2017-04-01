@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,Fiddler,html," />
+  <meta name="keywords" content="博客,networkx,数据分析," />
 
 
 
@@ -99,21 +99,17 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装Fiddler">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/index.html">
+<meta property="og:title" content="利用networkx实现图的可视化(实现三种基础的图算法)">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/30/graph-visible/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg">
-<meta property="og:image" content="http://i1.piimg.com/584643/36ca8e736cdc3bfd.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/3aa8ec85a6f8c039.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/fd7533e8b030cda3.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/15c7a2f410595fc4.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/1395c38e631fb09f.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/90341e7cfdb639ea.png">
-<meta property="og:image" content="http://i1.piimg.com/584643/ed72658d8177369d.png">
-<meta property="og:updated_time" content="2017-02-15T09:44:12.809Z">
+<meta property="og:image" content="http://i2.muimg.com/584643/8a2afd1372751550.jpg">
+<meta property="og:image" content="http://i2.muimg.com/584643/dc9be2d43713c743.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/c12f839583a9ac9e.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/4a1335d537734da3.png">
+<meta property="og:updated_time" content="2017-04-01T15:30:11.415Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装Fiddler">
-<meta name="twitter:image" content="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg">
+<meta name="twitter:title" content="利用networkx实现图的可视化(实现三种基础的图算法)">
+<meta name="twitter:image" content="http://i2.muimg.com/584643/8a2afd1372751550.jpg">
 
 
 
@@ -141,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/03/30/graph-visible/"/>
 
 
 
 
 
-  <title> 安装Fiddler | Fate </title>
+  <title> 利用networkx实现图的可视化(实现三种基础的图算法) | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/03/30/graph-visible/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -324,7 +320,7 @@
             
             
               
-                安装Fiddler
+                利用networkx实现图的可视化(实现三种基础的图算法)
               
             
           </h1>
@@ -339,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-15T16:27:24+08:00">
-                2017-02-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-30T18:55:48+08:00">
+                2017-03-30
               </time>
             
 
@@ -358,8 +354,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/15/use-Fiddler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/15/use-Fiddler/" itemprop="commentCount"></span>
+                <a href="/2017/03/30/graph-visible/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/30/graph-visible/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -386,37 +382,61 @@
       
 
       
-        <p><img src="http://i1.piimg.com/584643/a1eb4fba6cdec2a3.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="http://i2.muimg.com/584643/8a2afd1372751550.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>前言:有时候我们想要得到手机APP里面的数据,但是电脑怎么能够爬取呢?这里介绍一款强大的工具<code>Fiddler</code>,让电脑能够拦截手机的数据包.</p>
+<p>前言：很久没更新博客了,想找点东西做做,找到一个不错的python数据分析包——networkx,这里就来用它实现最短路的可视化.</p>
 </blockquote>
-<h2 id="安装并配置Fiddler"><a href="#安装并配置Fiddler" class="headerlink" title="安装并配置Fiddler"></a>安装并配置Fiddler</h2><ul>
-<li><p>在 <a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">Fiddler下载</a> 下载安装包并安装.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>没有安装<code>matplotlib</code>的同学,先去安装对应的版本,我很早之前安装的,也忘记当时是怎么装的了(好像直接利用pip太大了?).</p>
 </li>
-<li><p>配置Fiddler:点击Tools,选择<code>Telerik Fiddler Options</code>(有的版本就只是<code>Fiddler Options</code>),点击HTTPS,将如下选项勾上,Fiddler就可以截获HTTPS请求。但是这样就会使得连接不安全,后面将解决这个问题.<br><img src="http://i1.piimg.com/584643/36ca8e736cdc3bfd.png" alt="Markdown"></p>
-</li>
-<li><p>同样的在这里点击Connections,默认端口为8888,将<code>Allow remote computers to connect</code>勾上,表示允许别的机器把HTTP/HTTPS请求发送到Fiddler上来.<br><img src="http://i1.piimg.com/584643/3aa8ec85a6f8c039.png" alt="Markdown"></p>
+<li><p>然后安装networkx,运行命令<code>pip install networkx</code>,如果timeout多试几次或者直接去官网下载.</p>
 </li>
 </ul>
-<h2 id="设置Android手机"><a href="#设置Android手机" class="headerlink" title="设置Android手机"></a>设置Android手机</h2><ul>
-<li><p>在电脑的命令行中输入<code>ipconfig</code>,得到IP地址.<br><img src="http://i1.piimg.com/584643/fd7533e8b030cda3.png" alt="Markdown"></p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><ul>
+<li>网上有个很好的<a href="http://blog.sciencenet.cn/home.php?mod=space&amp;uid=404069&amp;do=blog&amp;id=337442" target="_blank" rel="external">学习资源</a>,如果想详细了解这个类可以去这里学习.我这里只做简单介绍.</li>
+<li><p>基本的添加点和边的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">G = nx.DiGraph() #生成有向图</div><div class="line">G = nx.Graph() #生成无向图</div><div class="line">G.add_node(idx) #添加单个节点</div><div class="line">G.add_edge(u,v) #添加单条无权值得边</div><div class="line">G.add_edges_from([(u1,v1),(u2,v2),(u3,v3)]) #添加一个无权的边的集合</div><div class="line">G.remove_edge(u,v) #从图中移除边</div><div class="line">G.remove_node(idx) #从图中移除点</div></pre></td></tr></table></figure>
 </li>
-<li><p>长按wifi,点击显示高级选项,代理设置改为手动,代理服务器主机名为电脑IP地址,代理服务器端口为8888,接下来就可以使用Fiddler进行抓包了.<br><img src="http://i1.piimg.com/584643/15c7a2f410595fc4.png" alt="Markdown"></p>
+<li><p>四种基本的<a href="http://www.cnblogs.com/forstudy/archive/2012/03/20/2407954.html" target="_blank" rel="external">网络模型</a>以及一种自定义网络模型,分别调用如下样式可以深层对应图形.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#规则图</div><div class="line">pos = nx.spectral_layout(G)</div><div class="line"></div><div class="line">#ER随机图</div><div class="line">pos = nx.shell_layout(G)</div><div class="line"></div><div class="line">#WS小世界网络</div><div class="line">pos = nx.circular_layout(G)</div><div class="line"></div><div class="line">#BA无标度网络</div><div class="line">pos = nx.spring_layout(G)</div><div class="line"></div><div class="line">#自定义网络模型:可以规定node的坐标,点太多不适用,最适合二分图</div><div class="line">G.add_node(idx1,pos=(x1,y1))</div><div class="line">G.add_node(idx2,pos=(x2,y2))</div><div class="line">G.add_node(idx3,pos=(x3,y3))</div><div class="line">pos=nx.get_node_attributes(G,&apos;pos&apos;)</div></pre></td></tr></table></figure>
 </li>
-<li><p>手机和电脑必须要处于同一网络下.</p>
+<li><p>显示点和边</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># 显示点:参数分别代表当前图对象,采用的网络模型,节点的大小,节点的颜色</div><div class="line">nx.draw_networkx_nodes(G,pos,node_size=200, node_color=&apos;orange&apos;)</div><div class="line"></div><div class="line"># 显示边:前两个参数同点,edgelist代表当前图中的特定边的集合,arrow代表是否显示边的方向,width代表边的宽度,edge_color代表边的颜色,alpha代表边的透明度(默认为1不透明),以及样式(dashed代表虚线,默认为实线)</div><div class="line">nx.draw_networkx_edges(G,pos,edgelist=e_origin, arrows=True,width=1, edge_color=&apos;g&apos;,alpha=1,style=&apos;dashed&apos;)</div><div class="line">#为图上的节点添加编号标签</div><div class="line">nx.draw_networkx_labels(G,pos,font_size=10,font_family=font)</div><div class="line">#为图里的边添加标签信息(前提是边有标签)</div><div class="line">nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<h2 id="设置安全证书"><a href="#设置安全证书" class="headerlink" title="设置安全证书"></a>设置安全证书</h2><ul>
-<li><p>前面说过,如果不设置安全证书手机电脑访问<code>https</code>的网站都会显示此连接并不安全.</p>
-</li>
-<li><p>首先,设置手机的安全证书.手机进入<code>http://你的电脑IP地址:8888</code>,点击最下面的<code>FiddlerRoot certificate</code>下载Fiddler的安全证书.</p>
-</li>
-<li><p>firefox设置电脑的安装证书.点击点击下图Action按钮,点击<code>Export Root Certificate to Desktop</code>下载安全证书到桌面.<br><img src="http://i1.piimg.com/584643/1395c38e631fb09f.png" alt="Markdown"></p>
-</li>
-<li><p>在火狐浏览器按照如图所示导入安全证书即可.<br><img src="http://i1.piimg.com/584643/90341e7cfdb639ea.png" alt="Markdown"><br><img src="http://i1.piimg.com/584643/ed72658d8177369d.png" alt="Markdown"></p>
+<li><p>先介绍到这里,因为代码只需要这么多,因为networkx是支持matplotlib的,最后调用<code>plt.show()</code>就能显示图片了.</p>
 </li>
 </ul>
-<p>参考博客:<br><a href="https://my.oschina.net/jhao104/blog/605963" target="_blank" rel="external">Fiddler抓取手机APP数据包</a><br><a href="http://www.tuicool.com/articles/fAfmMjA" target="_blank" rel="external">Fiddler下Firefox提示“您的连接并不安全”的解决办法</a></p>
+<h2 id="需要实现的三种算法"><a href="#需要实现的三种算法" class="headerlink" title="需要实现的三种算法"></a>需要实现的三种算法</h2><h4 id="利用spfa算法构造最短路"><a href="#利用spfa算法构造最短路" class="headerlink" title="利用spfa算法构造最短路"></a>利用spfa算法构造最短路</h4><ul>
+<li>networkx非常强大,提供最短路算法,但是为了满足需要,我还是自己实现了spfa算法.spfa算法我不详细叙述了,就是利用链式前向星求最短路的算法.这里的话我只说下我的基本思路.</li>
+<li>在spfa算法中用一个pre数组存当前节点的前一个节点的编号,以及用一个边编号数组存当前的两个节点中哪一条边被用了(考虑重边问题),节点的d值变了就更新这两个数组的数据;</li>
+<li>找完最短路后,然后通过反向寻找路径将用到的边存到一个集合,将之前的边删除掉.然后生成新的边(着两条边本质上是一样的),这样就可以将边分为两个集合(最短路中的边和原图中的边),然后就可以轻易的画出图形了.</li>
+</ul>
+<h4 id="利用prim算法构造最小生成树"><a href="#利用prim算法构造最小生成树" class="headerlink" title="利用prim算法构造最小生成树"></a>利用prim算法构造最小生成树</h4><ul>
+<li>这里我就用了邻接矩阵实现的prim算法,prim算法不做介绍.同样是用一个pre数组记录最小生成树中的边,这里的边可以在每次更新的权值的时候就找到.</li>
+<li>这个算法不复杂,大家可以扩展一下生成次小生成树.</li>
+</ul>
+<h4 id="利用匈牙利算法实现二分图的最大匹配"><a href="#利用匈牙利算法实现二分图的最大匹配" class="headerlink" title="利用匈牙利算法实现二分图的最大匹配"></a>利用匈牙利算法实现二分图的最大匹配</h4><ul>
+<li>二分图的最大匹配算法实质上也就是寻找增广路的过程,这其中有个linker数组,初始值为-1,当对每个点做完增广后,遍历linker数组,如果linker数组不为-1,则证明这个linker[v]和v形成了匹配.这条边最大匹配中的边.</li>
+<li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.</li>
+</ul>
+<h4 id="生成图片示例"><a href="#生成图片示例" class="headerlink" title="生成图片示例"></a>生成图片示例</h4><p><img src="http://i2.muimg.com/584643/dc9be2d43713c743.png" alt="Markdown"></p>
+<blockquote>
+<p>最短路</p>
+</blockquote>
+<p><img src="http://i1.piimg.com/584643/c12f839583a9ac9e.png" alt="Markdown"></p>
+<blockquote>
+<p>最小生成树</p>
+</blockquote>
+<p><img src="http://i1.piimg.com/584643/4a1335d537734da3.png" alt="Markdown"></p>
+<blockquote>
+<p>二分图</p>
+</blockquote>
+<h2 id="利用networkx生成图片"><a href="#利用networkx生成图片" class="headerlink" title="利用networkx生成图片"></a>利用networkx生成图片</h2><ul>
+<li>这里的话所有的边都是在一个图里面的,怎么区分出来呢?我们发现边里面可以传一个<code>**attr</code>参数,所以我们可以为两种边设置不同的<code>weight</code>来区分(当然设置别的属性也可以)</li>
+<li>我在这里封装了一个模板,按照要求设置好边的<code>label</code>和<code>weight</code>后生成图片.</li>
+<li>show函数包含四个参数,G代表networkx生成的图对象,pos代表图的网络模型(默认ER随机图),title表示生成的图图里面所附带的title信息,photo_name代表保存的时候图的名称.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import networkx as nx</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">def show(G,pos,title=None,photo_name=&apos;picture&apos;):</div><div class="line">    e_1 =[(u,v) for (u,v,d) in G.edges(data=True) if d[&apos;weight&apos;] ==1] # 普通边</div><div class="line">    e_2 =[(u,v) for (u,v,d) in G.edges(data=True) if d[&apos;weight&apos;] ==0] # 利用的边</div><div class="line">    # Draw nodes</div><div class="line">    nx.draw_networkx_nodes(G,pos,node_size=300, node_color=&apos;orange&apos;)</div><div class="line">    # Draw Edges</div><div class="line">    nx.draw_networkx_edges(G,pos,edgelist=e_1,width=1, alpha = 1,edge_color=&apos;g&apos;,style=&apos;dashed&apos;)</div><div class="line">    nx.draw_networkx_edges(G,pos,edgelist=e_2, width=3,alpha=0.6,edge_color=&apos;b&apos;)</div><div class="line">    edge_labels =dict([((u, v), d[&apos;label&apos;]) for u, v, d in G.edges(data=True)])</div><div class="line">    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)</div><div class="line">    nx.draw_networkx_labels(G,pos,font_size=10)</div><div class="line">    plt.title(title)</div><div class="line">    plt.axis(&apos;off&apos;)</div><div class="line">    plt.savefig(photo_name)</div><div class="line">    plt.show()</div></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -433,7 +453,7 @@
 	  
 		<div class="copyright">
 		<p><span>
-		<b>本文地址：</b><a href="/2017/02/15/use-Fiddler/" title="安装Fiddler">https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/</a><br/><b>转载请注明出处，谢谢！</b>
+		<b>本文地址：</b><a href="/2017/03/30/graph-visible/" title="利用networkx实现图的可视化(实现三种基础的图算法)">https://yoghurt-lee.github.io/2017/03/30/graph-visible/</a><br/><b>转载请注明出处，谢谢！</b>
 		</span></p>
 		</div>
 	  
@@ -453,9 +473,9 @@
           
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/Fiddler/" rel="tag"># Fiddler</a>
+            <a href="/tags/networkx/" rel="tag"># networkx</a>
           
-            <a href="/tags/html/" rel="tag"># html</a>
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
           
         </div>
       
@@ -464,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/14/google-network/" rel="next" title="用google浏览器爬取JS生成的网页时network的使用">
-                <i class="fa fa-chevron-left"></i> 用google浏览器爬取JS生成的网页时network的使用
+              <a href="/2017/03/16/template-engine-2/" rel="next" title="(500 lines or less)利用python做一个模板引擎(下)">
+                <i class="fa fa-chevron-left"></i> (500 lines or less)利用python做一个模板引擎(下)
               </a>
             
           </div>
@@ -473,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/solve-403-Forbidden/" rel="prev" title="python爬取图片出现(403 Forbidden)的解决方法">
-                python爬取图片出现(403 Forbidden)的解决方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -505,8 +521,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/15/use-Fiddler/"
-           data-title="安装Fiddler" data-url="https://yoghurt-lee.github.io/2017/02/15/use-Fiddler/">
+      <div class="ds-thread" data-thread-key="2017/03/30/graph-visible/"
+           data-title="利用networkx实现图的可视化(实现三种基础的图算法)" data-url="https://yoghurt-lee.github.io/2017/03/30/graph-visible/">
       </div>
     
   </div>
@@ -644,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装并配置Fiddler"><span class="nav-number">1.</span> <span class="nav-text">安装并配置Fiddler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置Android手机"><span class="nav-number">2.</span> <span class="nav-text">设置Android手机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置安全证书"><span class="nav-number">3.</span> <span class="nav-text">设置安全证书</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单介绍"><span class="nav-number">2.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要实现的三种算法"><span class="nav-number">3.</span> <span class="nav-text">需要实现的三种算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用spfa算法构造最短路"><span class="nav-number">3.0.1.</span> <span class="nav-text">利用spfa算法构造最短路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用prim算法构造最小生成树"><span class="nav-number">3.0.2.</span> <span class="nav-text">利用prim算法构造最小生成树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用匈牙利算法实现二分图的最大匹配"><span class="nav-number">3.0.3.</span> <span class="nav-text">利用匈牙利算法实现二分图的最大匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成图片示例"><span class="nav-number">3.0.4.</span> <span class="nav-text">生成图片示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用networkx生成图片"><span class="nav-number">4.</span> <span class="nav-text">利用networkx生成图片</span></a></li></ol></div>
             
 
           </div>
