@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,Hexo," />
+  <meta name="keywords" content="博客,随笔," />
 
 
 
@@ -99,14 +99,18 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="一台电脑管理多个代码仓库出现的问题">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/01/20/blog1/index.html">
+<meta property="og:title" content="百里毅行">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/04/24/百里毅行/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://i2.muimg.com/584643/b9dcdbd567203ed4.png">
-<meta property="og:updated_time" content="2017-04-01T23:28:47.216Z">
+<meta property="og:image" content="http://i2.muimg.com/584643/3031cdd864486cc5.jpg">
+<meta property="og:image" content="http://i2.muimg.com/584643/1f707070b3a96e2e.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/c4917a2f4ab27071.jpg">
+<meta property="og:image" content="http://i1.piimg.com/584643/1eee07fbb140412a.jpg">
+<meta property="og:image" content="http://i1.piimg.com/584643/1bf0f0f7eaa3b6ad.jpg">
+<meta property="og:updated_time" content="2017-04-24T15:54:01.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一台电脑管理多个代码仓库出现的问题">
-<meta name="twitter:image" content="http://i2.muimg.com/584643/b9dcdbd567203ed4.png">
+<meta name="twitter:title" content="百里毅行">
+<meta name="twitter:image" content="http://i2.muimg.com/584643/3031cdd864486cc5.jpg">
 
 
 
@@ -134,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/01/20/blog1/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/04/24/百里毅行/"/>
 
 
 
 
 
-  <title> 一台电脑管理多个代码仓库出现的问题 | Fate </title>
+  <title> 百里毅行 | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/01/20/blog1/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/04/24/百里毅行/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -317,7 +321,7 @@
             
             
               
-                一台电脑管理多个代码仓库出现的问题
+                百里毅行
               
             
           </h1>
@@ -332,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-20T14:53:53+08:00">
-                2017-01-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T22:04:57+08:00">
+                2017-04-24
               </time>
             
 
@@ -351,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/20/blog1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/20/blog1/" itemprop="commentCount"></span>
+                <a href="/2017/04/24/百里毅行/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/24/百里毅行/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,28 +383,22 @@
       
 
       
-        <p><img src="http://i2.muimg.com/584643/b9dcdbd567203ed4.png" alt="Markdown"><br><a id="more"></a><br>千辛万苦,利用 Github+Hexo 做出了自己的页面,还是有点成就感的,由于是先给别人做了一个之后才做自己的主页,然后我的电脑一些错误,我选其中我被坑得最惨的一个来说说.<br>我被坑得最惨的一个错误是当我执行:<br>    <code>hexo g -d</code><br>电脑总是会报出<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">remote: Permission to XXX denied to XXX.fatal: unable to access &apos;XXX&apos;: The requested URL </div><div class="line">returned error: 403</div></pre></td></tr></table></figure></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案:"></a>解决方案:</h2><p>使用ssh方式链接到github,我们需要一对私钥/公钥,那么管理不同账号的代码仓库,我们就需要多对私钥/公钥了.</p>
-<ul>
-<li><p>首先,为每一个账号生成公钥</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_1 -C &quot;xxx@xxx.com&quot;</div><div class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_2 -C &quot;xxx@xxx.com&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>生成好后在<code>.ssh</code>文件夹下新建<code>config</code>文件并编辑，另不同<code>Host</code>实际映射到同一<br><code>HostName</code>,但密钥文件不同.<code>Host</code>前缀可自定义，例子中<code>ieit</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># default                                                                       </div><div class="line">Host github.com</div><div class="line">HostName github.com</div><div class="line">User git</div><div class="line">IdentityFile ~/.ssh/id_rsa_1</div><div class="line"># two                                                                           </div><div class="line">Host ieit.github.com</div><div class="line">HostName github.com</div><div class="line">User git</div><div class="line">IdentityFile ~/.ssh/id_rsa_2</div></pre></td></tr></table></figure>
-</li>
-<li><p>将生成的<code>id_rsa_1.pub</code>,<code>id_rsa_2.pub</code>内容<code>copy</code>到对应的<code>repo</code></p>
-</li>
-<li><p>然后通过以下方式验证是否成功</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -T git@ieit.github.com</div><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure>
-<p>  以上参考自:<a href="http://www.jianshu.com/p/3fc93c16ad2d" target="_blank" rel="external">@一台电脑绑定两个github帐号教程</a></p>
-</li>
-<li><p>到这步为止,网上都有,但是我电脑还是报相同的错误,折腾了我一上午,然后我尝试了很多方法,最后成功了.最后我修改了项目文件下<code>_config.yml</code>中的</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: https://github.com/yoghurt-lee/yoghurt-lee.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-<p>  修改为</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: git@github.com:yoghurt-lee/yoghurt-lee.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
-<p>  然后就<code>deploy</code>上去了.</p>
-<h3 id="如果本教程对你有用-不妨留个脚步"><a href="#如果本教程对你有用-不妨留个脚步" class="headerlink" title="如果本教程对你有用,不妨留个脚步."></a>如果本教程对你有用,不妨留个脚步.</h3></li>
+        <p><img src="http://i2.muimg.com/584643/3031cdd864486cc5.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>20岁之前,让我们来完成一次百里毅行吧!</p>
+</blockquote>
+<h3 id="第二篇随笔"><a href="#第二篇随笔" class="headerlink" title="第二篇随笔"></a>第二篇随笔</h3><ul>
+<li>上一篇是随笔,本来这篇我都已经在准备了写了,但是写一篇百里毅行的博客我感觉更有意义，先拖着吧233<br><img src="http://i2.muimg.com/584643/1f707070b3a96e2e.png" alt="Markdown"></li>
 </ul>
+<h3 id="立了三年的Flag"><a href="#立了三年的Flag" class="headerlink" title="立了三年的Flag"></a>立了三年的Flag</h3><p>18岁,大一,我和大黄就开始了百里毅行的策划,一直想来一场百里毅行,可是一直拖着,flag如山倒,一直拖到了青春的尾巴.还过几天我们就20岁了,但是,这次我们幸运的抓住了机会.<br><br>4.22,我们开始了百里毅行之旅.<br></p>
+<h3 id="长沙to湘潭"><a href="#长沙to湘潭" class="headerlink" title="长沙to湘潭"></a>长沙to湘潭</h3><p>5点半起床,6点出发,7点多一点赶到洋湖湿地公园,现场已经聚集了几万人,但是由于我们是从不同的地方出发的,所以一直找不到对方(其实就隔了一个舞台),这就造成了我们几乎到8点才动身.<br><br><img src="http://i1.piimg.com/584643/c4917a2f4ab27071.jpg" alt="Markdown"><br>我还是很开心的,天气不错,路边风景不错,边上的妹子狠好看,让我感觉这趟来得真值(○’ω’○)。<br><br>放张wuli大黄的照骗.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br>.<br><br><img src="http://i1.piimg.com/584643/1eee07fbb140412a.jpg" alt="Markdown"><br>等等,放错了,哈哈.<br><br>本人不要我放照骗.其实萌度跟这个差不多啦，大家自由发挥想象.ヾ(o◕∀◕)ﾉ。<br><br><img src="http://i1.piimg.com/584643/1bf0f0f7eaa3b6ad.jpg" alt="Markdown"><br>一直到第二个签到点我都感觉很轻松,虽然有一段路很难走,但只要不怕脏还是很容易就能过去,到了第二个签到点,吃了个中饭我们就轻松上路了.但是,天真的我没想到,折磨马上就要开始了.<br><br>接下来我就进入了这一天最煎熬的时刻,一条没有看不到尽头的水泥路,和天上的”温暖”阳,我突然意识到我穿错了鞋子,我穿了一双又硬又重的登山鞋(这里奉劝一句走百里毅行千万别穿登山鞋),在水泥路上马上就被磨出了水泡,而且还破掉了,脚底变得疼痛无比,走路也变得十分困难,一直坚持到第三个签到点,实在是撑不住了,找了一根木棍支撑着。<br><br>在第三个签到点,工作人员说:还有15KM到达今天的休整点———湖南工程学院,当时我就感觉到了绝望,脚底起泡,这怎么走的完.<br><br>最后的一段旅途真是无比煎熬,脚疼是主要的,然后后面是腰疼得不行,然后最主要的看不到终点,每次过了一座桥,然后目标又变成了下一座桥,真的感觉快坚持不了了.(但是到最后一个桥的时候可能是看到了希望?整个人突然变得有精神了(ง •̀_•́)ง).这里要给HJJ一万个赞,在腰疼得不行的情况下依然没选择放弃,选择了继续第二天的旅程.不过我们的小姐姐真是后知后觉:一直说脚底没起水泡,结果到了休整点才发现也起了好多水泡.z这里要给红十字会点个赞.<br><br>晚上的话睡的是帐篷,第一次睡帐篷,睡在里面没想象中的冷,只不过第二天起来的时候发现外面的布料都湿了,出去是真的冷.<br></p>
+<h3 id="湘潭to株洲"><a href="#湘潭to株洲" class="headerlink" title="湘潭to株洲"></a>湘潭to株洲</h3><p>今天的目标是株洲体育中心,距离貌似没昨天的远,这给了我一点点的安慰.趁着早上有微风,太阳还没出来,我们开始了第二天的毅行.<br><br>但是,我真的是要吐槽啊!这是组委会故意安排的吗?前面十多公里全部都是砾石路 (ノ｀Д´)ノ,本来脚就受伤了,这样的路走起来更是痛苦无比.<br><br>历经千辛万苦,终于走完了砾石路,接下来是漫天灰尘的泥巴路,然后是一座巨长长长长长的桥啊~第一次感觉桥那么长,不过走过了桥之后,终于迎来了一个饭点,不过在这个地方整个人就没动力了,躺在阴凉的地方休息了很久,被队伍甩在了后面(＃°Д°)(我能怎么办,我也很绝望啊(°ー°〃))<br><br>接下来就真的是长路漫漫没有尽头了,正午毒辣的太阳,我们几乎靠搀扶着才坚持走完了后面的距离,我感觉自己已经到极限了,人不逼自己一把都不知道自己原来可以这么NB啊!<br><br>总而言之,我们最后完成了百公里毅行，而我也变成了一个非洲小哥(以后还怎么抽卡啊摔),由于太惦记终点站的可乐差点把车票弄丢(幸亏没弄丢,不然只怕是要被一抹多打死<em>(┐「ε:)</em> )<br><br>晚上顺利回到了学校,不过我为什么要作死点了个爆辣黄焖鸡(可能是已经不清醒了),结果是挑战爆辣黄焖鸡失败.回到寝室洗完澡,然后休息了一天写下了这篇文章.<br></p>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><ul>
+<li>一定不要穿登山鞋,最好是穿鞋底厚一点的户外运动鞋.</li>
+<li>早点准备一根可以分担身体重量的拐杖,不然的话当你的脚被磨出泡的时候就已经晚了.</li>
+<li>不要带太多东西,但是最好是带一把遮阳伞,带一瓶防晒霜(特别是女生),像我就是太小看春天的太阳了,现在差不多就是肯尼亚小哥了.<em>(┐「ε:)</em></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><b>百里毅行真的很锻炼人的意志力,很值得去参加,但是,一次就够了.</b></p>
 
       
     </div>
@@ -417,7 +415,7 @@
 	  
 		<div class="copyright">
 		<p><span>
-		<b>本文地址：</b><a href="/2017/01/20/blog1/" title="一台电脑管理多个代码仓库出现的问题">https://yoghurt-lee.github.io/2017/01/20/blog1/</a><br/><b>转载请注明出处，谢谢！</b>
+		<b>本文地址：</b><a href="/2017/04/24/百里毅行/" title="百里毅行">https://yoghurt-lee.github.io/2017/04/24/百里毅行/</a><br/><b>转载请注明出处，谢谢！</b>
 		</span></p>
 		</div>
 	  
@@ -437,7 +435,7 @@
           
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/随笔/" rel="tag"># 随笔</a>
           
         </div>
       
@@ -446,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/20/post/" rel="next" title="新的博客,新的开始">
-                <i class="fa fa-chevron-left"></i> 新的博客,新的开始
+              <a href="/2017/04/17/大三的你/" rel="next" title="寄给未来的一封信">
+                <i class="fa fa-chevron-left"></i> 寄给未来的一封信
               </a>
             
           </div>
@@ -455,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/27/blog2/" rel="prev" title="将本地项目上传到github">
-                将本地项目上传到github <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +481,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/20/blog1/"
-           data-title="一台电脑管理多个代码仓库出现的问题" data-url="https://yoghurt-lee.github.io/2017/01/20/blog1/">
+      <div class="ds-thread" data-thread-key="2017/04/24/百里毅行/"
+           data-title="百里毅行" data-url="https://yoghurt-lee.github.io/2017/04/24/百里毅行/">
       </div>
     
   </div>
@@ -626,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果本教程对你有用-不妨留个脚步"><span class="nav-number">1.1.</span> <span class="nav-text">如果本教程对你有用,不妨留个脚步.</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第二篇随笔"><span class="nav-number">1.</span> <span class="nav-text">第二篇随笔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#立了三年的Flag"><span class="nav-number">2.</span> <span class="nav-text">立了三年的Flag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长沙to湘潭"><span class="nav-number">3.</span> <span class="nav-text">长沙to湘潭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#湘潭to株洲"><span class="nav-number">4.</span> <span class="nav-text">湘潭to株洲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建议"><span class="nav-number">5.</span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
