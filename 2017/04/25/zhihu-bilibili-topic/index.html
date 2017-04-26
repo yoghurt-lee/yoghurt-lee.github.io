@@ -1,0 +1,845 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=monospace:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="博客,python,爬虫,数据分析,word2vec," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fate" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://p1.bpimg.com/584643/7c200cde57587cf5.png?v=5.1.0" />
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析:知乎专栏哔哩哔哩篇">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/index.html">
+<meta property="og:site_name" content="Fate">
+<meta property="og:image" content="http://i2.muimg.com/584643/ee5427f32c65bc73.jpg">
+<meta property="og:image" content="http://i1.piimg.com/584643/e00d0eb68c22db58.png">
+<meta property="og:image" content="http://i1.piimg.com/584643/1c1a0450a770b291.png">
+<meta property="og:image" content="http://i2.muimg.com/584643/9bd0808703371d6c.png">
+<meta property="og:updated_time" content="2017-04-26T14:31:07.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析:知乎专栏哔哩哔哩篇">
+<meta name="twitter:image" content="http://i2.muimg.com/584643/ee5427f32c65bc73.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6376820599418783000',
+      author: '酸奶蛋挞'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/"/>
+
+
+
+
+
+  <title> 数据分析:知乎专栏哔哩哔哩篇 | Fate </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1f6b2afe9555672626a1bf6bc0b0e69a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Fate</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">但行好事,莫问前程</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendlink">
+          <a href="/friendlink" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comments"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="yoghurt-lee">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://p1.bqimg.com/584643/5e217198febdc83c.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Fate">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Fate" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据分析:知乎专栏哔哩哔哩篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T22:37:11+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/25/zhihu-bilibili-topic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/zhihu-bilibili-topic/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+		  
+		  
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://i2.muimg.com/584643/ee5427f32c65bc73.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>我用爬虫挂了一天半,从知乎的哔哩哔哩专栏中得到了200+个精华问题的所有回答,我们能够在这里得到什么呢?</p>
+</blockquote>
+<h3 id="word2vec简介"><a href="#word2vec简介" class="headerlink" title="word2vec简介"></a>word2vec简介</h3><blockquote>
+<p>Word2vec 是 Google 在 2013 年年中开源的一款将词表征为实数值向量的高效工具, 其利用深度学习的思想，可以通过训练，把对文本内容的处理简化为 K 维向量空间中的向量运算，而向量空间上的相似度可以用来表示文本语义上的相似度。Word2vec输出的词向量可以被用来做很多 NLP 相关的工作，比如聚类、找同义词、词性分析等等。如果换个思路， 把词当做特征，那么Word2vec就可以把特征映射到 K 维向量空间，可以为文本数据寻求更加深层次的特征表示 。</p>
+</blockquote>
+<p>这里的算法原理已经和机器学习挂钩了,我们不做深度剖析(<a href="http://wei-li.cnblogs.com/p/word2vec.html" target="_blank" rel="external">算法的简介</a>),只要使用其python包.然后介绍一下这里需要使用的方法.</p>
+<ul>
+<li><p>在使用<code>word2vec</code>之前请先装好<code>codecs</code>模块,这个模块可以免去读取文件时很多编码的麻烦,专门针对自然语言处理的编码转换,只要指定一个编码方式打开文件就ok了.</p>
+</li>
+<li><p><code>word2vec</code>的导入以及使用:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from gensim.models import word2vec #导入模块</div><div class="line">sentences = word2vec.LineSentence(filename) #从文件中读入语料</div><div class="line"></div><div class="line">#sentences 指的是训练语料,</div><div class="line">#window指词向量训练时上下文扫描窗口大小,为5就考虑前5个词和后5个词</div><div class="line">#size指的是每个词的向量维度,</div><div class="line">#min_count指的是最低频率,默认为5,如果一个词出现次数小于5,那么就丢弃</div><div class="line">#workers指训练的进程数,默认是当前运行机器的处理器核数.</div><div class="line">model = word2vec.Word2Vec(sentences, size=200,window=5,min_count=10,workers=3)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>word2vec</code>里面的方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">print model[u&apos;XXX&apos;] #获取词向量,类型为`numpy.ndarray`,维数为上面指定的size</div><div class="line"></div><div class="line">#计算与一个词的最近似topn个词，按照余弦相似度从大到小排列</div><div class="line">result = model.most_similar(u&apos;XXX&apos;,topn=10)</div><div class="line">for each in result:</div><div class="line">    print each[0] , each[1]</div><div class="line">#支持词语的加减运算(很神奇啊!) 比如&apos;希拉里&apos;对应&apos;加州&apos;,&apos;川普&apos;对应&apos;德州&apos;,那么&apos;希拉里&apos;+&apos;加州&apos;-&apos;川普&apos;=&apos;德州&apos;</div><div class="line">model.most_similar(positive=[u&quot;希拉里&quot;,u&quot;加州&quot;],negative=[u&quot;德州&quot;], topn=1)</div><div class="line">#两词之间的余弦相似度</div><div class="line">print model.similarity(u&apos;XXX&apos;, u&apos;YYY&apos;)</div><div class="line"></div><div class="line">#计算两个集合之间的余弦似度</div><div class="line">list1 = [u&apos;今天&apos;, u&apos;我&apos;, u&apos;很&apos;, u&apos;开心&apos;]</div><div class="line">list2 = [u&apos;空气&apos;,u&apos;清新&apos;, u&apos;善良&apos;, u&apos;开心&apos;]</div><div class="line">list_sim1 =  model.n_similarity(list1, list2)</div><div class="line"></div><div class="line">#选出集合中不同类的词语</div><div class="line">list = [u&apos;纽约&apos;, u&apos;北京&apos;, u&apos;上海&apos;, u&apos;西安&apos;]</div><div class="line">print model.doesnt_match(list) #自然是西瓜咯</div></pre></td></tr></table></figure>
+<h3 id="jieba分词"><a href="#jieba分词" class="headerlink" title="jieba分词"></a>jieba分词</h3><ul>
+<li>先利用jieba将爬下来的文本进行分词,将自定义的词典和自定义的<code>stopwords</code>加进来<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#部分自定义词典</div><div class="line">bilibibi</div><div class="line">noconico</div><div class="line">acfun</div><div class="line">爱奇艺</div><div class="line">土豆</div><div class="line">优酷</div><div class="line">哔哩哔哩</div><div class="line">ACG</div><div class="line">b站</div><div class="line">B站</div><div class="line">节奏大师</div><div class="line">A站</div><div class="line">炮姐</div><div class="line">御坂美琴</div><div class="line">2233娘</div><div class="line">bishi</div><div class="line">9bishi</div><div class="line">小学生</div><div class="line">徐逸</div><div class="line">陈睿</div><div class="line">鬼畜</div><div class="line">二次元</div><div class="line">...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#部分stopwords</div><div class="line">其实</div><div class="line">已经</div><div class="line">大家</div><div class="line">很多</div><div class="line">觉得</div><div class="line">喜欢</div><div class="line">现在</div><div class="line">真的</div><div class="line">看到</div><div class="line">这种</div><div class="line">可能</div><div class="line">感觉</div><div class="line">一下</div><div class="line">不能</div><div class="line">来说</div><div class="line">非常</div><div class="line">一点</div><div class="line">之后</div><div class="line">之前</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>分完词后大约还有20M的文本<br><img src="http://i1.piimg.com/584643/e00d0eb68c22db58.png" alt="Markdown"><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import jieba</div><div class="line">import codecs</div><div class="line">import re,os</div><div class="line">jieba.load_userdict(u&apos;data_analysis/mydict.txt&apos;) # 自定义词典的路径</div><div class="line">with codecs.open(u&apos;data_analysis/text.txt&apos;,&apos;r&apos;,&apos;utf-8&apos;) as f:</div><div class="line">    sentences = f.readlines()</div><div class="line">stopwordfile=codecs.open(&quot;data_analysis/stopwords.txt&quot;,&quot;r&quot;,&apos;utf-8&apos;)</div><div class="line">stopwords=stopwordfile.readlines()</div><div class="line">stopwords=[re.sub(&quot;\r\n|\n&quot;,&quot;&quot;,word) for word in stopwords]</div><div class="line">stopwords.append(&apos;\n&apos;)</div><div class="line">if os.path.exists(u&apos;data_analysis/cut_text.txt&apos;):</div><div class="line">    os.remove(u&apos;data_analysis/cut_text.txt&apos;)</div><div class="line">for sentence in sentences:</div><div class="line">    text =  &apos; &apos;.join([word for word in jieba.cut(sentence) if len(word)&gt;1 and word not in stopwords])</div><div class="line">    with codecs.open(u&apos;data_analysis/cut_text.txt&apos;,&apos;a&apos;) as f:</div><div class="line">        f.write(text)</div></pre></td></tr></table></figure></p>
+<h3 id="统计词频"><a href="#统计词频" class="headerlink" title="统计词频"></a>统计词频</h3><ul>
+<li><p>我们先对文本中出现最多的进行一次统计,看看回答中出现的的最多的是哪些?我们这里总共有<code>5943182</code>个词.<br><img src="http://i1.piimg.com/584643/1c1a0450a770b291.png" alt="Markdown"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">下标 名称 出现次数</div><div class="line">97414 视频 23371</div><div class="line">54703 弹幕 23150</div><div class="line">4519 B站 22880</div><div class="line">11108 b站 18979</div><div class="line">107100 问题 11080</div><div class="line">53473 广告 9541</div><div class="line">22541 二次元 8516</div><div class="line">81406 用户 8511</div><div class="line">33925 动画 8490</div><div class="line">20256 中国 8114</div><div class="line">90403 网站 7714</div><div class="line">76830 游戏 7170</div><div class="line">33915 动漫 6748</div><div class="line">25484 会员 6385</div><div class="line">81685 电影 5912</div><div class="line">83461 直播 5855</div><div class="line">19501 东西 5832</div><div class="line">98289 评论 5623</div><div class="line">31548 出来 5205</div><div class="line">26480 作品 5018</div><div class="line">111438 鬼畜 4883</div><div class="line">66494 日本 4673</div><div class="line">32541 别人 4347</div><div class="line">84898 知乎 4334</div><div class="line">41814 回答 4155</div><div class="line">19316 世界 4144</div><div class="line">10933 bilibili 4089</div><div class="line">88315 粉丝 3905</div><div class="line">65153 文化 3866</div><div class="line">52613 希望 3822</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到视频,弹幕,B站出现的次数稳居前三,同时我们自定义词典中二次元,鬼畜这些词也都在.这些数据还是比较符合我们的预期的,同时也证明了分出来的词没问题.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">#coding: utf-8</div><div class="line">import re</div><div class="line">import time</div><div class="line">import numpy as np</div><div class="line">import pandas</div><div class="line">import jieba</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">from pylab import *</div><div class="line">import codecs</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">#遍历文件中的数据</div><div class="line">with codecs.open(u&quot;data_analysis/cut_text.txt&quot;,&apos;r&apos;,&apos;utf-8&apos;) as f:</div><div class="line">    context=f.read()</div><div class="line">segment = context.split()</div><div class="line"></div><div class="line">#去停用词</div><div class="line">words_df=pandas.DataFrame(&#123;&apos;segment&apos;:segment&#125;)</div><div class="line">words_df.head()</div><div class="line">stopwords = []</div><div class="line">with codecs.open(&apos;data_analysis/stopwords.txt&apos;,&apos;r&apos;,&apos;utf-8&apos;) as f:</div><div class="line">    context = f.read()</div><div class="line">stopwords = context.split()</div><div class="line">words_df=words_df[~words_df.segment.isin(stopwords)]</div><div class="line"></div><div class="line">#统计词频</div><div class="line">words_stat=words_df.groupby(by=[&apos;segment&apos;])[&apos;segment&apos;].agg(&#123;&quot;number&quot;:np.size&#125;)</div><div class="line">words_stat=words_stat.reset_index().sort_values(by=&quot;number&quot;,ascending=False)</div><div class="line">print &apos;index&apos;,&apos;segment&apos;,&apos;number&apos;</div><div class="line">for index,Series in words_stat.head(30).iterrows():</div><div class="line">    print index,Series[&apos;segment&apos;].decode(&apos;utf-8&apos;),Series[&apos;number&apos;]</div><div class="line"></div><div class="line">words_stat[:30].plot(x=&apos;segment&apos;, y=&apos;number&apos;, kind=&apos;bar&apos;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="利用word2vec进行数据挖掘"><a href="#利用word2vec进行数据挖掘" class="headerlink" title="利用word2vec进行数据挖掘"></a>利用word2vec进行数据挖掘</h3><ul>
+<li><p>我们将对b站站长<code>bishi</code>在window这个参数上，分别设置上下文跨度为5,10和15。找到与<code>bishi</code>最接近的20个关键词.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">model1 = word2vec.Word2Vec(sentences, size=200,window=5,min_count=10,workers=3)</div><div class="line">model2 = word2vec.Word2Vec(sentences, size=200,window=10,min_count=10)</div><div class="line">model3 = word2vec.Word2Vec(sentences, size=200,window=15,min_count=10)</div><div class="line">y_t_1 = model1.most_similar(u&apos;bishi&apos;,topn=20)</div><div class="line">y_t_2 = model2.most_similar(u&apos;bishi&apos;,topn=20)</div><div class="line">y_t_3 = model3.most_similar(u&apos;bishi&apos;,topn=20)</div><div class="line">#输出结果</div><div class="line">for item in y_t_1:</div><div class="line">    print item[0],item[1]</div><div class="line">print</div><div class="line">for item in y_t_2:</div><div class="line">    print item[0],item[1]</div><div class="line">print</div><div class="line">for item in y_t_3:</div><div class="line">    print item[0],item[1]</div><div class="line">print</div></pre></td></tr></table></figure>
+</li>
+<li><p>下图是当跨度分别为5,10,15情况下的结果.我们可以看到结果是比较符合我们的预期的,特首(另一个外号),徐逸(bishi真名),睿国(bilibili董事长),逸国,陈睿,9bishi这些词都出现了,冠名说的是b站冠名上海篮球队,体现了word2vec在聚类、找近义词方面强大的功能.在这里没有看出不同跨度下哪组结果更好,实际应用中可能要根据需要进行调节.<br><img src="http://i2.muimg.com/584643/9bd0808703371d6c.png" alt="Markdown"></p>
+</li>
+<li><p>我们对<code>b站</code>与<code>bishi</code>,<code>bilibili</code>,<code>acfun</code>的余弦相似度进行分析.对这个结果我是不满意的,因为bilibili与b站应该是同一个词,可是相似度却只有40%.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print model1.similarity(u&apos;b站&apos;,u&apos;bishi&apos;)</div><div class="line">#0.437511023039</div><div class="line">print model1.similarity(u&apos;b站&apos;,u&apos;bilibili&apos;)</div><div class="line">#0.405590707607</div><div class="line">print model1.similarity(u&apos;b站&apos;,u&apos;acfun&apos;)</div><div class="line">#0.394401775964</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后我试了一下<code>bilibili</code>与<code>哔哩哔哩</code>,<code>B站</code>,<code>弹幕</code>的余弦相似度,发现只有第一个令我满意.可能是语料不够充分的原因.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">print model1.similarity(u&apos;bilibili&apos;,u&apos;哔哩哔哩&apos;)</div><div class="line">#0.90745918569</div><div class="line">print model1.similarity(u&apos;bilibili&apos;,u&apos;B站&apos;)</div><div class="line">#0.381251411934</div><div class="line">print model1.similarity(u&apos;bilibili&apos;,u&apos;弹幕&apos;)</div><div class="line">#0.15385446278</div></pre></td></tr></table></figure>
+</li>
+<li><p>接下来做个比较有意思的实验: ‘弹幕’+’刷屏’-‘字幕’=?,结果如下,还是比较科学的,都是经常出现在弹幕中的词.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">和谐 0.669674515724</div><div class="line">撕逼 0.629316687584</div><div class="line">热闹 0.627753138542</div><div class="line">游客 0.595176875591</div><div class="line">莫名其妙 0.585232615471</div><div class="line">弹幕礼仪 0.583511531353</div><div class="line">喷子 0.583252549171</div><div class="line">习惯 0.570423543453</div><div class="line">屏蔽 0.568080067635</div><div class="line">动不动 0.565914690495</div></pre></td></tr></table></figure>
+</li>
+<li><p>接下来做实验,找出集合中不同类的词:输出bishi,没问题,嗯..(要是有问题我就要怀疑数据集了)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list = [u&apos;b站&apos;, u&apos;bishi&apos;, u&apos;哔哩哔哩&apos;, u&apos;B站&apos;,u&apos;bilibili&apos;]</div><div class="line">print model1.doesnt_match(list) #自然是西瓜咯</div><div class="line">#bishi</div></pre></td></tr></table></figure>
+</li>
+<li><p>word2vec的基本用法就介绍到这里了,大家也可以弄点数据来玩玩,算法细节有时间也可以深究.</p>
+</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://blog.csdn.net/jerr__y/article/details/52967351" target="_blank" rel="external">python 下的 word2vec 学习笔记</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26218472" target="_blank" rel="external">挖掘1000万字知乎答案，我们到底给川普起了哪些外号？</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	
+	<div align="center">
+	  
+		<div class="copyright">
+		<p><span>
+		<b>本文地址：</b><a href="/2017/04/25/zhihu-bilibili-topic/" title="数据分析:知乎专栏哔哩哔哩篇">https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/</a><br/><b>转载请注明出处，谢谢！</b>
+		</span></p>
+		</div>
+	  
+	</div>
+	
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博客/" rel="tag"># 博客</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/word2vec/" rel="tag"># word2vec</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/24/百里毅行/" rel="next" title="百里毅行">
+                <i class="fa fa-chevron-left"></i> 百里毅行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/25/zhihu-bilibili-topic/"
+           data-title="数据分析:知乎专栏哔哩哔哩篇" data-url="https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://p1.bqimg.com/584643/5e217198febdc83c.png"
+               alt="yoghurt-lee" />
+          <p class="site-author-name" itemprop="name">yoghurt-lee</p>
+          <p class="site-description motion-element" itemprop="description">LYG的个人博客</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/yoghurt-lee/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3306000123/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-star"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/liyinggang/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-gittip"></i>
+                  
+                  博客园
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=436514312&auto=0&height=66"></iframe>
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#word2vec简介"><span class="nav-number">1.</span> <span class="nav-text">word2vec简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jieba分词"><span class="nav-number">2.</span> <span class="nav-text">jieba分词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计词频"><span class="nav-number">3.</span> <span class="nav-text">统计词频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用word2vec进行数据挖掘"><span class="nav-number">4.</span> <span class="nav-text">利用word2vec进行数据挖掘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yoghurt-lee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yoghurt-lee"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

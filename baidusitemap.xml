@@ -4,6 +4,31 @@
 
     
   <url>
+    <loc>https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/</loc>
+    <lastmod>2017-04-26T14:31:07.658Z</lastmod>
+    <data>
+        <display>
+        <title>数据分析:知乎专栏哔哩哔哩篇</title>
+        <pubTime>2017-04-25T14:37:11.000Z</pubTime>
+        
+        <tag>博客</tag>
+         
+        <tag>python</tag>
+         
+        <tag>爬虫</tag>
+         
+        <tag>数据分析</tag>
+         
+        <tag>word2vec</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yoghurt-lee.github.io/2017/04/24/%E7%99%BE%E9%87%8C%E6%AF%85%E8%A1%8C/</loc>
     <lastmod>2017-04-24T22:15:32.592Z</lastmod>
     <data>
@@ -50,9 +75,9 @@
         <title>一台电脑管理多个代码仓库出现的问题</title>
         <pubTime>2017-01-20T06:53:53.000Z</pubTime>
         
-        <tag>博客</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>博客</tag>
          
          
            
@@ -115,9 +140,9 @@
         
         <tag>博客</tag>
          
-        <tag>networkx</tag>
-         
         <tag>数据分析</tag>
+         
+        <tag>networkx</tag>
          
          
            
@@ -343,9 +368,9 @@
         <title>将本地项目上传到github</title>
         <pubTime>2017-01-27T14:22:19.000Z</pubTime>
         
-        <tag>github</tag>
-         
         <tag>博客</tag>
+         
+        <tag>github</tag>
          
          
            
