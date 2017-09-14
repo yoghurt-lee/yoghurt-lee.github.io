@@ -902,9 +902,9 @@
     <link href="https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/"/>
     <id>https://yoghurt-lee.github.io/2017/02/04/how-to-use-py2exe/</id>
     <published>2017-02-04T03:24:20.000Z</published>
-    <updated>2017-02-19T08:59:33.048Z</updated>
+    <updated>2017-09-14T08:08:30.429Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/478e3a7ffeb1cede.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\how_to_use_py2exe_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>python是很方便进行开发的语言,但是,许多人的电脑里面并没有安装python,我们可以用py2exe将python项目生成exe文件.</p>
 </blockquote>
@@ -929,7 +929,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/584643/478e3a7ffeb1cede.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\how_to_use_py2exe_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
