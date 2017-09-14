@@ -258,9 +258,9 @@
     <link href="https://yoghurt-lee.github.io/2017/03/30/graph-visible/"/>
     <id>https://yoghurt-lee.github.io/2017/03/30/graph-visible/</id>
     <published>2017-03-30T10:55:48.000Z</published>
-    <updated>2017-04-01T23:01:32.968Z</updated>
+    <updated>2017-09-14T08:18:07.552Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/584643/8a2afd1372751550.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\graph-visible_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>前言：很久没更新博客了,想找点东西做做,找到一个不错的python数据分析包——networkx,这里就来用它实现最短路的可视化.</p>
 </blockquote>
@@ -287,15 +287,13 @@
 <h2 id="需要实现的三种算法"><a href="#需要实现的三种算法" class="headerlink" title="需要实现的三种算法"></a>需要实现的三种算法</h2><h3 id="利用spfa算法构造最短路"><a href="#利用spfa算法构造最短路" class="headerlink" title="利用spfa算法构造最短路"></a>利用spfa算法构造最短路</h3><ul>
 <li>networkx非常强大,提供最短路算法,但是为了满足需要,我还是自己实现了spfa算法.spfa算法我不详细叙述了,就是利用链式前向星求最短路的算法.这里的话我只说下我的基本思路.</li>
 <li>在spfa算法中用一个pre数组存当前节点的前一个节点的编号,以及用一个边编号数组存当前的两个节点中哪一条边被用了(考虑重边问题),节点的d值变了就更新这两个数组的数据;</li>
-<li>找完最短路后,然后通过反向寻找路径将用到的边存到一个集合,将之前的边删除掉.然后生成新的边(着两条边本质上是一样的),这样就可以将边分为两个集合(最短路中的边和原图中的边),然后就可以轻易的画出图形了.<br><img src="http://i2.muimg.com/584643/dc9be2d43713c743.png" alt="Markdown"></li>
-</ul>
-<h3 id="利用prim算法构造最小生成树"><a href="#利用prim算法构造最小生成树" class="headerlink" title="利用prim算法构造最小生成树"></a>利用prim算法构造最小生成树</h3><ul>
+<li>找完最短路后,然后通过反向寻找路径将用到的边存到一个集合,将之前的边删除掉.然后生成新的边(着两条边本质上是一样的),这样就可以将边分为两个集合(最短路中的边和原图中的边),然后就可以轻易的画出图形了.<br><img src="\img\graph-visible_4.jpg" alt="Markdown"><h3 id="利用prim算法构造最小生成树"><a href="#利用prim算法构造最小生成树" class="headerlink" title="利用prim算法构造最小生成树"></a>利用prim算法构造最小生成树</h3></li>
 <li>这里我就用了邻接矩阵实现的prim算法,prim算法不做介绍.同样是用一个pre数组记录最小生成树中的边,这里的边可以在每次更新的权值的时候就找到.</li>
-<li>这个算法不复杂,大家可以扩展一下生成次小生成树.<br><img src="http://i1.piimg.com/584643/c12f839583a9ac9e.png" alt="Markdown"></li>
+<li>这个算法不复杂,大家可以扩展一下生成次小生成树.<br><img src="\img\graph-visible_3.jpg" alt="Markdown"></li>
 </ul>
 <h3 id="利用匈牙利算法实现二分图的最大匹配"><a href="#利用匈牙利算法实现二分图的最大匹配" class="headerlink" title="利用匈牙利算法实现二分图的最大匹配"></a>利用匈牙利算法实现二分图的最大匹配</h3><ul>
 <li>二分图的最大匹配算法实质上也就是寻找增广路的过程,这其中有个linker数组,初始值为-1,当对每个点做完增广后,遍历linker数组,如果linker数组不为-1,则证明这个linker[v]和v形成了匹配.这条边最大匹配中的边.</li>
-<li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.<br><img src="http://i1.piimg.com/584643/4a1335d537734da3.png" alt="Markdown"></li>
+<li>这个算法可以用链式前向星或者邻接矩阵实现.我这里用的链式前向星.<br><img src="\img\graph-visible_2.jpg" alt="Markdown"></li>
 </ul>
 <h2 id="利用networkx生成图片"><a href="#利用networkx生成图片" class="headerlink" title="利用networkx生成图片"></a>利用networkx生成图片</h2><ul>
 <li>这里的话所有的边都是在一个图里面的,怎么区分出来呢?我们发现边里面可以传一个<code>**attr</code>的关键字参数,所以我们可以为两种边设置不同的关键字<code>weight</code>来区分(当然设置别的属性也可以)</li>
@@ -307,7 +305,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i2.muimg.com/584643/8a2afd1372751550.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\graph-visible_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
