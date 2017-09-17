@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>https://yoghurt-lee.github.io/2017/03/16/template-engine-2/</loc>
+    <lastmod>2017-09-17T06:05:22.785Z</lastmod>
+    <data>
+        <display>
+        <title>(500 lines or less)利用python做一个模板引擎(下)</title>
+        <pubTime>2017-03-16T07:15:04.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>博客</tag>
+         
+        <tag>模板引擎</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yoghurt-lee.github.io/2017/02/20/install-mysqldb/</loc>
     <lastmod>2017-09-17T04:54:04.665Z</lastmod>
     <data>
@@ -119,27 +140,6 @@
         <display>
         <title>(500 lines or less)利用python做一个模板引擎(上)</title>
         <pubTime>2017-03-15T15:04:28.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>博客</tag>
-         
-        <tag>模板引擎</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://yoghurt-lee.github.io/2017/03/16/template-engine-2/</loc>
-    <lastmod>2017-09-17T04:44:16.081Z</lastmod>
-    <data>
-        <display>
-        <title>(500 lines or less)利用python做一个模板引擎(下)</title>
-        <pubTime>2017-03-16T07:15:04.000Z</pubTime>
         
         <tag>python</tag>
          
