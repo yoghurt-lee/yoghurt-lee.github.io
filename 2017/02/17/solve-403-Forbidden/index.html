@@ -91,7 +91,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="http://p1.bpimg.com/584643/7c200cde57587cf5.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/img/kotori.png?v=5.1.0" />
 
 
 
@@ -102,12 +102,12 @@
 <meta property="og:title" content="python爬取图片出现(403 Forbidden)的解决方法">
 <meta property="og:url" content="https://yoghurt-lee.github.io/2017/02/17/solve-403-Forbidden/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://i1.piimg.com/584643/8882f90cab6b724a.jpg">
-<meta property="og:image" content="http://i1.piimg.com/584643/691d2a6d4343702a.png">
-<meta property="og:updated_time" content="2017-02-17T13:46:02.410Z">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/solve-403-Forbidden_1.jpg">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/solve-403-Forbidden_1.png">
+<meta property="og:updated_time" content="2017-09-17T14:37:38.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬取图片出现(403 Forbidden)的解决方法">
-<meta name="twitter:image" content="http://i1.piimg.com/584643/8882f90cab6b724a.jpg">
+<meta name="twitter:image" content="https://yoghurt-lee.github.io/img/solve-403-Forbidden_1.jpg">
 
 
 
@@ -380,12 +380,12 @@
       
 
       
-        <p><img src="http://i1.piimg.com/584643/8882f90cab6b724a.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="/img/solve-403-Forbidden_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>前言:今天做了一个图片爬虫,遇到了一个很奇怪的问题,但是最终找到了解决方法.</p>
 </blockquote>
 <ul>
-<li><p>今天做了个图片爬虫,但是当我从图片链接去下载图片时,总是报出<code>403 Forbidden</code>,而且当我用别的浏览器打开这个图片链接时,也报这个错误.当时感觉玄学了..<br><img src="http://i1.piimg.com/584643/691d2a6d4343702a.png" alt="Markdown"></p>
+<li><p>今天做了个图片爬虫,但是当我从图片链接去下载图片时,总是报出<code>403 Forbidden</code>,而且当我用别的浏览器打开这个图片链接时,也报这个错误.当时感觉玄学了..<br><img src="/img/solve-403-Forbidden_1.png" alt="Markdown"></p>
 </li>
 <li><p>解决方法:在headers里面需要一个<code>Referer</code>,告诉了服务器我是从这个页面跳转过去的。（这当然不是真的）然后骗过服务器.</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36&apos;,</div><div class="line">              &apos;Referer&apos;:&apos;跳转之前的网页&apos;&#125;</div></pre></td></tr></table></figure>
