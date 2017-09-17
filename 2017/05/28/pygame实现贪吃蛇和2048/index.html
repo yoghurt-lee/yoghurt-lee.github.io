@@ -102,13 +102,13 @@
 <meta property="og:title" content="pygame实现贪吃蛇和2048">
 <meta property="og:url" content="https://yoghurt-lee.github.io/2017/05/28/pygame实现贪吃蛇和2048/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://i4.buimg.com/584643/09ee09475c2f987a.png">
-<meta property="og:image" content="http://i4.buimg.com/584643/612ae44cc47edb4b.png">
-<meta property="og:image" content="http://i4.buimg.com/584643/e9933cee1faca4f0.png">
-<meta property="og:updated_time" content="2017-05-28T01:22:46.568Z">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\pygame实现贪吃蛇和2048_1.png">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\pygame实现贪吃蛇和2048_2.png">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\pygame实现贪吃蛇和2048_3.png">
+<meta property="og:updated_time" content="2017-09-17T04:50:33.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pygame实现贪吃蛇和2048">
-<meta name="twitter:image" content="http://i4.buimg.com/584643/09ee09475c2f987a.png">
+<meta name="twitter:image" content="https://yoghurt-lee.github.io/\img\pygame实现贪吃蛇和2048_1.png">
 
 
 
@@ -381,7 +381,7 @@
       
 
       
-        <p><img src="http://i4.buimg.com/584643/09ee09475c2f987a.png" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="\img\pygame实现贪吃蛇和2048_1.png" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>很久没有更新博客啦,今天端午节放假，正好有时间更新下博客,把前两个星期完成的软工作业写成一篇博客好了(大雾).</p>
 </blockquote>
@@ -396,7 +396,7 @@
 <h3 id="贪吃蛇"><a href="#贪吃蛇" class="headerlink" title="贪吃蛇"></a>贪吃蛇</h3><ul>
 <li><p>这是一款非常老的游戏了，我选这个的原因是因为刚刚接触<code>pygame</code>,所以做一个容易一点的游戏,后来做完2048之后想做一个连连看的，懒癌发作就没写了.</p>
 </li>
-<li><p>游戏界面<br><img src="http://i4.buimg.com/584643/612ae44cc47edb4b.png" alt="Markdown"></p>
+<li><p>游戏界面<br><img src="\img\pygame实现贪吃蛇和2048_2.png" alt="Markdown"></p>
 </li>
 <li><p>游戏的主循环</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">def runGame():</div><div class="line">   #游戏主循环</div><div class="line">   startx = random.randint(5, CELLWIDTH - 6)</div><div class="line">   starty = random.randint(5,CELLHEIGHT - 6)</div><div class="line">   #最开始蛇长度为 3</div><div class="line">   snake = [</div><div class="line">       &#123;&apos;x&apos;:startx,&apos;y&apos;: starty&#125;,</div><div class="line">       &#123;&apos;x&apos;: startx - 1, &apos;y&apos;: starty&#125;,</div><div class="line">       &#123;&apos;x&apos;: startx - 2, &apos;y&apos;: starty&#125;</div><div class="line">   ]</div><div class="line">   #最开始的方向</div><div class="line">   direction = RIGHT</div><div class="line">   #生成苹果位置</div><div class="line">   apple = appleLocation()</div><div class="line">   #循环一次的时间</div><div class="line">   TIME = 0.1</div><div class="line">   #蛇的长度作为一个标志,如果这个标志变化了,那么TIME也就变化，控制游戏难度</div><div class="line">   laststate = len(snake)</div><div class="line">   while True:</div><div class="line">       SCREEN.blit(BACKGROUND_PICTURE,(0,0))</div><div class="line">       #draw_grid()</div><div class="line">       #蛇死亡后返回</div><div class="line">       if snakeDie(snake):</div><div class="line">           return</div><div class="line">       lastdirection = direction #记录前一个方向,防止出现BUG</div><div class="line">       #事件循环</div><div class="line">       for event in pygame.event.get():</div><div class="line">           if event.type==QUIT:</div><div class="line">               exit()</div><div class="line">           elif event.type == KEYDOWN:</div><div class="line">               key = event.key</div><div class="line">               if lastdirection != RIGHT:</div><div class="line">                   if (key ==K_a or key==K_LEFT) and direction!=RIGHT: #往左</div><div class="line">                       direction = LEFT</div><div class="line">               if lastdirection != LEFT:</div><div class="line">                   if (key ==K_d or key==K_RIGHT) and direction!=LEFT: #往右</div><div class="line">                       direction = RIGHT</div><div class="line">               if lastdirection != DOWN:</div><div class="line">                   if (key ==K_a or key==K_UP) and direction!=DOWN: #往上</div><div class="line">                       direction = UP</div><div class="line">               if lastdirection != UP:</div><div class="line">                   if (key ==K_s or key==K_DOWN) and direction!=UP: #往下</div><div class="line">                       direction = DOWN</div><div class="line">               if key==K_ESCAPE:</div><div class="line">                   exit()</div><div class="line">       #吃到了苹果，生成新苹果,否则，删除蛇的尾巴</div><div class="line">       if snake[HEAD][&apos;x&apos;]== apple[&apos;x&apos;] and snake[HEAD][&apos;y&apos;] == apple[&apos;y&apos;]:</div><div class="line">           apple = appleLocation()</div><div class="line">       else:</div><div class="line">           del snake[-1] #删除掉蛇的尾巴</div><div class="line">       #新的头</div><div class="line">       new_head = &#123;&apos;x&apos;:snake[HEAD][&apos;x&apos;]+direction[0],&apos;y&apos;:snake[HEAD][&apos;y&apos;]+direction[1]&#125;</div><div class="line">       snake.insert(0,new_head)</div><div class="line">       #绘制蛇,苹果，分数</div><div class="line">       draw_snake(snake)</div><div class="line">       draw_apple(apple)</div><div class="line">       draw_score(10*(len(snake)-3))</div><div class="line">       #绘制鼠标</div><div class="line">       (x,y) = pygame.mouse.get_pos()</div><div class="line">       SCREEN.blit(MOUSEIMAGE,(x-MOUSEIMAGE.get_width()/2,y-MOUSEIMAGE.get_height()/2))</div><div class="line">       #刷新屏幕</div><div class="line">       pygame.display.update()</div><div class="line">       FPSCLOCK.tick(FPS)</div><div class="line">       #蛇的当前长度为蛇的当前状态</div><div class="line">       nowstate = len(snake)</div><div class="line">       #状态变化</div><div class="line">       if laststate!=nowstate:</div><div class="line">           TIME-=0.005</div><div class="line">           laststate = nowstate</div><div class="line">       #确保循环时间合理性</div><div class="line">       if TIME&lt;0: TIME = 0</div><div class="line">       time.sleep(TIME)</div></pre></td></tr></table></figure>
@@ -410,7 +410,7 @@
 <li><p>主页面</p>
 </li>
 </ul>
-<p><img src="http://i4.buimg.com/584643/e9933cee1faca4f0.png" alt="Markdown"></p>
+<p><img src="\img\pygame实现贪吃蛇和2048_3.png" alt="Markdown"></p>
 <ul>
 <li><p>这个游戏主要是弄清方块怎么移动的，就很容易实现了.每次移动的过程中，运算时通过三重循环迭代进行实现的,比如UP的操作,引发的事件就是:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">For y: 1-&gt;3</div><div class="line">	For x: 0-&gt;3</div><div class="line">		For y1: y-&gt;0</div></pre></td></tr></table></figure>

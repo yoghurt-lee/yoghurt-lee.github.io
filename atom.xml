@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-05-28T01:22:46.568Z</updated>
+  <updated>2017-09-17T04:50:33.172Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://yoghurt-lee.github.io/2017/05/28/pygame%E5%AE%9E%E7%8E%B0%E8%B4%AA%E5%90%83%E8%9B%87%E5%92%8C2048/"/>
     <id>https://yoghurt-lee.github.io/2017/05/28/pygame实现贪吃蛇和2048/</id>
     <published>2017-05-28T00:20:09.000Z</published>
-    <updated>2017-05-28T01:22:46.568Z</updated>
+    <updated>2017-09-17T04:50:33.172Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/584643/09ee09475c2f987a.png" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\pygame实现贪吃蛇和2048_1.png" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>很久没有更新博客啦,今天端午节放假，正好有时间更新下博客,把前两个星期完成的软工作业写成一篇博客好了(大雾).</p>
 </blockquote>
@@ -37,7 +37,7 @@
 <h3 id="贪吃蛇"><a href="#贪吃蛇" class="headerlink" title="贪吃蛇"></a>贪吃蛇</h3><ul>
 <li><p>这是一款非常老的游戏了，我选这个的原因是因为刚刚接触<code>pygame</code>,所以做一个容易一点的游戏,后来做完2048之后想做一个连连看的，懒癌发作就没写了.</p>
 </li>
-<li><p>游戏界面<br><img src="http://i4.buimg.com/584643/612ae44cc47edb4b.png" alt="Markdown"></p>
+<li><p>游戏界面<br><img src="\img\pygame实现贪吃蛇和2048_2.png" alt="Markdown"></p>
 </li>
 <li><p>游戏的主循环</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">def runGame():</div><div class="line">   #游戏主循环</div><div class="line">   startx = random.randint(5, CELLWIDTH - 6)</div><div class="line">   starty = random.randint(5,CELLHEIGHT - 6)</div><div class="line">   #最开始蛇长度为 3</div><div class="line">   snake = [</div><div class="line">       &#123;&apos;x&apos;:startx,&apos;y&apos;: starty&#125;,</div><div class="line">       &#123;&apos;x&apos;: startx - 1, &apos;y&apos;: starty&#125;,</div><div class="line">       &#123;&apos;x&apos;: startx - 2, &apos;y&apos;: starty&#125;</div><div class="line">   ]</div><div class="line">   #最开始的方向</div><div class="line">   direction = RIGHT</div><div class="line">   #生成苹果位置</div><div class="line">   apple = appleLocation()</div><div class="line">   #循环一次的时间</div><div class="line">   TIME = 0.1</div><div class="line">   #蛇的长度作为一个标志,如果这个标志变化了,那么TIME也就变化，控制游戏难度</div><div class="line">   laststate = len(snake)</div><div class="line">   while True:</div><div class="line">       SCREEN.blit(BACKGROUND_PICTURE,(0,0))</div><div class="line">       #draw_grid()</div><div class="line">       #蛇死亡后返回</div><div class="line">       if snakeDie(snake):</div><div class="line">           return</div><div class="line">       lastdirection = direction #记录前一个方向,防止出现BUG</div><div class="line">       #事件循环</div><div class="line">       for event in pygame.event.get():</div><div class="line">           if event.type==QUIT:</div><div class="line">               exit()</div><div class="line">           elif event.type == KEYDOWN:</div><div class="line">               key = event.key</div><div class="line">               if lastdirection != RIGHT:</div><div class="line">                   if (key ==K_a or key==K_LEFT) and direction!=RIGHT: #往左</div><div class="line">                       direction = LEFT</div><div class="line">               if lastdirection != LEFT:</div><div class="line">                   if (key ==K_d or key==K_RIGHT) and direction!=LEFT: #往右</div><div class="line">                       direction = RIGHT</div><div class="line">               if lastdirection != DOWN:</div><div class="line">                   if (key ==K_a or key==K_UP) and direction!=DOWN: #往上</div><div class="line">                       direction = UP</div><div class="line">               if lastdirection != UP:</div><div class="line">                   if (key ==K_s or key==K_DOWN) and direction!=UP: #往下</div><div class="line">                       direction = DOWN</div><div class="line">               if key==K_ESCAPE:</div><div class="line">                   exit()</div><div class="line">       #吃到了苹果，生成新苹果,否则，删除蛇的尾巴</div><div class="line">       if snake[HEAD][&apos;x&apos;]== apple[&apos;x&apos;] and snake[HEAD][&apos;y&apos;] == apple[&apos;y&apos;]:</div><div class="line">           apple = appleLocation()</div><div class="line">       else:</div><div class="line">           del snake[-1] #删除掉蛇的尾巴</div><div class="line">       #新的头</div><div class="line">       new_head = &#123;&apos;x&apos;:snake[HEAD][&apos;x&apos;]+direction[0],&apos;y&apos;:snake[HEAD][&apos;y&apos;]+direction[1]&#125;</div><div class="line">       snake.insert(0,new_head)</div><div class="line">       #绘制蛇,苹果，分数</div><div class="line">       draw_snake(snake)</div><div class="line">       draw_apple(apple)</div><div class="line">       draw_score(10*(len(snake)-3))</div><div class="line">       #绘制鼠标</div><div class="line">       (x,y) = pygame.mouse.get_pos()</div><div class="line">       SCREEN.blit(MOUSEIMAGE,(x-MOUSEIMAGE.get_width()/2,y-MOUSEIMAGE.get_height()/2))</div><div class="line">       #刷新屏幕</div><div class="line">       pygame.display.update()</div><div class="line">       FPSCLOCK.tick(FPS)</div><div class="line">       #蛇的当前长度为蛇的当前状态</div><div class="line">       nowstate = len(snake)</div><div class="line">       #状态变化</div><div class="line">       if laststate!=nowstate:</div><div class="line">           TIME-=0.005</div><div class="line">           laststate = nowstate</div><div class="line">       #确保循环时间合理性</div><div class="line">       if TIME&lt;0: TIME = 0</div><div class="line">       time.sleep(TIME)</div></pre></td></tr></table></figure>
@@ -51,7 +51,7 @@
 <li><p>主页面</p>
 </li>
 </ul>
-<p><img src="http://i4.buimg.com/584643/e9933cee1faca4f0.png" alt="Markdown"></p>
+<p><img src="\img\pygame实现贪吃蛇和2048_3.png" alt="Markdown"></p>
 <ul>
 <li><p>这个游戏主要是弄清方块怎么移动的，就很容易实现了.每次移动的过程中，运算时通过三重循环迭代进行实现的,比如UP的操作,引发的事件就是:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">For y: 1-&gt;3</div><div class="line">	For x: 0-&gt;3</div><div class="line">		For y1: y-&gt;0</div></pre></td></tr></table></figure>
@@ -73,7 +73,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i4.buimg.com/584643/09ee09475c2f987a.png&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\pygame实现贪吃蛇和2048_1.png&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -91,9 +91,9 @@
     <link href="https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/"/>
     <id>https://yoghurt-lee.github.io/2017/04/25/zhihu-bilibili-topic/</id>
     <published>2017-04-25T14:37:11.000Z</published>
-    <updated>2017-04-26T14:42:29.701Z</updated>
+    <updated>2017-09-17T04:52:34.439Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/584643/ee5427f32c65bc73.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\zhihu-bilibili-topic_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>我用爬虫挂了一天半,从知乎的哔哩哔哩专栏中得到了200+个精华问题的所有回答,我们能够在这里得到什么呢?</p>
 </blockquote>
@@ -118,9 +118,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#部分stopwords</div><div class="line">其实</div><div class="line">已经</div><div class="line">大家</div><div class="line">很多</div><div class="line">觉得</div><div class="line">喜欢</div><div class="line">现在</div><div class="line">真的</div><div class="line">看到</div><div class="line">这种</div><div class="line">可能</div><div class="line">感觉</div><div class="line">一下</div><div class="line">不能</div><div class="line">来说</div><div class="line">非常</div><div class="line">一点</div><div class="line">之后</div><div class="line">之前</div><div class="line">...</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>分完词后大约还有20M的文本<br><img src="http://i1.piimg.com/584643/e00d0eb68c22db58.png" alt="Markdown"><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import jieba</div><div class="line">import codecs</div><div class="line">import re,os</div><div class="line">jieba.load_userdict(u&apos;data_analysis/mydict.txt&apos;) # 自定义词典的路径</div><div class="line">with codecs.open(u&apos;data_analysis/text.txt&apos;,&apos;r&apos;,&apos;utf-8&apos;) as f:</div><div class="line">    sentences = f.readlines()</div><div class="line">stopwordfile=codecs.open(&quot;data_analysis/stopwords.txt&quot;,&quot;r&quot;,&apos;utf-8&apos;)</div><div class="line">stopwords=stopwordfile.readlines()</div><div class="line">stopwords=[re.sub(&quot;\r\n|\n&quot;,&quot;&quot;,word) for word in stopwords]</div><div class="line">stopwords.append(&apos;\n&apos;)</div><div class="line">if os.path.exists(u&apos;data_analysis/cut_text.txt&apos;):</div><div class="line">    os.remove(u&apos;data_analysis/cut_text.txt&apos;)</div><div class="line">for sentence in sentences:</div><div class="line">    text =  &apos; &apos;.join([word for word in jieba.cut(sentence) if len(word)&gt;1 and word not in stopwords])</div><div class="line">    with codecs.open(u&apos;data_analysis/cut_text.txt&apos;,&apos;a&apos;) as f:</div><div class="line">        f.write(text)</div></pre></td></tr></table></figure></p>
+<p>分完词后大约还有20M的文本<br><img src="\img\zhihu-bilibili-topic_2.png" alt="Markdown"><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#coding:utf-8</div><div class="line">import jieba</div><div class="line">import codecs</div><div class="line">import re,os</div><div class="line">jieba.load_userdict(u&apos;data_analysis/mydict.txt&apos;) # 自定义词典的路径</div><div class="line">with codecs.open(u&apos;data_analysis/text.txt&apos;,&apos;r&apos;,&apos;utf-8&apos;) as f:</div><div class="line">    sentences = f.readlines()</div><div class="line">stopwordfile=codecs.open(&quot;data_analysis/stopwords.txt&quot;,&quot;r&quot;,&apos;utf-8&apos;)</div><div class="line">stopwords=stopwordfile.readlines()</div><div class="line">stopwords=[re.sub(&quot;\r\n|\n&quot;,&quot;&quot;,word) for word in stopwords]</div><div class="line">stopwords.append(&apos;\n&apos;)</div><div class="line">if os.path.exists(u&apos;data_analysis/cut_text.txt&apos;):</div><div class="line">    os.remove(u&apos;data_analysis/cut_text.txt&apos;)</div><div class="line">for sentence in sentences:</div><div class="line">    text =  &apos; &apos;.join([word for word in jieba.cut(sentence) if len(word)&gt;1 and word not in stopwords])</div><div class="line">    with codecs.open(u&apos;data_analysis/cut_text.txt&apos;,&apos;a&apos;) as f:</div><div class="line">        f.write(text)</div></pre></td></tr></table></figure></p>
 <h3 id="统计词频"><a href="#统计词频" class="headerlink" title="统计词频"></a>统计词频</h3><ul>
-<li><p>我们先对文本中出现最多的进行一次统计,看看回答中出现的的最多的是哪些?我们这里总共有<code>5943182</code>个词.<br><img src="http://i1.piimg.com/584643/1c1a0450a770b291.png" alt="Markdown"></p>
+<li><p>我们先对文本中出现最多的进行一次统计,看看回答中出现的的最多的是哪些?我们这里总共有<code>5943182</code>个词.<br><img src="\img\zhihu-bilibili-topic_3.png" alt="Markdown"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">下标 名称 出现次数</div><div class="line">97414 视频 23371</div><div class="line">54703 弹幕 23150</div><div class="line">4519 B站 22880</div><div class="line">11108 b站 18979</div><div class="line">107100 问题 11080</div><div class="line">53473 广告 9541</div><div class="line">22541 二次元 8516</div><div class="line">81406 用户 8511</div><div class="line">33925 动画 8490</div><div class="line">20256 中国 8114</div><div class="line">90403 网站 7714</div><div class="line">76830 游戏 7170</div><div class="line">33915 动漫 6748</div><div class="line">25484 会员 6385</div><div class="line">81685 电影 5912</div><div class="line">83461 直播 5855</div><div class="line">19501 东西 5832</div><div class="line">98289 评论 5623</div><div class="line">31548 出来 5205</div><div class="line">26480 作品 5018</div><div class="line">111438 鬼畜 4883</div><div class="line">66494 日本 4673</div><div class="line">32541 别人 4347</div><div class="line">84898 知乎 4334</div><div class="line">41814 回答 4155</div><div class="line">19316 世界 4144</div><div class="line">10933 bilibili 4089</div><div class="line">88315 粉丝 3905</div><div class="line">65153 文化 3866</div><div class="line">52613 希望 3822</div></pre></td></tr></table></figure>
 </li>
 <li><p>可以看到视频,弹幕,B站出现的次数稳居前三,同时我们自定义词典中二次元,鬼畜这些词也都在.这些数据还是比较符合我们的预期的,同时也证明了分出来的词没问题.</p>
@@ -143,7 +143,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">和谐 0.669674515724</div><div class="line">撕逼 0.629316687584</div><div class="line">热闹 0.627753138542</div><div class="line">游客 0.595176875591</div><div class="line">莫名其妙 0.585232615471</div><div class="line">弹幕礼仪 0.583511531353</div><div class="line">喷子 0.583252549171</div><div class="line">习惯 0.570423543453</div><div class="line">屏蔽 0.568080067635</div><div class="line">动不动 0.565914690495</div></pre></td></tr></table></figure>
 </li>
 <li><p>接下来做实验,找出集合中不同类的词:输出bishi,没问题,嗯..(要是有问题我就要怀疑数据集了)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list = [u&apos;b站&apos;, u&apos;bishi&apos;, u&apos;哔哩哔哩&apos;, u&apos;B站&apos;,u&apos;bilibili&apos;]</div><div class="line">print model1.doesnt_match(list) #自然是西瓜咯</div><div class="line">#bishi</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list = [u&apos;b站&apos;, u&apos;bishi&apos;, u&apos;哔哩哔哩&apos;, u&apos;B站&apos;,u&apos;bilibili&apos;]</div><div class="line">print model1.doesnt_match(list)</div><div class="line">#bishi</div></pre></td></tr></table></figure>
 </li>
 <li><p>word2vec的基本用法就介绍到这里了,大家也可以弄点数据来玩玩,算法细节有精力的也可以深究.</p>
 </li>
@@ -156,7 +156,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i2.muimg.com/584643/ee5427f32c65bc73.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\zhihu-bilibili-topic_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -216,9 +216,9 @@
     <link href="https://yoghurt-lee.github.io/2017/04/17/%E5%A4%A7%E4%B8%89%E7%9A%84%E4%BD%A0/"/>
     <id>https://yoghurt-lee.github.io/2017/04/17/大三的你/</id>
     <published>2017-04-17T14:41:45.000Z</published>
-    <updated>2017-04-18T04:43:45.853Z</updated>
+    <updated>2017-09-17T04:47:47.878Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i4.buimg.com/584643/2d17456c9c8ea663.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\大三的你_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>如果能重来,我要选李白</p>
 </blockquote>
@@ -237,12 +237,12 @@
 <h3 id="大二"><a href="#大二" class="headerlink" title="大二"></a>大二</h3><p>大一省赛的失败还是有点激励作用的,不过,我把原因归咎到了一道花了我们队很多时间但是用<code>Java</code>自带的<code>BigDecimal</code>就可以很快做出来,我认为要不是那个题耗费了很多时间,后面还是可以多做一点题的.然后我技能树点歪了,整整一个学期都在学习<code>Java</code>,但是也是有点用的,我的Java掌握的熟练程度还是不错的,然后用它做了人生第一款小游戏——2048.<br><br>然后大二下学期就正式开始了刷题之旅,到省赛之前几乎没休息过,但是人总是要有一个积淀过程的，在半年多的时间内我刷了几百道题,打开了算法世界的大门,也知道了动态规划,图论,线段树,网络流等经典算法.但是由于时间所限,并没有对所有算法都理解的特别深刻.<br><br>最大的收获还是在这段时间培养的自学能力,在碰到一个题目时,自动的去学习算法,查资料,看论文.收集模板.看到一个<code>accept</code>出现的时候兴奋的呐喊,一直<code>worry answer</code>的时候<code>debug</code>的焦虑,看题解的时候的恍然大悟.无疑是我大学中最为宝贵的经历.<br><br>努力最终还是还是有回报的,在第二年的省赛我们拿了二等奖第一名,虽然有遗憾.但也问心无愧.<br><br>省赛过后我们也是抱着试一试的心态打了几场区域赛的网络赛,没想到杭州赛区的竟然打进去了(弱校还未曾进入过区域赛).于是用了学校里的钱来了一次公费旅游,虽然与奖擦肩而过,但是也不得不承认这是实力所限,别人训练的时间真的比我们要多很多.<br><br>大二给人的成长的巨大的,浮躁的心态解决不了任何问题.任何事情只要用心去做不管结果如何你都会有收获.</p>
 <h3 id="大三"><a href="#大三" class="headerlink" title="大三"></a>大三</h3><p>大三来临,平淡的日子又来了.<br><br>上学期然后在无聊的生活中我开始了技术的探索,于是通过自学熟悉了<code>python</code>,并且发现这门语言是如此的有趣.同时用它来做一些爬虫,爬爬文本和图片.然后通过各种方法对数据进行处理分析.做一些自动化的小工具完成生活中的工作.然后拿到了驾照和软考证书.在这种生活中我突然发现,大学竟然度过了一多半，留给我们的日子已经很少了,虽然我还是没能喜欢上这所大学.<br><br>在这种生活中,我突然发现我恐慌了,因为我没做过项目,说不定开发能力还不如别人.而我也并不喜欢那种流水线式的开发,我更热爱数据处理,人工智能.我希望我的眼界更开阔,希望我大学所坚持的算法能在我的工作中占有一席之地.我只有去更高的平台,才能有机会去获取到这些资源.然后我做了个决定(其实高考之后就立下了flag)——考研.<br><br>进入下学期,也就是现在.我发现考研的话必须要克服一块硬骨头——英语.英语是我多年的一块心病(差点没过四级).但是我觉得,从零开始就从零开始吧!就像学算法一样,只要有恒心,努力就会有回报.<br><br><b>先定一个小目标:下学期过六级!</b><br><br>但是我不敢赌,我选择了一条比较容易走的道路——专硕.我这把一定要赢,因为这是最后的机会了.希望未来的我看到这里的时候不会想跳起来打我.同时,希望我考上研后,能说出我心中的一个秘密.<br><br>大学三年,感觉自己变成熟了不少,但是还远远不够.人生充满了遗憾,但是不去拼一把也不会收获秋天的果实.<br></p>
 <p>最后,送一幅画给大家.</p>
-<p><img src="http://i4.buimg.com/584643/67bcf71dcf24cf7c.jpg" alt="Markdown"></p>
+<p><img src="\img\大三的你_2.jpg" alt="Markdown"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i4.buimg.com/584643/2d17456c9c8ea663.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\大三的你_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -323,9 +323,9 @@
     <link href="https://yoghurt-lee.github.io/2017/03/16/template-engine-2/"/>
     <id>https://yoghurt-lee.github.io/2017/03/16/template-engine-2/</id>
     <published>2017-03-16T07:15:04.000Z</published>
-    <updated>2017-03-16T09:51:12.420Z</updated>
+    <updated>2017-09-17T04:44:16.081Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/e965098c222f906a.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\template-engine-1_2.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>上篇介绍了整个模板引擎的设计思路,这篇我们将讨论整个代码的具体实现,大牛的代码整体思路以及风格非常值得借鉴.<br>ps:由于代码是本人学习完之后自己敲的,如果有错误之处请指出,<a href="https://github.com/yoghurt-lee/template-engine" target="_blank" rel="external">code</a>.</p>
 </blockquote>
@@ -395,7 +395,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/584643/e965098c222f906a.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\template-engine-1_2.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -413,12 +413,12 @@
     <link href="https://yoghurt-lee.github.io/2017/03/15/template-engine-1/"/>
     <id>https://yoghurt-lee.github.io/2017/03/15/template-engine-1/</id>
     <published>2017-03-15T15:04:28.000Z</published>
-    <updated>2017-03-16T14:14:04.345Z</updated>
+    <updated>2017-09-17T04:44:38.343Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/42394831bda4e97e.jpg" alt="Markdown"></p>
+    <content type="html"><![CDATA[<p><img src="\img\template-engine-1_1.jpg" alt="Markdown"></p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://github.com/aosabook/500lines" target="_blank" rel="external">500 lines or less</a> 是github上一个有14000赞的代码仓库,包含多个小项目,非常适合Python以及其他语言的入门者和进阶者学习.感谢翻译者们做出的贡献,才让我们能够吸收这些好的资源!</p>
+<p><a href="https://github.com/aosabook/500lines" target="_blank" rel="external">500 lines or less</a> 是github上一个有14000赞的代码仓库,包含多个小项目,非常适合Python以及其他语言的入门者和进阶者学习.</p>
 </blockquote>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
 <li><p>我这里所写的是自己学习这个项目之后的所感所想,同时也对该文档做一个精简版的说明,如果想详细了解该项目的细节,请移步<a href="http://www.jianshu.com/p/b5d4aa45e771" target="_blank" rel="external">中文文档</a></p>
@@ -483,7 +483,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://p1.bqimg.com/584643/42394831bda4e97e.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\template-engine-1_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -501,9 +501,9 @@
     <link href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/"/>
     <id>https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/</id>
     <published>2017-03-08T15:10:19.000Z</published>
-    <updated>2017-03-11T05:44:15.176Z</updated>
+    <updated>2017-09-17T04:48:28.698Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\python-wordcloud_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>标签利器:wordcloud(词云),一起来学(zhuang)习(bi)吧!</p>
 </blockquote>
@@ -514,7 +514,7 @@
 <li><p>安装完之后,我们来运行一个Demo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#-*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">Using custom colors</div><div class="line">====================</div><div class="line">Using the recolor method and custom coloring functions.</div><div class="line">&quot;&quot;&quot;</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import random</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud, STOPWORDS</div><div class="line"></div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">font=os.path.join(os.path.dirname(__file__), &quot;FZSTK.ttf&quot;)</div><div class="line"></div><div class="line">text = open(u&quot;test.txt&quot;).read().decode(&apos;gbk&apos;)</div><div class="line"># adding movie script specific stopwords</div><div class="line">stopwords = set(STOPWORDS)</div><div class="line">stopwords.add(&quot;int&quot;)</div><div class="line">stopwords.add(&quot;ext&quot;)</div><div class="line"></div><div class="line">#wc = WordCloud(font_path=font,max_words=2000, mask=mask, stopwords=stopwords, margin=10,random_state=42,max_font_size=20,background_color=&apos;black&apos;,scale =2).generate(text)</div><div class="line">wc = WordCloud(font_path=font,max_words=30, max_font_size=50,stopwords=stopwords,margin=10,random_state=42,background_color=&apos;black&apos;,scale =1).generate(text)</div><div class="line"># store default colored image</div><div class="line">default_colors = wc.to_array()</div><div class="line">wc.to_file(&quot;a_new_hope.png&quot;)</div><div class="line">#设置为 wordcloud 默认</div><div class="line">plt.title(&apos;WordCloud Demo&apos;)</div><div class="line">plt.imshow(default_colors)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 </li>
-<li><p>运行结果<br><img src="http://p1.bqimg.com/584643/bb7398429e01d188.png" alt="Markdown"></p>
+<li><p>运行结果<br><img src="\img\python-wordcloud_2.png" alt="Markdown"></p>
 </li>
 <li><p><code>wordcloud</code>里面的基本参数.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">WordCloud(font_path=None, width=400, height=200, margin=5, ranks_only=False, prefer_horizontal=0.9,mask=None, scale=1, color_func=&lt;function random_color_func at 0x2b8b422a31b8&gt;, max_words=200, stopwords=None,random_state=None, background_color=&apos;black&apos;, max_font_size=None)</div><div class="line"></div><div class="line">#font_path:用到的字体文件的路径（支持OTF或TTF格式）.默认字体是DroidSansMono,但是不能够显示中文,所以可以Windows系统下的C:\Windows\Fonts中找字体替换.</div><div class="line">#width:画布宽度,默认值为400</div><div class="line">#height:画布高度,默认值为200</div><div class="line">#ranks_only:是否只用词频排序而不是实际词频统计值，默认 False</div><div class="line">#prefer_horizontal:词语水平出现的频率，默认0.9（即垂直出现频率为0.1）</div><div class="line">#mask: nd-array or None (default=None)如果参数为空，则使用二维遮罩绘制词云.如果mask非空，设置的宽高值将被忽略，遮罩形状被 mask 取代.除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。</div><div class="line">#scale : float (default=1)计算与绘制图像间的比例。对于较大的词云图像，使用比例而非较大的画布会显著提升绘图速度，但是可能会造成词语间的粗糙拟合。</div><div class="line">#max_words :(default=2000)词语的最大数量</div><div class="line">#stopwords : set of strings 屏蔽词</div><div class="line">#max_font_size : int or None (default=None)最大词的最大字号.</div></pre></td></tr></table></figure>
@@ -526,7 +526,7 @@
 <h3 id="使用mask元素绘制图像"><a href="#使用mask元素绘制图像" class="headerlink" title="使用mask元素绘制图像"></a>使用mask元素绘制图像</h3><ul>
 <li>我将我的原博客的标签页里的标签做个词云,先利用BeautifulSoup将网页的信息进行解析,然后使用一张心型图做mask生成一张词云.效果如下:</li>
 </ul>
-<p><img src="http://p1.bqimg.com/584643/ebd6d3c220baec97.png" alt="Markdown"></p>
+<p><img src="\img\python-wordcloud_3.png" alt="Markdown"></p>
 <ul>
 <li><a href="https://github.com/yoghurt-lee/cnblogs_tags_wordcloud/" target="_blank" rel="external">源代码需要的话这里取</a><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><a href="http://www.cnblogs.com/Yiutto/p/5998296.html" target="_blank" rel="external"> Python word_cloud 部分文档翻译</a></li>
 </ul>
@@ -534,7 +534,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\python-wordcloud_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -660,9 +660,9 @@
     <link href="https://yoghurt-lee.github.io/2017/02/20/install-mysqldb/"/>
     <id>https://yoghurt-lee.github.io/2017/02/20/install-mysqldb/</id>
     <published>2017-02-20T14:29:10.000Z</published>
-    <updated>2017-04-01T23:24:23.157Z</updated>
+    <updated>2017-09-17T04:54:04.665Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i1.piimg.com/584643/865fa19bd8d617aa.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\install-mysqldb_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>前言:有时候运行python爬虫时,需要更为合理的储存,分析大量的数据,这样的话一直借助磁盘文件进行储存和分析是不太方便的,现在我们就来安装MySQLdb。</p>
 </blockquote>
@@ -687,7 +687,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/584643/865fa19bd8d617aa.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\install-mysqldb_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -798,9 +798,9 @@
     <link href="https://yoghurt-lee.github.io/2017/02/14/google-network/"/>
     <id>https://yoghurt-lee.github.io/2017/02/14/google-network/</id>
     <published>2017-02-14T08:02:20.000Z</published>
-    <updated>2017-04-01T23:27:22.104Z</updated>
+    <updated>2017-09-17T04:42:23.037Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://i2.muimg.com/584643/e8421d12a7070b80.jpg" alt="Markdown"><br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p><img src="\img\google-network_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>前言:最近使用python写了个爬虫,爬取动态网页上的数据,google自带的network帮了我很多忙,记录一下使用的时候的收获.这篇博客将随着我对network的不断加深认识而更新.</p>
 </blockquote>
@@ -831,7 +831,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://i2.muimg.com/584643/e8421d12a7070b80.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+      &lt;p&gt;&lt;img src=&quot;\img\google-network_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
     
     </summary>
     

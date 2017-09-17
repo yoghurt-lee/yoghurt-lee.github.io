@@ -102,13 +102,13 @@
 <meta property="og:title" content="使用wordcloud统计标签数据">
 <meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg">
-<meta property="og:image" content="http://p1.bqimg.com/584643/bb7398429e01d188.png">
-<meta property="og:image" content="http://p1.bqimg.com/584643/ebd6d3c220baec97.png">
-<meta property="og:updated_time" content="2017-03-11T05:44:15.176Z">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_2.png">
+<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_3.png">
+<meta property="og:updated_time" content="2017-09-17T04:48:28.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用wordcloud统计标签数据">
-<meta name="twitter:image" content="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg">
+<meta name="twitter:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
 
 
 
@@ -381,7 +381,7 @@
       
 
       
-        <p><img src="http://p1.bqimg.com/584643/d4a2b4f728fa8e1b.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="\img\python-wordcloud_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
 <p>标签利器:wordcloud(词云),一起来学(zhuang)习(bi)吧!</p>
 </blockquote>
@@ -392,7 +392,7 @@
 <li><p>安装完之后,我们来运行一个Demo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#-*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">Using custom colors</div><div class="line">====================</div><div class="line">Using the recolor method and custom coloring functions.</div><div class="line">&quot;&quot;&quot;</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import random</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud, STOPWORDS</div><div class="line"></div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">font=os.path.join(os.path.dirname(__file__), &quot;FZSTK.ttf&quot;)</div><div class="line"></div><div class="line">text = open(u&quot;test.txt&quot;).read().decode(&apos;gbk&apos;)</div><div class="line"># adding movie script specific stopwords</div><div class="line">stopwords = set(STOPWORDS)</div><div class="line">stopwords.add(&quot;int&quot;)</div><div class="line">stopwords.add(&quot;ext&quot;)</div><div class="line"></div><div class="line">#wc = WordCloud(font_path=font,max_words=2000, mask=mask, stopwords=stopwords, margin=10,random_state=42,max_font_size=20,background_color=&apos;black&apos;,scale =2).generate(text)</div><div class="line">wc = WordCloud(font_path=font,max_words=30, max_font_size=50,stopwords=stopwords,margin=10,random_state=42,background_color=&apos;black&apos;,scale =1).generate(text)</div><div class="line"># store default colored image</div><div class="line">default_colors = wc.to_array()</div><div class="line">wc.to_file(&quot;a_new_hope.png&quot;)</div><div class="line">#设置为 wordcloud 默认</div><div class="line">plt.title(&apos;WordCloud Demo&apos;)</div><div class="line">plt.imshow(default_colors)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 </li>
-<li><p>运行结果<br><img src="http://p1.bqimg.com/584643/bb7398429e01d188.png" alt="Markdown"></p>
+<li><p>运行结果<br><img src="\img\python-wordcloud_2.png" alt="Markdown"></p>
 </li>
 <li><p><code>wordcloud</code>里面的基本参数.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">WordCloud(font_path=None, width=400, height=200, margin=5, ranks_only=False, prefer_horizontal=0.9,mask=None, scale=1, color_func=&lt;function random_color_func at 0x2b8b422a31b8&gt;, max_words=200, stopwords=None,random_state=None, background_color=&apos;black&apos;, max_font_size=None)</div><div class="line"></div><div class="line">#font_path:用到的字体文件的路径（支持OTF或TTF格式）.默认字体是DroidSansMono,但是不能够显示中文,所以可以Windows系统下的C:\Windows\Fonts中找字体替换.</div><div class="line">#width:画布宽度,默认值为400</div><div class="line">#height:画布高度,默认值为200</div><div class="line">#ranks_only:是否只用词频排序而不是实际词频统计值，默认 False</div><div class="line">#prefer_horizontal:词语水平出现的频率，默认0.9（即垂直出现频率为0.1）</div><div class="line">#mask: nd-array or None (default=None)如果参数为空，则使用二维遮罩绘制词云.如果mask非空，设置的宽高值将被忽略，遮罩形状被 mask 取代.除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。</div><div class="line">#scale : float (default=1)计算与绘制图像间的比例。对于较大的词云图像，使用比例而非较大的画布会显著提升绘图速度，但是可能会造成词语间的粗糙拟合。</div><div class="line">#max_words :(default=2000)词语的最大数量</div><div class="line">#stopwords : set of strings 屏蔽词</div><div class="line">#max_font_size : int or None (default=None)最大词的最大字号.</div></pre></td></tr></table></figure>
@@ -404,7 +404,7 @@
 <h3 id="使用mask元素绘制图像"><a href="#使用mask元素绘制图像" class="headerlink" title="使用mask元素绘制图像"></a>使用mask元素绘制图像</h3><ul>
 <li>我将我的原博客的标签页里的标签做个词云,先利用BeautifulSoup将网页的信息进行解析,然后使用一张心型图做mask生成一张词云.效果如下:</li>
 </ul>
-<p><img src="http://p1.bqimg.com/584643/ebd6d3c220baec97.png" alt="Markdown"></p>
+<p><img src="\img\python-wordcloud_3.png" alt="Markdown"></p>
 <ul>
 <li><a href="https://github.com/yoghurt-lee/cnblogs_tags_wordcloud/" target="_blank" rel="external">源代码需要的话这里取</a><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><a href="http://www.cnblogs.com/Yiutto/p/5998296.html" target="_blank" rel="external"> Python word_cloud 部分文档翻译</a></li>
 </ul>
