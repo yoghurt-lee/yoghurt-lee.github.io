@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2017-09-17T04:50:33.172Z</updated>
+  <updated>2018-01-08T06:17:39.093Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -14,6 +14,78 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用计算机组成原理解释出现在C语言编辑器中的一个问题.md</title>
+    <link href="https://yoghurt-lee.github.io/2018/01/08/2018_1/"/>
+    <id>https://yoghurt-lee.github.io/2018/01/08/2018_1/</id>
+    <published>2018-01-08T04:49:24.000Z</published>
+    <updated>2018-01-08T06:17:39.093Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/img/2018_1_1.jpg" alt="Markdown"><br><a id="more"></a></p>
+<blockquote>
+<p>2018第一篇博客,good lucky~~~</p>
+</blockquote>
+<h2 id="0x00-遇到的问题"><a href="#0x00-遇到的问题" class="headerlink" title="0x00 遇到的问题"></a>0x00 遇到的问题</h2><ul>
+<li>写这篇博客的缘由是上次刷<code>OJ</code>时,碰到的一个问题.</li>
+</ul>
+<blockquote>
+<p>在太平洋的一个小岛上，岛民想要建立一个环岛的堤坝，我们可以将小岛简化为一个二维平面，你需要使用K条边（这些边要么是水平或者垂直长度为1的边，要么是45度倾斜的长度为sqrt(2)的边）围成一个多边形，多边形的顶点必须位于整点，然后要让围成的多边形面积最大，你需要求出最大面积是多少。</p>
+</blockquote>
+<ul>
+<li>推出递推公式后,在奇数条件下需要减去一个<code>0.5</code>,当<code>n</code>足够大时,我发现用答案去减这个<code>0.5</code>后答案直接变小了<code>1</code>,加上<code>0.5</code>后答案直接变大了<code>1</code>.虽然最后用<code>JAVA</code>解决了此题,但是这个问题一直没有得到解决.</li>
+</ul>
+<h2 id="0x01-发现曙光"><a href="#0x01-发现曙光" class="headerlink" title="0x01 发现曙光"></a>0x01 发现曙光</h2><ul>
+<li><p>最近这些天在复习计算机组成原理,在看到数据的表示与运算这一章的时候,发现浮点数的四则运算是通过对阶，让小的数字通过右移操作与大的数字的阶码相同，然后通过尾数相加所得。</p>
+</li>
+<li><p>我便有了一个猜想,是不是因为数字的阶码相差过大而导致<code>0.5</code>通过位移操作而变为了<code>0</code>?</p>
+</li>
+</ul>
+<h2 id="0x02-推导"><a href="#0x02-推导" class="headerlink" title="0x02 推导"></a>0x02 推导</h2><p><img src="/img/2018_1_2.png" alt="Markdown"></p>
+<ul>
+<li><p>上图是<code>IEEE 754</code>的标准,我们可以看到在计算机中<code>64</code>位浮点数的数符单独占1位,阶符和阶码占11位,尾数占<code>52</code>位,而尾数的第一位是隐藏位.</p>
+</li>
+<li><p>在<code>IEEE 754</code>中,<code>0.5</code>的尾数<code>M = 1000 ... 0000(加上隐藏位共53位,以原码进行表示)</code>.</p>
+</li>
+<li><p><code>0.5</code>的阶码为是<code>0</code>,故猜想:当其与一个阶码为<code>52</code>的数字相加时,由小阶向大阶看齐的规则,<code>M</code>向右移动<code>53</code>位之后变成了<code>0000 ... 0000(共53位)</code>.</p>
+</li>
+<li><code>2^52 = 1000 0000 ... 0000(共53位)</code></li>
+<li><code>1000 0000 ... 0000 + 0000 0000 ... 0000 = 1000 0000 ... 0000</code></li>
+<li>故猜想当数字达到<code>2^52</code>时,加上<code>0.5</code>不会改变其值.</li>
+</ul>
+<h2 id="通过二分法进行验证"><a href="#通过二分法进行验证" class="headerlink" title="通过二分法进行验证"></a>通过二分法进行验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;math.h&gt;</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">typedef long long LL;</div><div class="line">LL MAX_LL =  9223372036854775000;</div><div class="line">double eps = 1e-8;</div><div class="line">LL seek()&#123;</div><div class="line">    LL l = 1,r = MAX_LL;</div><div class="line">    while(l&lt;r)&#123;</div><div class="line">        LL mid = (l+r)&gt;&gt;1;</div><div class="line">        double right = mid+1,left = mid-1;</div><div class="line">        double right1 = right-0.5,left1= left+0.5;</div><div class="line">        if(fabs(right-right1)&lt;eps&amp;&amp;fabs(left-left1)&gt;eps)&#123;</div><div class="line">            return mid;</div><div class="line">        &#125;else if(fabs(right-right1)&lt;eps&amp;&amp;fabs(left-left1)&lt;eps)&#123;</div><div class="line">            r = mid-1;</div><div class="line">        &#125;else&#123;</div><div class="line">            l = mid+1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    LL ans = seek();</div><div class="line">    cout&lt;&lt;ans;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果为<code>4503599627370496</code></p>
+</blockquote>
+<ul>
+<li>证明我们的猜想是正确的.</li>
+</ul>
+<h2 id="未解决"><a href="#未解决" class="headerlink" title="未解决"></a>未解决</h2><ul>
+<li>虽然通过推导我们证明了<code>2^52</code>加上<code>0.5</code>不会改变其值.但当取值大于<code>2^52</code>时,每次加上<code>0.5</code>或者减去<code>0.5</code>之后的答案会多<code>1</code>或者少<code>1</code>,而不是上面所说的不变.这其中的机制还未探究清楚.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    LL A = 4503599627370496+1;</div><div class="line">    printf(&quot;%.1lf %.1lf\n&quot;,A-0.5,A+0.5);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><code>4503599627370496.0 4503599627370498.0</code></p>
+</blockquote>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li><code>《计算机组成原理》</code>作为计算机专业唯一一本关于硬件的书,非常值得去学习,不然我们只会把在软件中碰到的问题归结与玄学之流.这显然是不符合理工科的探索精神的.</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/img/2018_1_1.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="https://yoghurt-lee.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="计算机组成原理" scheme="https://yoghurt-lee.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="C语言" scheme="https://yoghurt-lee.github.io/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>pygame实现贪吃蛇和2048</title>

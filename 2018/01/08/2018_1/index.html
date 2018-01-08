@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,博客,数据分析,wordcloud," />
+  <meta name="keywords" content="博客,计算机组成原理,C语言," />
 
 
 
@@ -99,16 +99,15 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用wordcloud统计标签数据">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/index.html">
+<meta property="og:title" content="用计算机组成原理解释出现在C语言编辑器中的一个问题.md">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2018/01/08/2018_1/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_2.png">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_3.png">
-<meta property="og:updated_time" content="2017-09-17T04:48:28.698Z">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/2018_1_1.jpg">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/2018_1_2.png">
+<meta property="og:updated_time" content="2018-01-08T06:17:39.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用wordcloud统计标签数据">
-<meta name="twitter:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
+<meta name="twitter:title" content="用计算机组成原理解释出现在C语言编辑器中的一个问题.md">
+<meta name="twitter:image" content="https://yoghurt-lee.github.io/img/2018_1_1.jpg">
 
 
 
@@ -136,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2018/01/08/2018_1/"/>
 
 
 
 
 
-  <title> 使用wordcloud统计标签数据 | Fate </title>
+  <title> 用计算机组成原理解释出现在C语言编辑器中的一个问题.md | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2018/01/08/2018_1/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -319,7 +318,7 @@
             
             
               
-                使用wordcloud统计标签数据
+                用计算机组成原理解释出现在C语言编辑器中的一个问题.md
               
             
           </h1>
@@ -334,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T23:10:19+08:00">
-                2017-03-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-08T12:49:24+08:00">
+                2018-01-08
               </time>
             
 
@@ -353,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/08/python-wordcloud/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/python-wordcloud/" itemprop="commentCount"></span>
+                <a href="/2018/01/08/2018_1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/08/2018_1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,32 +380,53 @@
       
 
       
-        <p><img src="\img\python-wordcloud_1.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="/img/2018_1_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
-<p>标签利器:wordcloud(词云),一起来学(zhuang)习(bi)吧!</p>
+<p>2018第一篇博客,good lucky~~~</p>
 </blockquote>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>安装wordcloud包,<code>pip install wordcloud</code>,如果需要对文本的句子进行分解,比如说<code>我是一名大学生</code>进行分解之后就变成了<code>我是\一名\大学生</code>.可以安装jieba,同运行<code>pip install jieba</code>.</li>
+<h2 id="0x00-遇到的问题"><a href="#0x00-遇到的问题" class="headerlink" title="0x00 遇到的问题"></a>0x00 遇到的问题</h2><ul>
+<li>写这篇博客的缘由是上次刷<code>OJ</code>时,碰到的一个问题.</li>
 </ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>安装完之后,我们来运行一个Demo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#-*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">Using custom colors</div><div class="line">====================</div><div class="line">Using the recolor method and custom coloring functions.</div><div class="line">&quot;&quot;&quot;</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import random</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud, STOPWORDS</div><div class="line"></div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">font=os.path.join(os.path.dirname(__file__), &quot;FZSTK.ttf&quot;)</div><div class="line"></div><div class="line">text = open(u&quot;test.txt&quot;).read().decode(&apos;gbk&apos;)</div><div class="line"># adding movie script specific stopwords</div><div class="line">stopwords = set(STOPWORDS)</div><div class="line">stopwords.add(&quot;int&quot;)</div><div class="line">stopwords.add(&quot;ext&quot;)</div><div class="line"></div><div class="line">#wc = WordCloud(font_path=font,max_words=2000, mask=mask, stopwords=stopwords, margin=10,random_state=42,max_font_size=20,background_color=&apos;black&apos;,scale =2).generate(text)</div><div class="line">wc = WordCloud(font_path=font,max_words=30, max_font_size=50,stopwords=stopwords,margin=10,random_state=42,background_color=&apos;black&apos;,scale =1).generate(text)</div><div class="line"># store default colored image</div><div class="line">default_colors = wc.to_array()</div><div class="line">wc.to_file(&quot;a_new_hope.png&quot;)</div><div class="line">#设置为 wordcloud 默认</div><div class="line">plt.title(&apos;WordCloud Demo&apos;)</div><div class="line">plt.imshow(default_colors)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
-</li>
-<li><p>运行结果<br><img src="\img\python-wordcloud_2.png" alt="Markdown"></p>
-</li>
-<li><p><code>wordcloud</code>里面的基本参数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">WordCloud(font_path=None, width=400, height=200, margin=5, ranks_only=False, prefer_horizontal=0.9,mask=None, scale=1, color_func=&lt;function random_color_func at 0x2b8b422a31b8&gt;, max_words=200, stopwords=None,random_state=None, background_color=&apos;black&apos;, max_font_size=None)</div><div class="line"></div><div class="line">#font_path:用到的字体文件的路径（支持OTF或TTF格式）.默认字体是DroidSansMono,但是不能够显示中文,所以可以Windows系统下的C:\Windows\Fonts中找字体替换.</div><div class="line">#width:画布宽度,默认值为400</div><div class="line">#height:画布高度,默认值为200</div><div class="line">#ranks_only:是否只用词频排序而不是实际词频统计值，默认 False</div><div class="line">#prefer_horizontal:词语水平出现的频率，默认0.9（即垂直出现频率为0.1）</div><div class="line">#mask: nd-array or None (default=None)如果参数为空，则使用二维遮罩绘制词云.如果mask非空，设置的宽高值将被忽略，遮罩形状被 mask 取代.除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。</div><div class="line">#scale : float (default=1)计算与绘制图像间的比例。对于较大的词云图像，使用比例而非较大的画布会显著提升绘图速度，但是可能会造成词语间的粗糙拟合。</div><div class="line">#max_words :(default=2000)词语的最大数量</div><div class="line">#stopwords : set of strings 屏蔽词</div><div class="line">#max_font_size : int or None (default=None)最大词的最大字号.</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>wordcloud</code>里面的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#static fit_words(frequencies) / generate_from_frequencies: 依据词语和频率生成词云.</div><div class="line">参数：frequencies : array of tuples(包含了词语和频率的元组.)</div><div class="line"></div><div class="line">#static generate(text) / generate_from_text: 从文本中生成词云,调用 _text 和 fit_words.</div><div class="line"></div><div class="line">#static process_text(text): 将长文本分词并去除屏蔽词（此处指英语，中文分词还是需要自己用别的库先行实现，使用上面的 fit_words(frequencies))</div><div class="line">参数：text : string(需要处理的文本)</div><div class="line">返回：words : list of tuples (string, float)(带有相应频率的词语)</div><div class="line"></div><div class="line">#static recolor(random_state=None, color_func=None): 对现有输出重新着色。重新上色会比重新生成整个词云快很多。</div><div class="line"></div><div class="line">#random_state : RandomState, int, or None, default=None</div><div class="line">如果非空，会使用固定的随机状态。</div><div class="line">如果给出一个整数，它会被用作 random.Random 状态的一个种子（根源）</div><div class="line"></div><div class="line">#color_func : function or None, default=None</div><div class="line">生成新颜色的函数，如果为空，则使用 self.color_func</div><div class="line"></div><div class="line">#static to_array():转化为 numpy array</div><div class="line">返回：image : nd-array size (width, height, 3)</div><div class="line">numpy 矩阵的词云图像</div><div class="line"></div><div class="line">#static to_file(filename):输出到文件</div><div class="line">参数：filename : string</div><div class="line">输出的文件路径</div><div class="line"></div><div class="line">#wordcloud.ImageColorGenerator(image): 基于 RGB 图像生成颜色。词语将会使用一定矩形区域内的平均颜色上色。这个对象可以被调用作为词云或者重新上色方法的颜色函数。</div><div class="line">参数：image : nd-array, shape (height, width, 3)(用来生成词语颜色的图像.)</div><div class="line"></div><div class="line">#wordcloud.random_color_func(word=None, font_size=None, position=None, orientation=None, font_path=None, random_state=None):随机生成色调,默认的上色方法。仅仅会生成一个随机的色调(80% 颜色值 50% 亮度)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="使用mask元素绘制图像"><a href="#使用mask元素绘制图像" class="headerlink" title="使用mask元素绘制图像"></a>使用mask元素绘制图像</h3><ul>
-<li>我将我的原博客的标签页里的标签做个词云,先利用BeautifulSoup将网页的信息进行解析,然后使用一张心型图做mask生成一张词云.效果如下:</li>
-</ul>
-<p><img src="\img\python-wordcloud_3.png" alt="Markdown"></p>
+<blockquote>
+<p>在太平洋的一个小岛上，岛民想要建立一个环岛的堤坝，我们可以将小岛简化为一个二维平面，你需要使用K条边（这些边要么是水平或者垂直长度为1的边，要么是45度倾斜的长度为sqrt(2)的边）围成一个多边形，多边形的顶点必须位于整点，然后要让围成的多边形面积最大，你需要求出最大面积是多少。</p>
+</blockquote>
 <ul>
-<li><a href="https://github.com/yoghurt-lee/cnblogs_tags_wordcloud/" target="_blank" rel="external">源代码需要的话这里取</a><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><a href="http://www.cnblogs.com/Yiutto/p/5998296.html" target="_blank" rel="external"> Python word_cloud 部分文档翻译</a></li>
+<li>推出递推公式后,在奇数条件下需要减去一个<code>0.5</code>,当<code>n</code>足够大时,我发现用答案去减这个<code>0.5</code>后答案直接变小了<code>1</code>,加上<code>0.5</code>后答案直接变大了<code>1</code>.虽然最后用<code>JAVA</code>解决了此题,但是这个问题一直没有得到解决.</li>
+</ul>
+<h2 id="0x01-发现曙光"><a href="#0x01-发现曙光" class="headerlink" title="0x01 发现曙光"></a>0x01 发现曙光</h2><ul>
+<li><p>最近这些天在复习计算机组成原理,在看到数据的表示与运算这一章的时候,发现浮点数的四则运算是通过对阶，让小的数字通过右移操作与大的数字的阶码相同，然后通过尾数相加所得。</p>
+</li>
+<li><p>我便有了一个猜想,是不是因为数字的阶码相差过大而导致<code>0.5</code>通过位移操作而变为了<code>0</code>?</p>
+</li>
+</ul>
+<h2 id="0x02-推导"><a href="#0x02-推导" class="headerlink" title="0x02 推导"></a>0x02 推导</h2><p><img src="/img/2018_1_2.png" alt="Markdown"></p>
+<ul>
+<li><p>上图是<code>IEEE 754</code>的标准,我们可以看到在计算机中<code>64</code>位浮点数的数符单独占1位,阶符和阶码占11位,尾数占<code>52</code>位,而尾数的第一位是隐藏位.</p>
+</li>
+<li><p>在<code>IEEE 754</code>中,<code>0.5</code>的尾数<code>M = 1000 ... 0000(加上隐藏位共53位,以原码进行表示)</code>.</p>
+</li>
+<li><p><code>0.5</code>的阶码为是<code>0</code>,故猜想:当其与一个阶码为<code>52</code>的数字相加时,由小阶向大阶看齐的规则,<code>M</code>向右移动<code>53</code>位之后变成了<code>0000 ... 0000(共53位)</code>.</p>
+</li>
+<li><code>2^52 = 1000 0000 ... 0000(共53位)</code></li>
+<li><code>1000 0000 ... 0000 + 0000 0000 ... 0000 = 1000 0000 ... 0000</code></li>
+<li>故猜想当数字达到<code>2^52</code>时,加上<code>0.5</code>不会改变其值.</li>
+</ul>
+<h2 id="通过二分法进行验证"><a href="#通过二分法进行验证" class="headerlink" title="通过二分法进行验证"></a>通过二分法进行验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;math.h&gt;</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">typedef long long LL;</div><div class="line">LL MAX_LL =  9223372036854775000;</div><div class="line">double eps = 1e-8;</div><div class="line">LL seek()&#123;</div><div class="line">    LL l = 1,r = MAX_LL;</div><div class="line">    while(l&lt;r)&#123;</div><div class="line">        LL mid = (l+r)&gt;&gt;1;</div><div class="line">        double right = mid+1,left = mid-1;</div><div class="line">        double right1 = right-0.5,left1= left+0.5;</div><div class="line">        if(fabs(right-right1)&lt;eps&amp;&amp;fabs(left-left1)&gt;eps)&#123;</div><div class="line">            return mid;</div><div class="line">        &#125;else if(fabs(right-right1)&lt;eps&amp;&amp;fabs(left-left1)&lt;eps)&#123;</div><div class="line">            r = mid-1;</div><div class="line">        &#125;else&#123;</div><div class="line">            l = mid+1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    LL ans = seek();</div><div class="line">    cout&lt;&lt;ans;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果为<code>4503599627370496</code></p>
+</blockquote>
+<ul>
+<li>证明我们的猜想是正确的.</li>
+</ul>
+<h2 id="未解决"><a href="#未解决" class="headerlink" title="未解决"></a>未解决</h2><ul>
+<li>虽然通过推导我们证明了<code>2^52</code>加上<code>0.5</code>不会改变其值.但当取值大于<code>2^52</code>时,每次加上<code>0.5</code>或者减去<code>0.5</code>之后的答案会多<code>1</code>或者少<code>1</code>,而不是上面所说的不变.这其中的机制还未探究清楚.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    LL A = 4503599627370496+1;</div><div class="line">    printf(&quot;%.1lf %.1lf\n&quot;,A-0.5,A+0.5);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><code>4503599627370496.0 4503599627370498.0</code></p>
+</blockquote>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li><code>《计算机组成原理》</code>作为计算机专业唯一一本关于硬件的书,非常值得去学习,不然我们只会把在软件中碰到的问题归结与玄学之流.这显然是不符合理工科的探索精神的.</li>
 </ul>
 
       
@@ -424,7 +444,7 @@
 	  
 		<div class="copyright">
 		<p><span>
-		<b>本文地址：</b><a href="/2017/03/08/python-wordcloud/" title="使用wordcloud统计标签数据">https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/</a><br/><b>转载请注明出处，谢谢！</b>
+		<b>本文地址：</b><a href="/2018/01/08/2018_1/" title="用计算机组成原理解释出现在C语言编辑器中的一个问题.md">https://yoghurt-lee.github.io/2018/01/08/2018_1/</a><br/><b>转载请注明出处，谢谢！</b>
 		</span></p>
 		</div>
 	  
@@ -442,13 +462,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
-          
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+            <a href="/tags/计算机组成原理/" rel="tag"># 计算机组成原理</a>
           
-            <a href="/tags/wordcloud/" rel="tag"># wordcloud</a>
+            <a href="/tags/C语言/" rel="tag"># C语言</a>
           
         </div>
       
@@ -457,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/" rel="next" title="使用matplotlib对b站前10000名用户做简单分析">
-                <i class="fa fa-chevron-left"></i> 使用matplotlib对b站前10000名用户做简单分析
+              <a href="/2017/05/28/pygame实现贪吃蛇和2048/" rel="next" title="pygame实现贪吃蛇和2048">
+                <i class="fa fa-chevron-left"></i> pygame实现贪吃蛇和2048
               </a>
             
           </div>
@@ -466,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/15/template-engine-1/" rel="prev" title="(500 lines or less)利用python做一个模板引擎(上)">
-                (500 lines or less)利用python做一个模板引擎(上) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,8 +512,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/08/python-wordcloud/"
-           data-title="使用wordcloud统计标签数据" data-url="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
+      <div class="ds-thread" data-thread-key="2018/01/08/2018_1/"
+           data-title="用计算机组成原理解释出现在C语言编辑器中的一个问题.md" data-url="https://yoghurt-lee.github.io/2018/01/08/2018_1/">
       </div>
     
   </div>
@@ -637,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用mask元素绘制图像"><span class="nav-number">3.</span> <span class="nav-text">使用mask元素绘制图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">0x00 遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-发现曙光"><span class="nav-number">2.</span> <span class="nav-text">0x01 发现曙光</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-推导"><span class="nav-number">3.</span> <span class="nav-text">0x02 推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过二分法进行验证"><span class="nav-number">4.</span> <span class="nav-text">通过二分法进行验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未解决"><span class="nav-number">5.</span> <span class="nav-text">未解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
