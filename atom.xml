@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2018-01-08T06:41:26.043Z</updated>
+  <updated>2018-01-08T07:07:14.406Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://yoghurt-lee.github.io/2018/01/08/2018_1/"/>
     <id>https://yoghurt-lee.github.io/2018/01/08/2018_1/</id>
     <published>2018-01-08T04:49:24.000Z</published>
-    <updated>2018-01-08T06:41:26.043Z</updated>
+    <updated>2018-01-08T07:07:14.406Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/2018_1_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
@@ -43,9 +43,9 @@
 </ul>
 <h2 id="0x02-推导"><a href="#0x02-推导" class="headerlink" title="0x02 推导"></a>0x02 推导</h2><p><img src="/img/2018_1_2.jpg" alt="Markdown"></p>
 <ul>
-<li><p>上图是<code>IEEE 754</code>的标准,我们可以看到在计算机中<code>64</code>位浮点数的数符单独占1位,阶符和阶码占11位,尾数占<code>52</code>位,而尾数的第一位是隐藏位.</p>
+<li><p>上图是<code>IEEE 754</code>的标准,我们可以看到在计算机中<code>64</code>位浮点数的数符单独占<code>1</code>位,阶符和阶码占<code>11</code>位,尾数占<code>52</code>位,而尾数的第一位是隐藏位.</p>
 </li>
-<li><p>在<code>IEEE 754</code>中,对于<code>0.5</code>,其符号位为<code>0</code>,指数(阶码部分)为<code>-1</code>,规格化后的尾数为<code>0.1</code>,在<code>IEEE 754</code>中的尾数为<code>M = 1000 ... 0000(加上隐藏位共53位,以原码进行表示)</code>.</p>
+<li><p>在<code>IEEE 754</code>中,对于<code>0.5</code>,其符号位为<code>0</code>,指数(阶符和阶码部分)为<code>-1</code>,规格化后的尾数为<code>1.0</code>,在<code>IEEE 754</code>中的尾数为<code>M = 1000 ... 0000(加上隐藏位共53位,以原码进行表示)</code>.</p>
 </li>
 <li><p>故猜想:当其与一个阶码为<code>52</code>的数字相加时,由小阶向大阶看齐的规则,<code>M</code>向右移动<code>53</code>位之后变成了<code>0000 ... 0000(共53位)</code>.</p>
 </li>
