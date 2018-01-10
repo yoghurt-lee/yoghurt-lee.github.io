@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoghurt-lee.github.io/"/>
-  <updated>2018-01-09T04:32:16.059Z</updated>
+  <updated>2018-01-10T14:08:46.269Z</updated>
   <id>https://yoghurt-lee.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用计算机组成原理解释出现在C语言编辑器中的一个问题</title>
+    <title>用计算机组成原理解释出现在C语言程序中的一个问题</title>
     <link href="https://yoghurt-lee.github.io/2018/01/08/2018_1/"/>
     <id>https://yoghurt-lee.github.io/2018/01/08/2018_1/</id>
     <published>2018-01-08T04:49:24.000Z</published>
-    <updated>2018-01-09T04:32:16.059Z</updated>
+    <updated>2018-01-10T14:08:46.269Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/img/2018_1_1.jpg" alt="Markdown"><br><a id="more"></a></p>
 <blockquote>
@@ -33,7 +33,7 @@
 <p>在太平洋的一个小岛上，岛民想要建立一个环岛的堤坝，我们可以将小岛简化为一个二维平面，你需要使用K条边（这些边要么是水平或者垂直长度为1的边，要么是45度倾斜的长度为sqrt(2)的边）围成一个多边形，多边形的顶点必须位于整点，然后要让围成的多边形面积最大，你需要求出最大面积是多少。</p>
 </blockquote>
 <ul>
-<li>推出递推公式后,在奇数条件下需要减去一个<code>0.5</code>,当<code>n</code>足够大时,我发现用答案去减这个<code>0.5</code>后答案直接变小了<code>1</code>,加上<code>0.5</code>后答案直接变大了<code>1</code>.虽然最后用<code>JAVA</code>解决了此题,但是这个问题一直没有得到解决.</li>
+<li>推出递推公式后,在奇数条件下需要减去一个<code>0.5</code>,当<code>n</code>足够大时,我发现用答案去减这个<code>0.5</code>后答案不会变,用了各种方法都没有能够让答案变化<code>0.5</code>.虽然最后用<code>JAVA</code>解决了此题,但是这个问题一直没有得到解决.</li>
 </ul>
 <h2 id="0x001-发现曙光"><a href="#0x001-发现曙光" class="headerlink" title="0x001 发现曙光"></a>0x001 发现曙光</h2><ul>
 <li><p>最近这些天在复习计算机组成原理,在看到数据的表示与运算这一章的时候,发现浮点数的四则运算是通过对阶，让小的数字通过右移操作与大的数字的阶码相同，然后通过尾数相加所得。</p>
