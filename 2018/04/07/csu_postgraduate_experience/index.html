@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="博客,python,数据分析,wordcloud," />
+  <meta name="keywords" content="博客,CSU,考研,人生中的重要时刻," />
 
 
 
@@ -99,16 +99,15 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用wordcloud统计标签数据">
-<meta property="og:url" content="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/index.html">
+<meta property="og:title" content="考中南计科经验分享">
+<meta property="og:url" content="https://yoghurt-lee.github.io/2018/04/07/csu_postgraduate_experience/index.html">
 <meta property="og:site_name" content="Fate">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_2.png">
-<meta property="og:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_3.png">
-<meta property="og:updated_time" content="2017-09-17T04:48:28.698Z">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/csu_postgraduate_exprience.jpg">
+<meta property="og:image" content="https://yoghurt-lee.github.io/img/csu_postgraduate_exprience1.jpg">
+<meta property="og:updated_time" content="2018-04-07T09:01:33.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用wordcloud统计标签数据">
-<meta name="twitter:image" content="https://yoghurt-lee.github.io/\img\python-wordcloud_1.jpg">
+<meta name="twitter:title" content="考中南计科经验分享">
+<meta name="twitter:image" content="https://yoghurt-lee.github.io/img/csu_postgraduate_exprience.jpg">
 
 
 
@@ -136,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/"/>
+  <link rel="canonical" href="https://yoghurt-lee.github.io/2018/04/07/csu_postgraduate_experience/"/>
 
 
 
 
 
-  <title> 使用wordcloud统计标签数据 | Fate </title>
+  <title> 考中南计科经验分享 | Fate </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
+  <link itemprop="mainEntityOfPage" href="https://yoghurt-lee.github.io/2018/04/07/csu_postgraduate_experience/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="yoghurt-lee">
@@ -319,7 +318,7 @@
             
             
               
-                使用wordcloud统计标签数据
+                考中南计科经验分享
               
             
           </h1>
@@ -334,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T23:10:19+08:00">
-                2017-03-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T15:27:24+08:00">
+                2018-04-07
               </time>
             
 
@@ -353,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/08/python-wordcloud/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/08/python-wordcloud/" itemprop="commentCount"></span>
+                <a href="/2018/04/07/csu_postgraduate_experience/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/07/csu_postgraduate_experience/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,32 +380,62 @@
       
 
       
-        <p><img src="\img\python-wordcloud_1.jpg" alt="Markdown"><br><a id="more"></a></p>
+        <p><img src="/img/csu_postgraduate_exprience.jpg" alt="Markdown"></p>
+<a id="more"></a>
 <blockquote>
-<p>标签利器:wordcloud(词云),一起来学(zhuang)习(bi)吧!</p>
+<p>路漫漫其修远兮，吾将上下而求索</p>
 </blockquote>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>安装wordcloud包,<code>pip install wordcloud</code>,如果需要对文本的句子进行分解,比如说<code>我是一名大学生</code>进行分解之后就变成了<code>我是\一名\大学生</code>.可以安装jieba,同运行<code>pip install jieba</code>.</li>
-</ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>安装完之后,我们来运行一个Demo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/python</div><div class="line">#-*- coding: utf-8 -*-</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">Using custom colors</div><div class="line">====================</div><div class="line">Using the recolor method and custom coloring functions.</div><div class="line">&quot;&quot;&quot;</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">import random</div><div class="line">import os</div><div class="line">from wordcloud import WordCloud, STOPWORDS</div><div class="line"></div><div class="line">#此段代码解决 1.matplotlib中文显示问题 2 &apos;-&apos;显示为方块问题</div><div class="line">from pylab import *</div><div class="line">mpl.rcParams[&apos;font.sans-serif&apos;] = [&apos;SimHei&apos;]</div><div class="line">mpl.rcParams[&apos;axes.unicode_minus&apos;] = False</div><div class="line"></div><div class="line">font=os.path.join(os.path.dirname(__file__), &quot;FZSTK.ttf&quot;)</div><div class="line"></div><div class="line">text = open(u&quot;test.txt&quot;).read().decode(&apos;gbk&apos;)</div><div class="line"># adding movie script specific stopwords</div><div class="line">stopwords = set(STOPWORDS)</div><div class="line">stopwords.add(&quot;int&quot;)</div><div class="line">stopwords.add(&quot;ext&quot;)</div><div class="line"></div><div class="line">#wc = WordCloud(font_path=font,max_words=2000, mask=mask, stopwords=stopwords, margin=10,random_state=42,max_font_size=20,background_color=&apos;black&apos;,scale =2).generate(text)</div><div class="line">wc = WordCloud(font_path=font,max_words=30, max_font_size=50,stopwords=stopwords,margin=10,random_state=42,background_color=&apos;black&apos;,scale =1).generate(text)</div><div class="line"># store default colored image</div><div class="line">default_colors = wc.to_array()</div><div class="line">wc.to_file(&quot;a_new_hope.png&quot;)</div><div class="line">#设置为 wordcloud 默认</div><div class="line">plt.title(&apos;WordCloud Demo&apos;)</div><div class="line">plt.imshow(default_colors)</div><div class="line">plt.axis(&quot;off&quot;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><ul>
+<li><p>从去年三月到今年三月，我和队友们经历了一段漫长而又美好的时光，ACM实验室考研大捷，考上两个中南，一个国防科大和一个华南理工。实验室成员经历漫长时间的修行，终于结出了丰盛的果实。在我考研的时候我问了学长学姐许许多多的经验，在这里我作为一个过来人也想分享点经验给大家。</p>
 </li>
-<li><p>运行结果<br><img src="\img\python-wordcloud_2.png" alt="Markdown"></p>
-</li>
-<li><p><code>wordcloud</code>里面的基本参数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">WordCloud(font_path=None, width=400, height=200, margin=5, ranks_only=False, prefer_horizontal=0.9,mask=None, scale=1, color_func=&lt;function random_color_func at 0x2b8b422a31b8&gt;, max_words=200, stopwords=None,random_state=None, background_color=&apos;black&apos;, max_font_size=None)</div><div class="line"></div><div class="line">#font_path:用到的字体文件的路径（支持OTF或TTF格式）.默认字体是DroidSansMono,但是不能够显示中文,所以可以Windows系统下的C:\Windows\Fonts中找字体替换.</div><div class="line">#width:画布宽度,默认值为400</div><div class="line">#height:画布高度,默认值为200</div><div class="line">#ranks_only:是否只用词频排序而不是实际词频统计值，默认 False</div><div class="line">#prefer_horizontal:词语水平出现的频率，默认0.9（即垂直出现频率为0.1）</div><div class="line">#mask: nd-array or None (default=None)如果参数为空，则使用二维遮罩绘制词云.如果mask非空，设置的宽高值将被忽略，遮罩形状被 mask 取代.除全白（#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。</div><div class="line">#scale : float (default=1)计算与绘制图像间的比例。对于较大的词云图像，使用比例而非较大的画布会显著提升绘图速度，但是可能会造成词语间的粗糙拟合。</div><div class="line">#max_words :(default=2000)词语的最大数量</div><div class="line">#stopwords : set of strings 屏蔽词</div><div class="line">#max_font_size : int or None (default=None)最大词的最大字号.</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>wordcloud</code>里面的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">#static fit_words(frequencies) / generate_from_frequencies: 依据词语和频率生成词云.</div><div class="line">参数：frequencies : array of tuples(包含了词语和频率的元组.)</div><div class="line"></div><div class="line">#static generate(text) / generate_from_text: 从文本中生成词云,调用 _text 和 fit_words.</div><div class="line"></div><div class="line">#static process_text(text): 将长文本分词并去除屏蔽词（此处指英语，中文分词还是需要自己用别的库先行实现，使用上面的 fit_words(frequencies))</div><div class="line">参数：text : string(需要处理的文本)</div><div class="line">返回：words : list of tuples (string, float)(带有相应频率的词语)</div><div class="line"></div><div class="line">#static recolor(random_state=None, color_func=None): 对现有输出重新着色。重新上色会比重新生成整个词云快很多。</div><div class="line"></div><div class="line">#random_state : RandomState, int, or None, default=None</div><div class="line">如果非空，会使用固定的随机状态。</div><div class="line">如果给出一个整数，它会被用作 random.Random 状态的一个种子（根源）</div><div class="line"></div><div class="line">#color_func : function or None, default=None</div><div class="line">生成新颜色的函数，如果为空，则使用 self.color_func</div><div class="line"></div><div class="line">#static to_array():转化为 numpy array</div><div class="line">返回：image : nd-array size (width, height, 3)</div><div class="line">numpy 矩阵的词云图像</div><div class="line"></div><div class="line">#static to_file(filename):输出到文件</div><div class="line">参数：filename : string</div><div class="line">输出的文件路径</div><div class="line"></div><div class="line">#wordcloud.ImageColorGenerator(image): 基于 RGB 图像生成颜色。词语将会使用一定矩形区域内的平均颜色上色。这个对象可以被调用作为词云或者重新上色方法的颜色函数。</div><div class="line">参数：image : nd-array, shape (height, width, 3)(用来生成词语颜色的图像.)</div><div class="line"></div><div class="line">#wordcloud.random_color_func(word=None, font_size=None, position=None, orientation=None, font_path=None, random_state=None):随机生成色调,默认的上色方法。仅仅会生成一个随机的色调(80% 颜色值 50% 亮度)</div></pre></td></tr></table></figure>
+<li><p>我先说一下我的成绩，初试384分，数学一111，政治70，英语一65，专业课数据结构138，复试笔试130分（总分150），计算机学硕专业第一。我希望分享自己的一点见解给后来者。</p>
 </li>
 </ul>
-<h3 id="使用mask元素绘制图像"><a href="#使用mask元素绘制图像" class="headerlink" title="使用mask元素绘制图像"></a>使用mask元素绘制图像</h3><ul>
-<li>我将我的原博客的标签页里的标签做个词云,先利用BeautifulSoup将网页的信息进行解析,然后使用一张心型图做mask生成一张词云.效果如下:</li>
+<h3 id="初试"><a href="#初试" class="headerlink" title="初试"></a>初试</h3><h5 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h5><ul>
+<li><p>数学是最重要的科目，这个不用多说。我数学111，这个分数在今年虽然不算低，但是还是没达到自己的预期。</p>
+</li>
+<li><p>经验: 数学这门课是能够决定生死的，所以大家一定要多花费功夫。前期的话建议一边看视频一遍刷36讲和李永乐的全书，这两本如果考数学一我认为都要买，因为上面的知识是互补的。视频的话线代建议看李永乐，高数张宇，我概率论我看过的视频感觉都不太好，我没看过汤神的，但是外面对他的评价不错，所以我推荐汤家凤。暑假前期做660，第一遍可能会错很多，但是一定要做，这是基础不牢固的表现，做完660再做张宇的1000题，然后一边做1000题一边再把660刷一遍，如果660的感觉变好了，证明基础也变好了。所以做这两本书的时候我非常不建议直接写在上面，建议写在草稿纸上，错的题目可以抄下来。刷完这两本之后大概就到了后期了，这个时候我每天就是花三个小时做真题（8:30-11:30），然后晚上拿出错题本作总结。公式一定要记牢，数学最重要的还是基础。</p>
+</li>
 </ul>
-<p><img src="\img\python-wordcloud_3.png" alt="Markdown"></p>
-<ul>
-<li><a href="https://github.com/yoghurt-lee/cnblogs_tags_wordcloud/" target="_blank" rel="external">源代码需要的话这里取</a><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><a href="http://www.cnblogs.com/Yiutto/p/5998296.html" target="_blank" rel="external"> Python word_cloud 部分文档翻译</a></li>
+<h5 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h5><ul>
+<li><p>我是个英语学渣，能够打65已经很开心了，要是说我怎么学习英语的，就靠两个字-硬怼。</p>
+</li>
+<li><p>前期我一直背红宝书，力争将上面单词下面的考研真题的句子弄懂。到中期我经同学介绍，下载了一个神器-<code>AnkiDroid</code>,可以将自己不熟悉的内容都手动输入里面，然后制定每日学习计划，这样的话可以完全按照自己的想法来安排背的单词。后期政治也可以采用这种方法。在暑假可以买张剑的150篇阅读做做，提升自己的感觉。真题是很宝贵的资源,不要随便动。后期限定3个小时的时间对真题进行全真模拟。</p>
+</li>
+</ul>
+<h5 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h5><ul>
+<li>我的政治和自己的预期差不多，70分。这门课的方法就是不要花太多时间在大题上面，但是选择题一定要弄明白，包括每个政治经济学每个名词的意思，近代史的时间轴，可以结合<code>AnkiDroid</code>来进行记忆。这些东西多做题就能够学会，买资料就买肖大爷的就OK，选择题一定要认真做（它的8套卷和4套卷选择题我做了两遍），大题可以只背4套卷，4套卷没考到就抄材料。我政治选择题38分，今年这个分数还算不错的。</li>
+</ul>
+<h5 id="专业课"><a href="#专业课" class="headerlink" title="专业课"></a>专业课</h5><ul>
+<li><p>专业课138，几乎没花我什么时间，资料也就买了王道，然后晚上在电脑上面写写代码。计算机专业课想要学好，最重要的是动手，人脑对于离散的东西是很难记忆的，但是对于连续的，成体系的知识是很容易记忆的，就像政治，把发生的事件的时间轴串起来，马上就可以进行记忆了,今年大家说专业课难，其实并不是这样，而是知识点没有在人脑中形成体系，大脑做题的时候反应不过来。</p>
+</li>
+<li><p>拿我的学习方法来举例子，如下图，我会把树这一章的所有知识点都串成一个文件，将所有可能的操作都自己写一遍，这样的碰到题目自然就容易上手了。</p>
+</li>
+</ul>
+<p><img src="/img/csu_postgraduate_exprience1.jpg" alt="Markdown"></p>
+<h5 id="关于研友"><a href="#关于研友" class="headerlink" title="关于研友"></a>关于研友</h5><ul>
+<li>近朱者赤近墨者黑，研友是非常重要的，我非常感谢我的两位队友在考研期间给予我的帮助和激励，跟研友一起，你会非常的充实，会经常进行一些比较和讨论，而且在研友非常勤奋的状态下自己也会变得勤奋。</li>
+</ul>
+<h6 id="关于择校"><a href="#关于择校" class="headerlink" title="关于择校"></a>关于择校</h6><ul>
+<li>从今年的大趋势来看很多学校是扩招了，至少中南和湖大是这样，这个具体学校具体分析，建议后来者不要只看上一年的数据，最好也研究一下上上年的数据，因为很多学校都是大冷大热交替进行，跟去年相比今年中南的分数不算高。</li>
+</ul>
+<h3 id="复试"><a href="#复试" class="headerlink" title="复试"></a>复试</h3><h5 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h5><ul>
+<li>中南每年都有很多高分被刷，低分逆袭。主要是看笔试和机试，面试是拉不开差距的，而且你如果机试做好了，老师也不会给你低分。我的笔试分数是85（总分105）,今年笔试题和往年差不多:</li>
+<li>计组:总线的同步通信，异步通信的概念和区别；cache的直接相联，组相联;DRAM的死时间率；补码表示范围；Booth算法(补码一位乘);</li>
+<li>OS： SPOOLING技术；文件大题(设计树形结构的文件，并处理命名冲突)；LRU算法计算缺页次数和有效时间；信号量(王道过桥原题,读者-写者问题)</li>
+<li>离散: 容斥原理(1000以内不能被 3,5,8整除的数的个数); 命题逻辑； 真值表法求派遣方案； 划分等价关系 R=&lt;<a,b>,<c,d>&gt;,a+b = c+d，A={1,2,3,4,5,6}；图论题(各种图都考了)</c,d></a,b></li>
+<li>笔试考三门算很多的了，但是不会考很难，我给大家的建议是初试完不要放松，努力在寒假拿下这三门，梳理知识脉络，多做王道，多做王道，多做王道！！屈婉玲的课后习题也不要落下。</li>
+</ul>
+<h5 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h5><ul>
+<li>今年机试我运气比较好，全部做出来了（45分）。但是今年算是比较难的一年了，没搞过ACM的人可能会感觉比较吃力，但是如果按我说的，我认为做出两个题问题不大。</li>
+<li>把学长的OJ上面的题能做的做出来 <a href="http://dengdengoj.cc/" target="_blank" rel="external">dengdengoj</a></li>
+<li>多做杭电OJ，这个是一定有帮助的，说不定还会有惊喜。（做的方法针对每个专题去搜索别人的博客，然后将题集分类的题做了，几大专题： 字符串处理，搜索(BFS/DFS),动态规划，贪心）</li>
+<li>熟悉STL的使用(map,vector,stack,queue),对解题有极大帮助</li>
+<li>多带模板，把自己没做出的题打印出来，到考场上翻材料找思路。(中南能够带纸质材料)</li>
+<li>下面我整理下今年的机试题: 1.数学公式题（我取巧用三分法做的），2.字符串处理（map处理非常快，熟悉STL非常重要），3.防AK的搜索题 4.归并一下的水题 5.贪心算法</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>考研这条路很漫长，但是获得的果实也是非常丰盛的，本经验会同时分享到几个平台，希望能够带给后来者一些帮助！赠人玫瑰，手留余香，王道论坛的中南版块的内容一直不太丰富，希望大家能够一起建设！</li>
 </ul>
 
       
@@ -424,7 +453,7 @@
 	  
 		<div class="copyright">
 		<p><span>
-		<b>本文地址：</b><a href="/2017/03/08/python-wordcloud/" title="使用wordcloud统计标签数据">https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/</a><br/><b>转载请注明出处，谢谢！</b>
+		<b>本文地址：</b><a href="/2018/04/07/csu_postgraduate_experience/" title="考中南计科经验分享">https://yoghurt-lee.github.io/2018/04/07/csu_postgraduate_experience/</a><br/><b>转载请注明出处，谢谢！</b>
 		</span></p>
 		</div>
 	  
@@ -444,11 +473,11 @@
           
             <a href="/tags/博客/" rel="tag"># 博客</a>
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/CSU/" rel="tag"># CSU</a>
           
-            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+            <a href="/tags/考研/" rel="tag"># 考研</a>
           
-            <a href="/tags/wordcloud/" rel="tag"># wordcloud</a>
+            <a href="/tags/人生中的重要时刻/" rel="tag"># 人生中的重要时刻</a>
           
         </div>
       
@@ -457,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/Using-Matplotlib-to-analyze-BiliBili-users/" rel="next" title="使用matplotlib对b站前10000名用户做简单分析">
-                <i class="fa fa-chevron-left"></i> 使用matplotlib对b站前10000名用户做简单分析
+              <a href="/2018/01/08/2018_1/" rel="next" title="用计算机组成原理解释出现在C语言程序中的一个问题">
+                <i class="fa fa-chevron-left"></i> 用计算机组成原理解释出现在C语言程序中的一个问题
               </a>
             
           </div>
@@ -466,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/15/template-engine-1/" rel="prev" title="(500 lines or less)利用python做一个模板引擎(上)">
-                (500 lines or less)利用python做一个模板引擎(上) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,8 +523,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/08/python-wordcloud/"
-           data-title="使用wordcloud统计标签数据" data-url="https://yoghurt-lee.github.io/2017/03/08/python-wordcloud/">
+      <div class="ds-thread" data-thread-key="2018/04/07/csu_postgraduate_experience/"
+           data-title="考中南计科经验分享" data-url="https://yoghurt-lee.github.io/2018/04/07/csu_postgraduate_experience/">
       </div>
     
   </div>
@@ -637,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用mask元素绘制图像"><span class="nav-number">3.</span> <span class="nav-text">使用mask元素绘制图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初试"><span class="nav-number">2.</span> <span class="nav-text">初试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数学"><span class="nav-number">2.0.1.</span> <span class="nav-text">数学</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#英语"><span class="nav-number">2.0.2.</span> <span class="nav-text">英语</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#政治"><span class="nav-number">2.0.3.</span> <span class="nav-text">政治</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#专业课"><span class="nav-number">2.0.4.</span> <span class="nav-text">专业课</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于研友"><span class="nav-number">2.0.5.</span> <span class="nav-text">关于研友</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#关于择校"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">关于择校</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复试"><span class="nav-number">3.</span> <span class="nav-text">复试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#笔试"><span class="nav-number">3.0.1.</span> <span class="nav-text">笔试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#机试"><span class="nav-number">3.0.2.</span> <span class="nav-text">机试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
